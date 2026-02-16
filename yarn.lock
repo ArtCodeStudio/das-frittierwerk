@@ -1250,9 +1250,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"das-frittier-werk@workspace:.":
+"das-frittierwerk@workspace:.":
   version: 0.0.0-use.local
-  resolution: "das-frittier-werk@workspace:."
+  resolution: "das-frittierwerk@workspace:."
   dependencies:
     "@fontsource/palanquin": "npm:^5.2.8"
     "@fontsource/palanquin-dark": "npm:^5.2.8"
