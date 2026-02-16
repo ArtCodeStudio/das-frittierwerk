@@ -10,11 +10,12 @@
   "scripts": {
     "build": "vite build --mode production",
     "build:dev": "vite build --mode development",
-    "watch": "yarn build:dev --watch --mode development",
+    "watch": "node scripts/watch.js",
     "start": "concurrently 'yarn:watch' 'yarn:preview'",
     "hmr": "vite serve",
     "preview": "vite preview",
-    "clear": "rm -rf ./_site"
+    "clear": "rm -rf ./_site",
+    "check": "tsc --noEmit"
   },
   "files": [
     "src"

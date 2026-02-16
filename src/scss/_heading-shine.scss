@@ -4,7 +4,10 @@
   --shine-y: 50%;
 }
 
-// Metallic gradient effect for section titles and labels
+// Metallic gradient effect for section titles and labels.
+// Element-relative gradient (no background-attachment: fixed) so titles stay
+// visible when scrolling and without mouse. --shine-x/--shine-y still shift the
+// highlight (desktop: mouse; mobile: 50% 50%).
 .section-title,
 .contact-label,
 .menu-category__title {

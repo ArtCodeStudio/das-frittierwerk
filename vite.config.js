@@ -11,9 +11,11 @@ dns.setDefaultResultOrder('verbatim')
 export default defineConfig(({ command, mode, ssrBuild }) => {
   const basedir = resolve(__dirname, 'src');
   console.debug('vite.config.js', { command, mode, ssrBuild })
+  // Relative base: one build works for both GitHub project URL (.../das-frittierwerk/) and custom domain (root)
+  const base = process.env.VITE_BASE_PATH ?? './';
   return {
     mode,
-    base: mode === 'production' ? '/das-frittierwerk/' : '/',
+    base,
     root: basedir,
     assetsInclude: ['**/*.svg'],
     build: {
@@ -33,4 +35,4 @@ export default defineConfig(({ command, mode, ssrBuild }) => {
       mdPlugin({ mode: 'html' }),
     ],
   }
-});
+})
