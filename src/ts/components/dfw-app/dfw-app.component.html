@@ -7,9 +7,9 @@
     <div class="container">
       <dfw-logo class="mb-4"></dfw-logo>
       <p class="hero-subtitle">Dein Imbisstaurant für krossen Geschmack</p>
-      <p class="hero-location">Wurster Nordseeküste</p>
+      <p class="hero-location" rv-text="contact.location"></p>
       <p class="hero-subtitle hero-subtitle--secondary">Jetzt telefonisch bestellen &amp; kross abholen</p>
-      <a class="btn btn-order" rv-href="telHref" href="tel:047419818661">Jetzt anrufen</a>
+      <a class="btn btn-order" rv-href="telHref">Jetzt anrufen</a>
     </div>
   </section>
   <hr class="gold-divider">
@@ -35,7 +35,7 @@
   <footer class="site-footer text-center py-4">
     <div class="container">
       <p class="footer-order">
-        <strong>Jetzt bestellen &amp; kross abholen</strong> – Bestellungen nur per Telefon:
+        <strong rv-text="contact.order_hint"></strong> – Bestellungen nur per Telefon:
         <a class="footer-link" rv-href="'tel:' | append contact.phone" rv-text="contact.phone"></a>
       </p>
       <p class="footer-hours"><span class="footer-label">Öffnungszeiten:</span> <span rv-text="contact.hours"></span></p>

@@ -20,7 +20,9 @@ interface GalleryYaml {
 interface ContactYaml {
   phone?: string;
   address?: string;
+  location?: string;
   hours?: string;
+  order_hint?: string;
   directions_url?: string;
 }
 

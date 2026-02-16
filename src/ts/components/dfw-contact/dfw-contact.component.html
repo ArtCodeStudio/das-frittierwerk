@@ -4,7 +4,7 @@
     <div class="col-12 col-md-5">
       <div class="contact-info">
         <div class="contact-block mb-4">
-          <h3 class="contact-label text-shine">Jetzt bestellen &amp; kross abholen</h3>
+          <h3 class="contact-label text-shine" rv-text="contact.order_hint"></h3>
           <p class="contact-value">Bestellungen nur per Telefon:</p>
           <p class="contact-value">
             <a class="contact-link" rv-href="'tel:' | append contact.phone" rv-text="contact.phone"></a>
@@ -17,7 +17,7 @@
         <div class="contact-block mb-4">
           <h3 class="contact-label text-shine">Anfahrt</h3>
           <p class="contact-value">
-            <a class="contact-link" rv-href="contact.directions_url" href="https://www.openstreetmap.org/directions?to=53.7775117%2C8.6185018" target="_blank" rel="noopener noreferrer" rv-text="contact.address"></a>
+            <a class="contact-link" rv-href="contact.directions_url" target="_blank" rel="noopener noreferrer" rv-text="contact.address"></a>
           </p>
         </div>
       </div>
