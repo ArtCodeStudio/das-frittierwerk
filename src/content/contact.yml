@@ -12,13 +12,13 @@ social:
   instagram: "https://www.instagram.com/dasfrittierwerk"
 
 # Routing/Anfahrt: OpenStreetMap Directions (frei, siehe wiki.openstreetmap.org/wiki/Routing)
-# Destination lat,lon – opens OSM routing so user can enter start and get route
-directions_url: "https://www.openstreetmap.org/directions?to=53.7247%2C8.5567"
+# Destination lat,lon – Feuerweg 1, Wurster Nordseeküste
+directions_url: "https://www.openstreetmap.org/directions?to=53.7775117%2C8.6185018"
 
 # OpenStreetMap Koordinaten (OpenLayers)
 # Latitude und Longitude des Restaurants
 map:
-  latitude: 53.7247
-  longitude: 8.5567
+  latitude: 53.7775117
+  longitude: 8.6185018
   zoom: 16
   marker_title: "Das Frittierwerk"
