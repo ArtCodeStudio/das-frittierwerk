@@ -1,77 +1,66 @@
 # Das Frittierwerk
 
-**Offizielle Website** des Imbiss **Das Frittierwerk** an der Wurster Nordseeküste — Krosses Hähnchen, Pommes, Wurst, Fisch und mehr.
-
-Die Seite wird als **statische Website** gebaut und über **GitHub Pages** gehostet. Texte und Daten lassen sich direkt in diesem Repository anpassen, **ohne Programmierkenntnisse**: Speisekarte und Kontakt über YAML-Dateien, Seiten wie „Über uns“ und „Qualität“ über Markdown.
+Offizielle Website des Imbiss **Das Frittierwerk** (Wurster Nordseeküste). Statische Seite, gehostet auf **GitHub Pages**. Inhalte über YAML und Markdown editierbar — ohne Code.
 
 ---
 
-## Was die Website bietet
+## Funktionen
 
-- **Speisekarte** — Kategorien und Preise, pflegbar in einer YAML-Datei
-- **Kontakt & Anfahrt** — Adresse, Öffnungszeiten, Telefon; Karte mit **OpenStreetMap** (OpenLayers)
-- **Über uns / Qualität** — Inhalte in Markdown, einfach im Editor bearbeitbar
-- **Galerie** — Bildergalerie, Bildliste per YAML konfigurierbar
-- **Logo-Animation** — Zahnrad-Logo dreht sich beim Scrollen
-
-Alles wird als **eine scrollbare Einzelseite** ausgeliefert, mit fester Navigation zu den Bereichen Speisekarte, Über uns, Qualität, Galerie und Kontakt.
+- **Speisekarte** — `menu.yml`, Kategorien und Preise
+- **Kontakt & Anfahrt** — `contact.yml`, OpenStreetMap (OpenLayers)
+- **Über uns / Qualität** — Markdown-Seiten
+- **Galerie** — Bilder über `gallery.yml`, Assets in `src/assets/gallery/`
+- **Navigation** — Einzelseite mit Ankerlinks zu allen Bereichen
 
 ---
 
-## Deployment mit GitHub Pages
+## Inhalte bearbeiten
 
-Die Seite wird automatisch bereitgestellt, sobald Änderungen auf den Branch **`main`** gepusht werden:
+| Inhalt      | Datei |
+|------------|-------|
+| Speisekarte | [src/content/menu.yml](src/content/menu.yml) |
+| Kontakt    | [src/content/contact.yml](src/content/contact.yml) |
+| Galerie    | [src/content/gallery.yml](src/content/gallery.yml) |
+| Über uns   | [src/content/about.md](src/content/about.md) |
+| Qualität   | [src/content/quality.md](src/content/quality.md) |
 
-1. Repository auf GitHub anlegen bzw. nutzen (z. B. `ArtCodeStudio/das-frittier-werk`).
-2. **GitHub Pages** aktivieren: *Settings → Pages → Source*: **GitHub Actions** wählen.
-3. Bei jedem Push auf `main` baut der Workflow unter `.github/workflows/node-gh-pages.yml` das Projekt und deployt das Ergebnis nach GitHub Pages.
-
-Es ist **kein separates Hosting** nötig — GitHub hostet die statische Seite kostenlos. Die URL ist typischerweise `https://<org>.github.io/das-frittier-werk/` (oder deine angepasste Custom Domain).
-
----
-
-## Inhalte bearbeiten (ohne Code)
-
-| Was ändern?      | Datei(en)                    | Format    |
-|-----------------|------------------------------|----------|
-| Speisekarte     | `src/content/menu.yml`       | YAML     |
-| Kontakt, Karte | `src/content/contact.yml`    | YAML     |
-| Galerie-Bilder | `src/content/gallery.yml`     | YAML     |
-| Über uns       | `src/content/about.md`      | Markdown |
-| Qualität       | `src/content/quality.md`    | Markdown |
-
-Einfach die entsprechende Datei auf GitHub bearbeiten (*Edit*-Button), speichern und committen. Nach dem nächsten Deploy erscheinen die Änderungen auf der Live-Seite. Bilder für die Galerie liegen in `src/assets/gallery/` und werden in `gallery.yml` referenziert.
+Auf GitHub: Datei bearbeiten → speichern → nach Deploy ist es live.
 
 ---
 
-## Tech-Stack (für Entwickler:innen)
+## Deployment (GitHub Pages)
 
-- **Build:** [Vite](https://vite.dev/) — schneller Build, moderne ES-Module
-- **UI-Framework:** [Riba.js](https://github.com/ribajs/riba) — Web Components, Datenbindung, wenig Boilerplate
-- **Styling:** [Bootstrap 5](https://getbootstrap.com/) (SCSS), stark an das Corporate Design angepasst (Farben, Typo)
-- **Templates:** [Pug](https://pugjs.org/) für Komponenten-Markup
-- **Karte:** [OpenLayers](https://openlayers.org/) mit OpenStreetMap-Tiles
-- **Schriften:** [Fontsource](https://fontsource.org/) (Palanquin, Palanquin Dark)
-- **Content:** YAML (`@modyfi/vite-plugin-yaml`), Markdown (`vite-plugin-markdown`) — zur Build-Zeit eingebunden
+1. Repo auf GitHub (z. B. `ArtCodeStudio/das-frittier-werk`).
+2. **Settings → Pages → Source:** **GitHub Actions** wählen.
+3. Workflow: `.github/workflows/node-gh-pages.yml` — bei Push auf `main` wird gebaut und deployt.
 
-Lokal: **Node.js ≥ 24**, **Yarn 4**. Build-Ausgabe: statische Dateien im Ordner `_site/`, die sich mit jedem beliebigen Static-Host oder eben GitHub Pages ausliefern lassen.
+URL: `https://<org>.github.io/das-frittier-werk/` (oder Custom Domain).
 
 ---
 
-## Lokal bauen und ansehen
+## Tech-Stack
+
+- **Build:** Vite
+- **UI:** [Riba.js](https://github.com/ribajs/riba) — Web Components, Datenbindung, Binder wie gewohnt
+- **Styling:** Bootstrap 5 (SCSS), Corporate Design
+- **Templates:** Pug
+- **Karte:** OpenLayers + OpenStreetMap
+- **Schriften:** Fontsource (Palanquin)
+- **Content:** YAML + Markdown zur Build-Zeit
+
+**Lokal:** Node.js ≥ 24, Yarn 4. Ausgabe: `_site/`.
+
+---
+
+## Lokal bauen
 
 ```bash
-# Abhängigkeiten installieren
 yarn install
-
-# Produktions-Build
 yarn build
-
-# Ergebnis ansehen (z. B. http://localhost:4173)
-yarn preview
+yarn preview   # z. B. http://localhost:4173
 ```
 
-Entwicklung mit Watch und Live-Vorschau:
+Entwicklung mit Live-Reload:
 
 ```bash
 yarn start
