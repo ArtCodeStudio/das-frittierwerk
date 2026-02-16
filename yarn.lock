@@ -487,20 +487,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ribajs/router@npm:2.0.0-rc.23":
-  version: 2.0.0-rc.23
-  resolution: "@ribajs/router@npm:2.0.0-rc.23"
-  dependencies:
-    "@ribajs/cache": "npm:^2.0.0-rc.23"
-    "@ribajs/core": "npm:^2.0.0-rc.23"
-    "@ribajs/events": "npm:^2.0.0-rc.23"
-    "@ribajs/history": "npm:^2.0.0-rc.23"
-    "@ribajs/jsx": "npm:^2.0.0-rc.23"
-    "@ribajs/utils": "npm:^2.0.0-rc.23"
-  checksum: 10c0/312c5feba4675900af515c2a09714fdf1d88ad4cf8ca760473edad44dd1ec2584466ff47dc0736bc55af20b66ef3f2cae13b6bec356c571e688105cc71204fd1
-  languageName: node
-  linkType: hard
-
 "@ribajs/ssr@npm:^2.0.0-rc.23":
   version: 2.0.0-rc.23
   resolution: "@ribajs/ssr@npm:2.0.0-rc.23"
@@ -1056,13 +1042,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"commander@npm:^10.0.0":
-  version: 10.0.1
-  resolution: "commander@npm:10.0.1"
-  checksum: 10c0/53f33d8927758a911094adadda4b2cbac111a5b377d8706700587650fd8f45b0bbe336de4b5c3fe47fd61f420a3d9bd452b6e0e6e5600a7e74d7bf0174f6efe3
-  languageName: node
-  linkType: hard
-
 "concurrently@npm:^9.2.1":
   version: 9.2.1
   resolution: "concurrently@npm:9.2.1"
@@ -1091,13 +1070,11 @@ __metadata:
     "@ribajs/bs5": "npm:2.0.0-rc.23"
     "@ribajs/core": "npm:2.0.0-rc.23"
     "@ribajs/extras": "npm:2.0.0-rc.23"
-    "@ribajs/router": "npm:2.0.0-rc.23"
     "@ribajs/tsconfig": "npm:2.0.0-rc.23"
     "@ribajs/types": "npm:2.0.0-rc.23"
     "@ribajs/utils": "npm:2.0.0-rc.23"
     bootstrap: "npm:^5.3.8"
     concurrently: "npm:^9.2.1"
-    liquidjs: "npm:^10.24.0"
     ol: "npm:^10.8.0"
     sass: "npm:^1.97.3"
     typescript: "npm:5.9.3"
@@ -1640,18 +1617,6 @@ __metadata:
   dependencies:
     uc.micro: "npm:^1.0.1"
   checksum: 10c0/468cb4954f85cdfc16e169db89a42d65287e3f121a9448b29c3c00d64c6f5a8f4367bea3978ba9109a0e3a10b19d50632b983639f91b9be9f20d1f63a5ff5bc1
-  languageName: node
-  linkType: hard
-
-"liquidjs@npm:^10.24.0":
-  version: 10.24.0
-  resolution: "liquidjs@npm:10.24.0"
-  dependencies:
-    commander: "npm:^10.0.0"
-  bin:
-    liquid: bin/liquid.js
-    liquidjs: bin/liquid.js
-  checksum: 10c0/a3bbf856bf306236152ed3fba66bd39bd43d0e21736a8036892c1dfe0897cdc2afd07816fffe0822444cfb1885da9e3add52204265223eb09d618592711a2cb4
   languageName: node
   linkType: hard
 
