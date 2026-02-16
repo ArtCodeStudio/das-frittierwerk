@@ -9,7 +9,7 @@ export class DfwNavbarComponent extends Component {
   protected autobind = true;
 
   static get observedAttributes(): string[] {
-    return ["has-about", "has-quality", "has-gallery"];
+    return ["has-about", "has-quality", "has-gallery", "has-impressum"];
   }
 
   public scope = {
@@ -19,6 +19,7 @@ export class DfwNavbarComponent extends Component {
     hasAbout: false,
     hasQuality: false,
     hasGallery: false,
+    hasImpressum: false,
   };
 
   constructor() {

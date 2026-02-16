@@ -2,7 +2,7 @@
   <div rv-each-gear="backgroundGears" class="bg-gear" rv-add-class="gear.class" rv-style="gear.maskStyle" rv-scroll-rotate="gear.speed"></div>
 </div>
 <div class="app-content">
-  <dfw-navbar rv-co-has-about="hasAbout" rv-co-has-quality="hasQuality" rv-co-has-gallery="hasGallery"></dfw-navbar>
+  <dfw-navbar rv-co-has-about="hasAbout" rv-co-has-quality="hasQuality" rv-co-has-gallery="hasGallery" rv-co-has-impressum="hasImpressum"></dfw-navbar>
   <section id="hero" class="hero-section text-center">
     <div class="container">
       <dfw-logo class="mb-4"></dfw-logo>
@@ -28,13 +28,34 @@
     <dfw-gallery></dfw-gallery>
   </section>
   <hr class="gold-divider">
+  <section id="impressum" rv-if="hasImpressum">
+    <div class="container">
+      <h2 class="section-title text-shine" rv-text="impressum.title"></h2>
+      <div class="impressum-contact">
+        <p class="impressum-label"><strong>Angaben gemäß § 5 TMG</strong></p>
+        <p><strong>Das Frittierwerk</strong><br><span rv-text="contact.address"></span></p>
+        <p>
+          <span rv-if="contact.phone">Telefon: <a class="contact-link" rv-href="'tel:' | append contact.phone" rv-text="contact.phone"></a><br></span>
+          <span rv-if="contact.email">E-Mail: <a class="contact-link" rv-href="'mailto:' | append contact.email" rv-text="contact.email"></a><br></span>
+          <span rv-if="contact.website">Webseite: <a class="contact-link" rv-href="'https://' | append contact.website" rv-text="contact.website" target="_blank" rel="noopener noreferrer"></a></span>
+        </p>
+      </div>
+      <div class="page-content" rv-html="impressum.html"></div>
+    </div>
+  </section>
+  <hr class="gold-divider">
   <section id="kontakt">
     <dfw-contact></dfw-contact>
   </section>
   <footer class="site-footer text-center py-4">
     <div class="container">
-      <p class="footer-text">&copy; <span rv-text="currentYear"></span> Das Frittierwerk - Alle Rechte vorbehalten.</p>
-      <p class="footer-address">Feuerweg 1, 27639 Wurster Nordseeküste</p>
+      <p class="footer-order">
+        <strong>Jetzt bestellen &amp; kross abholen</strong> – Bestellungen nur per Telefon:
+        <a class="footer-link" rv-href="'tel:' | append contact.phone" rv-text="contact.phone"></a>
+      </p>
+      <p class="footer-hours"><span class="footer-label">Öffnungszeiten:</span> <span rv-text="contact.hours"></span></p>
+      <p class="footer-address"><span class="footer-label">Anfahrt:</span> <span rv-text="contact.address"></span></p>
+      <p class="footer-copyright">&copy; <span rv-text="currentYear"></span> Das Frittierwerk – Alle Rechte vorbehalten.</p>
     </div>
   </footer>
 </div>

@@ -50,19 +50,75 @@ dfw-app {
   }
 }
 
+.impressum-contact {
+  margin-bottom: 1.5rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(160, 112, 48, 0.4);
+
+  .impressum-label {
+    color: #c4a882;
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    color: #e8d5b5;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .contact-link {
+    color: #d4a84b;
+    text-decoration: none;
+
+    &:hover {
+      color: #c4913b;
+      text-decoration: underline;
+    }
+  }
+}
+
+#impressum .page-content {
+  color: #e8d5b5;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
 .site-footer {
   border-top: 2px solid #a07030;
   background-color: rgba(26, 15, 10, 0.8);
 
-  .footer-text {
+  .footer-order {
     color: #c4a882;
-    font-size: 0.9rem;
-    margin-bottom: 0.25rem;
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
   }
 
+  .footer-link {
+    color: #e8c882;
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  .footer-link:hover {
+    text-decoration: underline;
+  }
+
+  .footer-hours,
   .footer-address {
     color: #806040;
     font-size: 0.85rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .footer-label {
+    color: #a07030;
+    font-weight: 600;
+  }
+
+  .footer-copyright {
+    color: #806040;
+    font-size: 0.8rem;
+    margin-top: 0.75rem;
     margin-bottom: 0;
   }
 }

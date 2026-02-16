@@ -6,6 +6,7 @@ categories:
   - name: "Krosses Hähnchen"
     items:
       - name: "Hähnchen Trio"
+        description: "Bruststreifen, Schenkel & Keule"
         price: 9
       - name: "3 Bruststreifen"
         price: 6

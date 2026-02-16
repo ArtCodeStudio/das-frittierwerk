@@ -5,7 +5,9 @@ import templateHtml from "./dfw-app.component.html?raw";
 import type { MarkdownContent } from "../../types/index.js";
 import * as aboutContent from "../../../content/about.md";
 import * as qualityContent from "../../../content/quality.md";
+import * as impressumContent from "../../../content/impressum.md";
 import galleryData from "../../../content/gallery.yml";
+import contactData from "../../../content/contact.yml";
 import gear1Url from "../../../assets/gears/gear_01.svg?url";
 import gear2Url from "../../../assets/gears/gear_02.svg?url";
 import gear3Url from "../../../assets/gears/gear_03.svg?url";
@@ -14,6 +16,14 @@ import gear5Url from "../../../assets/gears/gear_05.svg?url";
 
 interface GalleryYaml {
   images?: unknown[];
+}
+
+interface ContactYaml {
+  phone?: string;
+  address?: string;
+  hours?: string;
+  email?: string;
+  website?: string;
 }
 
 function hasContent(html: string | undefined): boolean {
@@ -49,10 +59,16 @@ export class DfwAppComponent extends Component {
       title: (qualityContent as MarkdownContent).attributes?.title || "Qualität",
       html: (qualityContent as MarkdownContent).html || "",
     },
+    impressum: {
+      title: (impressumContent as MarkdownContent).attributes?.title || "Impressum",
+      html: (impressumContent as MarkdownContent).html || "",
+    },
     currentYear: new Date().getFullYear(),
+    contact: (contactData as unknown) as ContactYaml,
     hasAbout: hasContent((aboutContent as MarkdownContent).html),
     hasQuality: hasContent((qualityContent as MarkdownContent).html),
     hasGallery: hasGalleryImages(galleryData as GalleryYaml),
+    hasImpressum: true,
     backgroundGears: [
       { src: gear1Url, speed: 0.22, class: "bg-gear--1", maskStyle: { "--gear-mask": `url("${gear1Url}")` } },
       { src: gear2Url, speed: -0.28, class: "bg-gear--2", maskStyle: { "--gear-mask": `url("${gear2Url}")` } },
