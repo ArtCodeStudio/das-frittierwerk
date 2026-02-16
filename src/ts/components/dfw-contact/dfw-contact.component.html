@@ -1,36 +1,36 @@
 <div class="container">
-  <h2 class="section-title">Kontakt</h2>
+  <h2 class="section-title text-shine">Kontakt</h2>
   <div class="row g-4">
     <div class="col-12 col-md-5">
       <div class="contact-info">
         <div class="contact-block mb-4">
-          <h3 class="contact-label">Adresse</h3>
+          <h3 class="contact-label text-shine">Adresse</h3>
           <p class="contact-value" rv-text="contact.address"></p>
         </div>
         <div class="contact-block mb-4">
-          <h3 class="contact-label">Telefon</h3>
+          <h3 class="contact-label text-shine">Telefon</h3>
           <p class="contact-value">
             <a class="contact-link" rv-href="'tel:' | append contact.phone" rv-text="contact.phone"></a>
           </p>
         </div>
         <div class="contact-block mb-4" rv-if="contact.email">
-          <h3 class="contact-label">E-Mail</h3>
+          <h3 class="contact-label text-shine">E-Mail</h3>
           <p class="contact-value">
             <a class="contact-link" rv-href="'mailto:' | append contact.email" rv-text="contact.email"></a>
           </p>
         </div>
         <div class="contact-block mb-4" rv-if="contact.website">
-          <h3 class="contact-label">Website</h3>
+          <h3 class="contact-label text-shine">Website</h3>
           <p class="contact-value">
             <a class="contact-link" rv-href="'https://' | append contact.website" rv-text="contact.website" target="_blank" rel="noopener noreferrer"></a>
           </p>
         </div>
         <div class="contact-block mb-4">
-          <h3 class="contact-label">Öffnungszeiten</h3>
+          <h3 class="contact-label text-shine">Öffnungszeiten</h3>
           <p class="contact-value" rv-text="contact.hours"></p>
         </div>
         <div class="contact-block mb-4" rv-if="contact.order_hint">
-          <h3 class="contact-label">Bestellung</h3>
+          <h3 class="contact-label text-shine">Bestellung</h3>
           <p class="contact-value" rv-text="contact.order_hint"></p>
         </div>
       </div>

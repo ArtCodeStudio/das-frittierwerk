@@ -1,15 +1,13 @@
 // Metallic heading shine: CSS custom properties (set by DfwAppComponent)
 :root {
-  --shine-x: 50%;
+  --shine-x: 10%;
   --shine-y: 50%;
 }
 
-// Metallic gradient effect for section titles and labels.
-// --shine-x: from mouse (desktop) or 50% (mobile). --shine-y: from scroll position.
+// Utility: metallic gradient text (heading shine).
+// Apply via class .text-shine. --shine-x / --shine-y set by DfwAppComponent.
 // Tighter ellipse and stronger contrast so the scroll-driven shine stays clearly visible.
-.section-title,
-.contact-label,
-.menu-category__title {
+.text-shine {
   background: radial-gradient(
     ellipse 75% 55% at var(--shine-x) var(--shine-y),
     $cream 0%,
@@ -18,16 +16,13 @@
     $gold-dark 65%,
     $rust 100%
   );
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
+  background-clip: text !important;
+  -webkit-background-clip: text !important;
+  color: transparent !important;
 }
 
-// Static gradient when user prefers reduced motion
 @media (prefers-reduced-motion: reduce) {
-  .section-title,
-  .contact-label,
-  .menu-category__title {
+  .text-shine {
     background: linear-gradient(
       135deg,
       $gold-dark,

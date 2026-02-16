@@ -28,7 +28,7 @@ export class DfwAppComponent extends Component {
   private readonly boundUpdateShineFromScroll = () => this.updateShineFromScroll();
   private readonly boundUpdateShineFromPointer = (e: MouseEvent) =>
     this.updateShineFromPointer(e);
-  private shineX = "50%";
+  private shineX = "10%";
   private shineY = "50%";
 
   static get observedAttributes(): string[] {
@@ -66,9 +66,11 @@ export class DfwAppComponent extends Component {
       const scrollHeight = document.documentElement.scrollHeight;
       const maxScroll = Math.max(0, scrollHeight - innerHeight);
       const progress = maxScroll > 0 ? scrollY / maxScroll : 0;
-      // 0% at top, 100% at middle, 0% at bottom (one full cycle)
+      // Multiple cycles over the page: triangle wave 0% → 100% → 0%
+      const cycles = 3;
+      const phase = (progress * cycles) % 1;
       const yPercent =
-        progress <= 0.5 ? progress * 200 : (1 - progress) * 200;
+        phase <= 0.5 ? phase * 200 : (1 - phase) * 200;
       this.setShine(this.shineX, `${Math.min(100, Math.max(0, yPercent))}%`);
     });
   }
