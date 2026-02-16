@@ -9,9 +9,8 @@ interface ContactData {
   hours: string;
   order_hint?: string;
   website?: string;
+  email?: string;
   social?: {
-    google?: string;
-    facebook?: string;
     instagram?: string;
   };
   map: {

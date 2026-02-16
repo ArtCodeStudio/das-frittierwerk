@@ -1,12 +1,11 @@
 # Speisekarte - Das Frittierwerk
-# Diese Datei kann direkt über GitHub bearbeitet werden.
+# Entspricht der aktuellen Speisekarte (Screenshots).
 # Preise als Zahl angeben (z.B. 9 oder 4.50)
 
 categories:
   - name: "Krosses Hähnchen"
     items:
       - name: "Hähnchen Trio"
-        description: "Bruststreifen, Schenkel & Keule"
         price: 9
       - name: "3 Bruststreifen"
         price: 6
@@ -29,6 +28,13 @@ categories:
       - name: "gebackener Feta"
         price: 9
 
+  - name: "Kids"
+    items:
+      - name: "Hähnchennuggets"
+        price: 4
+      - name: "Fischnuggets"
+        price: 4
+
   - name: "Fisch"
     items:
       - name: "zartes Backfischfilet"
@@ -37,13 +43,6 @@ categories:
         price: 6
       - name: "gebratene Garnelen"
         price: 10
-
-  - name: "Kids"
-    items:
-      - name: "Hähnchennuggets"
-        price: 4
-      - name: "Fischnuggets"
-        price: 4
 
   - name: "Beilagen"
     items:
@@ -60,17 +59,6 @@ categories:
       - name: "Brötchen"
         price: 1
 
-  - name: "Toppings"
-    items:
-      - name: "gerösteter Sesam"
-        price: 0.50
-      - name: "Frühlingslauch"
-        price: 0.50
-      - name: "Bruschetta"
-        price: 1.50
-      - name: "Parmesan"
-        price: 2.50
-
   - name: "Dips & Saucen"
     items:
       - name: "Ketchup, Mayo, Senf"
@@ -82,6 +70,17 @@ categories:
       - name: "Käsesauce, Guacamole, Mango-Chili-Chutney, Trüffelmayo, Bratenfond"
         price: 3
 
+  - name: "Toppings"
+    items:
+      - name: "gerösteter Sesam"
+        price: 0.50
+      - name: "Frühlingslauch"
+        price: 0.50
+      - name: "Bruschetta"
+        price: 1.50
+      - name: "Parmesan"
+        price: 2.50
+
   - name: "Menüs"
     items:
       - name: "Hähnchen Trio Menü"
@@ -91,7 +90,7 @@ categories:
         description: "1 Hähnchenschenkel mit hausgemachter Paprikamayo, knusprigen Pommes & Getränk"
         price: 12.50
       - name: "Backfisch Menü"
-        description: "Frisches Backfischfilet mit hausgemachter Remoulade, knusprigen Pommes, Bio Zitrone & Getränk"
+        description: "frisches Backfischfilet mit hausgemachter Remoulade, knusprigen Pommes, Bio Zitrone & Getränk"
         price: 18.50
       - name: "Falafel Menü"
         description: "hausgemachte Falafel mit Minzjoghurt, knusprigen Pommes & Getränk"

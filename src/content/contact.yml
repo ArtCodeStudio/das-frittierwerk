@@ -6,10 +6,9 @@ address: "Am Feuerweg 1, 27639 Wurster Nordseeküste"
 hours: "11 - 20 Uhr"
 order_hint: "Jetzt bestellen & kross abholen!"
 website: "www.frittierwerk.de"
+email: "moin@das-frittierwerk.de"
 
 social:
-  google: "https://g.page/dasfrittierwerk"
-  facebook: "https://www.facebook.com/dasfrittierwerk"
   instagram: "https://www.instagram.com/dasfrittierwerk"
 
 # OpenStreetMap Koordinaten (OpenLayers)

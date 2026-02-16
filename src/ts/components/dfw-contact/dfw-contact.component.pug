@@ -12,6 +12,16 @@
           p.contact-value
             a.contact-link(rv-href="'tel:' | append contact.phone") { contact.phone }
 
+        .contact-block.mb-4(rv-if="contact.email")
+          h3.contact-label E-Mail
+          p.contact-value
+            a.contact-link(rv-href="'mailto:' | append contact.email" rv-text="contact.email")
+
+        .contact-block.mb-4(rv-if="contact.website")
+          h3.contact-label Website
+          p.contact-value
+            a.contact-link(rv-href="'https://' | append contact.website" rv-text="contact.website" target="_blank" rel="noopener noreferrer")
+
         .contact-block.mb-4
           h3.contact-label Öffnungszeiten
           p.contact-value { contact.hours }

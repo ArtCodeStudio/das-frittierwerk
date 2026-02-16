@@ -10,4 +10,4 @@ Ob knuspriges Hähnchen, zarter Backfisch oder unsere vegetarischen Falafel-Bäl
 
 **Komm vorbei und überzeuge dich selbst!**
 
-Dir schmeckt's? Bewerte uns auf Google, Facebook und Instagram und zeige uns und anderen dein Frittierwerk von **@dasfrittierwerk**.
+Dir schmeckt's? Zeige uns und anderen dein Frittierwerk auf Instagram: **@dasfrittierwerk**.
