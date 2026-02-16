@@ -1,0 +1,13 @@
+.container
+  h2.section-title Galerie
+  .gallery-grid
+    .gallery-item(rv-each-image="images" rv-on-click="openLightbox" rv-data-src="image.src" rv-data-alt="image.alt" rv-data-caption="image.caption")
+      img.gallery-image(rv-src="image.src" rv-alt="image.alt" loading="lazy")
+      .gallery-caption(rv-if="image.caption" rv-text="image.caption")
+
+  // Lightbox overlay
+  .gallery-lightbox(rv-show="lightboxOpen" rv-on-click="closeLightbox")
+    .gallery-lightbox__content(rv-on-click="closeLightbox")
+      img.gallery-lightbox__image(rv-src="lightboxSrc" rv-alt="lightboxAlt")
+      p.gallery-lightbox__caption(rv-if="lightboxCaption" rv-text="lightboxCaption")
+      button.gallery-lightbox__close(type="button" rv-on-click="closeLightbox" aria-label="Schließen") &times;

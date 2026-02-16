@@ -1,0 +1,13 @@
+# Bildergalerie - Das Frittierwerk
+# Diese Datei kann direkt über GitHub bearbeitet werden.
+# Bilder in src/assets/gallery/ ablegen und hier referenzieren.
+# Unterstützte Formate: jpg, png, webp
+
+images: []
+  # Beispiel:
+  # - src: "../assets/gallery/haenchen-kross.jpg"
+  #   alt: "Krosses Hähnchen frisch aus der Fritteuse"
+  #   caption: "Unser krosses Hähnchen"
+  # - src: "../assets/gallery/pommes-golden.jpg"
+  #   alt: "Goldene Pommes"
+  #   caption: "Knusprige Pommes"

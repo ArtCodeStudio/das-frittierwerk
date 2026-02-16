@@ -1,0 +1,103 @@
+# Speisekarte - Das Frittierwerk
+# Diese Datei kann direkt über GitHub bearbeitet werden.
+# Preise als Zahl angeben (z.B. 9 oder 4.50)
+
+categories:
+  - name: "Krosses Hähnchen"
+    items:
+      - name: "Hähnchen Trio"
+        description: "Bruststreifen, Schenkel & Keule"
+        price: 9
+      - name: "3 Bruststreifen"
+        price: 6
+      - name: "1 Schenkel ohne Knochen"
+        price: 4
+      - name: "3 Keulen"
+        price: 4
+
+  - name: "Wurst"
+    items:
+      - name: "würzige Krakauer"
+        price: 4.50
+      - name: "Duroc Bratwurst"
+        price: 4
+
+  - name: "Veggie"
+    items:
+      - name: "5 Falafel Bällchen"
+        price: 7.50
+      - name: "gebackener Feta"
+        price: 9
+
+  - name: "Fisch"
+    items:
+      - name: "zartes Backfischfilet"
+        price: 9
+      - name: "Backfischhappen"
+        price: 6
+      - name: "gebratene Garnelen"
+        price: 10
+
+  - name: "Kids"
+    items:
+      - name: "Hähnchennuggets"
+        price: 4
+      - name: "Fischnuggets"
+        price: 4
+
+  - name: "Beilagen"
+    items:
+      - name: "Pommes klein"
+        price: 3
+      - name: "Pommes mittel"
+        price: 4
+      - name: "Pommes groß"
+        price: 5
+      - name: "Caesar Salad"
+        price: 5
+      - name: "Kartoffelsalat"
+        price: 4
+      - name: "Brötchen"
+        price: 1
+
+  - name: "Toppings"
+    items:
+      - name: "gerösteter Sesam"
+        price: 0.50
+      - name: "Frühlingslauch"
+        price: 0.50
+      - name: "Bruschetta"
+        price: 1.50
+      - name: "Parmesan"
+        price: 2.50
+
+  - name: "Dips & Saucen"
+    items:
+      - name: "Ketchup, Mayo, Senf"
+        price: 0.50
+      - name: "Aioli, Currymayo, Paprikamayo, Minzjoghurt"
+        price: 1.50
+      - name: "Remoulade, Sour Cream, Currysauce, Teriyaki, Süßsauer, Tomatensalsa"
+        price: 2.50
+      - name: "Käsesauce, Guacamole, Mango-Chili-Chutney, Trüffelmayo, Bratenfond"
+        price: 3
+
+  - name: "Menüs"
+    items:
+      - name: "Hähnchen Trio Menü"
+        description: "Bruststreifen, Schenkel & Keule mit hausgemachter Currymayo, knusprigen Pommes & Getränk"
+        price: 17.50
+      - name: "Schenkel Menü"
+        description: "1 Hähnchenschenkel mit hausgemachter Paprikamayo, knusprigen Pommes & Getränk"
+        price: 12.50
+      - name: "Backfisch Menü"
+        description: "Frisches Backfischfilet mit hausgemachter Remoulade, knusprigen Pommes, Bio Zitrone & Getränk"
+        price: 18.50
+      - name: "Falafel Menü"
+        description: "hausgemachte Falafel mit Minzjoghurt, knusprigen Pommes & Getränk"
+        price: 16
+
+  - name: "Getränk"
+    items:
+      - name: "Je 0,33l"
+        price: 3

@@ -1,0 +1,45 @@
+dfw-navbar
+
+// Hero section with rotating logo
+section#hero.hero-section.text-center
+  .container
+    dfw-logo.mb-4
+    p.hero-subtitle Krosses Hähnchen &amp; mehr
+    p.hero-location Wurster Nordseeküste
+    a.btn.btn-order(href="#kontakt") Jetzt bestellen &amp; kross abholen!
+
+hr.gold-divider
+
+// Speisekarte
+section#speisekarte
+  dfw-menu
+
+hr.gold-divider
+
+// Über uns
+section#ueber-uns
+  dfw-page(rv-co-title="about.title" rv-co-html="about.html")
+
+hr.gold-divider
+
+// Qualität
+section#qualitaet
+  dfw-page(rv-co-title="quality.title" rv-co-html="quality.html")
+
+hr.gold-divider
+
+// Galerie
+section#galerie
+  dfw-gallery
+
+hr.gold-divider
+
+// Kontakt
+section#kontakt
+  dfw-contact
+
+// Footer
+footer.site-footer.text-center.py-4
+  .container
+    p.footer-text &copy; { currentYear } Das Frittierwerk - Alle Rechte vorbehalten.
+    p.footer-address Am Feuerweg 1, 27639 Wurster Nordseeküste

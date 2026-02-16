@@ -1,0 +1,23 @@
+.container
+  h2.section-title Kontakt &amp; Anfahrt
+  .row.g-4
+    .col-12.col-md-5
+      .contact-info
+        .contact-block.mb-4
+          h3.contact-label Adresse
+          p.contact-value { contact.address }
+
+        .contact-block.mb-4
+          h3.contact-label Telefon
+          p.contact-value
+            a.contact-link(rv-href="'tel:' | append contact.phone") { contact.phone }
+
+        .contact-block.mb-4
+          h3.contact-label Öffnungszeiten
+          p.contact-value { contact.hours }
+
+        .contact-block.mb-4(rv-if="contact.order_hint")
+          h3.contact-label Bestellung
+          p.contact-value { contact.order_hint }
+    .col-12.col-md-7
+      #contact-map.contact-map

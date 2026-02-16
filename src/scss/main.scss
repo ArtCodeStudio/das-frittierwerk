@@ -1,0 +1,63 @@
+// Custom variables (must come before Bootstrap)
+@import './variables';
+
+// Bootstrap 5 core
+@import 'bootstrap/scss/bootstrap';
+
+// Riba.js Bootstrap 5 extensions
+@import '@ribajs/bs5/src/index';
+
+// Component styles
+@import '../ts/components/index';
+
+// Custom modules
+@import './fonts';
+@import './background';
+@import './menu';
+
+// OpenLayers map styles
+@import 'ol/ol.css';
+
+// Global custom styles
+h1, h2, h3, h4, h5, h6 {
+  font-family: $headings-font-family;
+  color: $gold;
+}
+
+section {
+  padding: 3rem 0;
+}
+
+.section-title {
+  font-family: $headings-font-family;
+  font-weight: 700;
+  color: $gold;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 2rem;
+
+  &::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 3px;
+    background-color: $gold-dark;
+    margin: 0.75rem auto 0;
+  }
+}
+
+.gold-divider {
+  border: none;
+  height: 2px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    $gold-dark,
+    $gold,
+    $gold-dark,
+    transparent
+  );
+  margin: 2rem 0;
+}

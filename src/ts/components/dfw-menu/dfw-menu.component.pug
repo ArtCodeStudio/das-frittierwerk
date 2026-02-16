@@ -1,0 +1,13 @@
+.menu-section
+  .container
+    h2.section-title Speisekarte
+    .menu-grid
+      .menu-category(rv-each-category="categories")
+        h3.menu-category__title { category.name }
+        .menu-item-wrapper(rv-each-item="category.items")
+          .menu-item
+            span.menu-item__name { item.name }
+            span.menu-item__dots
+            span.menu-item__price { formatPrice | call item.price }
+          p.menu-item__description(rv-if="item.description") { item.description }
+          p.menu-item__description(rv-if="item.info") { item.info }

@@ -1,0 +1,21 @@
+# Kontaktdaten - Das Frittierwerk
+# Diese Datei kann direkt über GitHub bearbeitet werden.
+
+phone: "04741 9818661"
+address: "Am Feuerweg 1, 27639 Wurster Nordseeküste"
+hours: "11 - 20 Uhr"
+order_hint: "Jetzt bestellen & kross abholen!"
+website: "www.frittierwerk.de"
+
+social:
+  google: "https://g.page/dasfrittierwerk"
+  facebook: "https://www.facebook.com/dasfrittierwerk"
+  instagram: "https://www.instagram.com/dasfrittierwerk"
+
+# OpenStreetMap Koordinaten (OpenLayers)
+# Latitude und Longitude des Restaurants
+map:
+  latitude: 53.7247
+  longitude: 8.5567
+  zoom: 16
+  marker_title: "Das Frittierwerk"

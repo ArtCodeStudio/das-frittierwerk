@@ -1,0 +1,75 @@
+// Speisekarte specific styles
+.menu-category {
+  margin-bottom: 2rem;
+
+  &__title {
+    font-family: $headings-font-family;
+    font-weight: 700;
+    color: $gold;
+    text-transform: uppercase;
+    font-size: 1.6rem;
+    letter-spacing: 0.05em;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid $gold-dark;
+    padding-bottom: 0.5rem;
+  }
+}
+
+.menu-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 0.3rem 0;
+  gap: 0.5rem;
+
+  &__name {
+    font-family: $headings-font-family;
+    font-weight: 600;
+    color: $cream;
+    font-size: 1.05rem;
+    white-space: nowrap;
+  }
+
+  &__dots {
+    flex: 1;
+    border-bottom: 1px dotted $gold-dark;
+    min-width: 1rem;
+    margin: 0 0.25rem;
+    position: relative;
+    top: -0.3em;
+  }
+
+  &__price {
+    font-family: $headings-font-family;
+    font-weight: 700;
+    color: $gold-light;
+    font-size: 1.05rem;
+    white-space: nowrap;
+  }
+
+  &__description {
+    font-size: 0.85rem;
+    color: $cream-dark;
+    font-style: italic;
+    margin-top: -0.2rem;
+    padding-bottom: 0.2rem;
+  }
+}
+
+.menu-section {
+  padding: 2rem 0;
+}
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem 3rem;
+
+  @media (min-width: 768px) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @media (min-width: 1200px) {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}

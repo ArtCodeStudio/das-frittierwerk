@@ -1,0 +1,95 @@
+// Bootstrap functions (needed for color manipulation)
+@import 'bootstrap/scss/functions';
+
+// Custom color palette derived from the restaurant menu card
+$gold:         #c4913b;
+$gold-light:   #d4a84b;
+$gold-dark:    #a07030;
+$cream:        #e8d5b5;
+$cream-dark:   #c4a882;
+$rust:         #8b4513;
+$dark-brown:   #1a0f0a;
+$dark-bg:      #1c1210;
+$medium-brown: #2a1d16;
+
+// Bootstrap variable overrides
+$white:    #fff;
+$gray-100: $cream;
+$gray-200: $cream-dark;
+$gray-300: #a08060;
+$gray-400: #806040;
+$gray-500: #604830;
+$gray-600: #483020;
+$gray-700: #362418;
+$gray-800: $medium-brown;
+$gray-900: $dark-bg;
+$black:    #000;
+
+$primary:       $gold;
+$secondary:     $rust;
+$success:       #4a7a3a;
+$info:          $gold-light;
+$warning:       #d4a84b;
+$danger:        #a03020;
+$light:         $cream;
+$dark:          $dark-bg;
+
+$theme-colors: (
+  "primary":    $primary,
+  "secondary":  $secondary,
+  "success":    $success,
+  "info":       $info,
+  "warning":    $warning,
+  "danger":     $danger,
+  "light":      $light,
+  "dark":       $dark
+);
+
+// Options
+$enable-dark-mode: false;
+$enable-rounded: true;
+
+// Body
+$body-bg:     $dark-bg;
+$body-color:  $cream;
+
+// Typography
+$font-family-base: 'Palanquin', sans-serif;
+$headings-font-family: 'Palanquin Dark', sans-serif;
+$headings-font-weight: 700;
+$headings-color: $gold;
+
+// Links
+$link-color: $gold-light;
+$link-hover-color: $gold;
+$link-decoration: none;
+$link-hover-decoration: underline;
+
+// Borders
+$border-width: 1px;
+$border-color: $gold-dark;
+$border-radius: 0.25rem;
+
+// Navbar
+$navbar-dark-color: $cream;
+$navbar-dark-hover-color: $gold;
+$navbar-dark-active-color: $gold-light;
+
+// Spacing
+$spacer: 1rem;
+$spacers: (
+  0: 0,
+  1: $spacer * .25,
+  2: $spacer * .5,
+  3: $spacer,
+  4: $spacer * 1.5,
+  5: $spacer * 3,
+  6: $spacer * 4,
+);
+
+// Import Bootstrap defaults (after our overrides)
+@import 'bootstrap/scss/variables';
+@import 'bootstrap/scss/maps';
+@import 'bootstrap/scss/mixins';
+@import 'bootstrap/scss/root';
+@import 'bootstrap/scss/utilities';

@@ -1,0 +1,18 @@
+nav.navbar.navbar-expand-md.navbar-dark.fixed-top
+  .container
+    a.navbar-brand(href="#hero" rv-on-click="scrollToSection")
+      span.brand-text Das Frittierwerk
+    button.navbar-toggler(type="button" rv-on-click="toggleMobileMenu" aria-label="Navigation umschalten")
+      span.navbar-toggler-icon
+    .navbar-collapse(rv-class-show="mobileMenuOpen")
+      ul.navbar-nav.ms-auto
+        li.nav-item
+          a.nav-link(href="#speisekarte" rv-on-click="scrollToSection") Speisekarte
+        li.nav-item
+          a.nav-link(href="#ueber-uns" rv-on-click="scrollToSection") Über uns
+        li.nav-item
+          a.nav-link(href="#qualitaet" rv-on-click="scrollToSection") Qualität
+        li.nav-item
+          a.nav-link(href="#galerie" rv-on-click="scrollToSection") Galerie
+        li.nav-item
+          a.nav-link(href="#kontakt" rv-on-click="scrollToSection") Kontakt
