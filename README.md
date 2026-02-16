@@ -1,6 +1,6 @@
 # Das Frittierwerk
 
-Offizielle Website des Imbiss **Das Frittierwerk** (Wurster Nordseeküste). Statische Seite, gehostet auf **GitHub Pages**. Inhalte über YAML und Markdown editierbar — ohne Code.
+Offizielle Website des Imbiss **Das Frittierwerk** (Wurster Nordseeküste). Statische Seite, gehostet auf **GitHub Pages**. Inhalte über YAML und Markdown editierbar.
 
 ---
 
@@ -34,7 +34,7 @@ Auf GitHub: Datei bearbeiten → speichern → nach Deploy ist es live.
 2. **Settings → Pages → Source:** **GitHub Actions** wählen.
 3. Workflow: `.github/workflows/node-gh-pages.yml` — bei Push auf `main` wird gebaut und deployt.
 
-URL: `https://<org>.github.io/das-frittier-werk/` (oder Custom Domain).
+URL: `https://artcodestudio.github.io/das-frittier-werk/` (oder Custom Domain).
 
 ---
 
