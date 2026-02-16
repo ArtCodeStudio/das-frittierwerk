@@ -5,4 +5,46 @@ body {
   background-position: center center;
   background-repeat: no-repeat;
   min-height: 100vh;
+  overflow-x: hidden;
+}
+
+// Scroll-rotating gears in the background (dark brown like menu card).
+// They scroll with the page, are only partially visible, overflow hidden so no horizontal scroll.
+.background-gears {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.bg-gear {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  background-color: $dark-brown;
+  mask-image: var(--gear-mask);
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  -webkit-mask-image: var(--gear-mask);
+  -webkit-mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  opacity: 1;
+
+  // Only below the fold; larger, more off-screen, strongly varied sizes (150px–400px)
+  &--1 { top: 55%; left: -140px; width: 260px; height: 260px; }
+  &--2 { top: 68%; right: -200px; width: 400px; height: 400px; }
+  &--3 { bottom: 20%; left: -110px; width: 150px; height: 150px; }
+  &--4 { bottom: 8%; right: -170px; width: 360px; height: 360px; }
+  &--5 { top: 82%; left: -95px; width: 210px; height: 210px; }
+}
+
+.app-content {
+  position: relative;
+  z-index: 1;
 }

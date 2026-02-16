@@ -6,6 +6,11 @@ import type { MarkdownContent } from "../../types/index.js";
 import * as aboutContent from "../../../content/about.md";
 import * as qualityContent from "../../../content/quality.md";
 import galleryData from "../../../content/gallery.yml";
+import gear1Url from "../../../assets/gears/gear_01.svg?url";
+import gear2Url from "../../../assets/gears/gear_02.svg?url";
+import gear3Url from "../../../assets/gears/gear_03.svg?url";
+import gear4Url from "../../../assets/gears/gear_04.svg?url";
+import gear5Url from "../../../assets/gears/gear_05.svg?url";
 
 interface GalleryYaml {
   images?: unknown[];
@@ -48,6 +53,13 @@ export class DfwAppComponent extends Component {
     hasAbout: hasContent((aboutContent as MarkdownContent).html),
     hasQuality: hasContent((qualityContent as MarkdownContent).html),
     hasGallery: hasGalleryImages(galleryData as GalleryYaml),
+    backgroundGears: [
+      { src: gear1Url, speed: 0.22, class: "bg-gear--1", maskStyle: { "--gear-mask": `url("${gear1Url}")` } },
+      { src: gear2Url, speed: -0.28, class: "bg-gear--2", maskStyle: { "--gear-mask": `url("${gear2Url}")` } },
+      { src: gear3Url, speed: 0.26, class: "bg-gear--3", maskStyle: { "--gear-mask": `url("${gear3Url}")` } },
+      { src: gear4Url, speed: -0.2, class: "bg-gear--4", maskStyle: { "--gear-mask": `url("${gear4Url}")` } },
+      { src: gear5Url, speed: 0.32, class: "bg-gear--5", maskStyle: { "--gear-mask": `url("${gear5Url}")` } },
+    ],
   };
 
   private setShine(x: string, y: string): void {
