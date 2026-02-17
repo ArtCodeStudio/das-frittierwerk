@@ -1,6 +1,7 @@
 import "@ribajs/types";
 import '../scss/main.scss';
 import { ready } from "@ribajs/utils/src/dom.js";
+import { initLogoScrollRotate } from "./logo-scroll-rotate.js";
 
 ready(async () => {
   const { coreModule, Riba } = await import("@ribajs/core");
@@ -20,5 +21,5 @@ ready(async () => {
 
   riba.bind(document.body, model);
 
-  console.log("Hello World");
+  initLogoScrollRotate();
 });

@@ -63,6 +63,9 @@ function loadLocals(contentDir) {
     quality,
     impressum,
     formatPrice,
+    // Logo assets: files live in src/public/assets/ (copied to output by Vite); paths relative to site root
+    logoBase: 'assets/dasfrittierwerk_logo-animation.avif',
+    logoGear: 'assets/dasfrittierwerk_logo-animation2.avif',
   };
 }
 
