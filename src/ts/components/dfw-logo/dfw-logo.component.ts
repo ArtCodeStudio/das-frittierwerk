@@ -2,8 +2,8 @@ import { Component } from "@ribajs/core";
 import { hasChildNodesTrim } from "@ribajs/utils/src/dom.js";
 
 import templateHtml from "./dfw-logo.component.html?raw";
-import logoBase from "../../../assets/dasfrittierwerk_logo-animation.png?url";
-import logoGear from "../../../assets/dasfrittierwerk_logo-animation2.png?url";
+import logoBase from "../../../assets/dasfrittierwerk_logo-animation.avif?url";
+import logoGear from "../../../assets/dasfrittierwerk_logo-animation2.avif?url";
 
 export class DfwLogoComponent extends Component {
   public static tagName = "dfw-logo";
