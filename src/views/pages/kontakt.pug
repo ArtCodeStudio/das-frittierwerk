@@ -1,0 +1,23 @@
+extends ../layouts/main.pug
+
+block content
+  section
+    .container
+      h2.section-title.text-shine Kontakt
+      .row.g-4
+        .col-12.col-md-5
+          .contact-info
+            .contact-block.mb-4
+              h3.contact-label.text-shine= contact.order_hint
+              p.contact-value Bestellungen nur per Telefon:
+              p.contact-value
+                a.contact-link(href='tel:' + contact.phone.replace(/\s/g, ''))= contact.phone
+            .contact-block.mb-4
+              h3.contact-label.text-shine Öffnungszeiten
+              p.contact-value= contact.hours
+            .contact-block.mb-4
+              h3.contact-label.text-shine Anfahrt
+              p.contact-value
+                a.contact-link(href=contact.directions_url, target='_blank', rel='noopener noreferrer')= contact.address
+        .col-12.col-md-7
+          dfw-contact-map

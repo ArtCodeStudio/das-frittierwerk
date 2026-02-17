@@ -6,6 +6,7 @@ ready(async () => {
   const { coreModule, Riba } = await import("@ribajs/core");
   const { extrasModule } = await import("@ribajs/extras");
   const { bs5Module } = await import("@ribajs/bs5");
+  const { routerModule } = await import("@ribajs/router");
   const { DFWModule } = await import("./dfw.module.js");
 
   const riba = new Riba();
@@ -14,7 +15,10 @@ ready(async () => {
   riba.module.register(coreModule.init());
   riba.module.register(extrasModule.init());
   riba.module.register(bs5Module.init());
+  riba.module.register(routerModule.init());
   riba.module.register(DFWModule.init());
 
   riba.bind(document.body, model);
+
+  console.log("Hello World");
 });

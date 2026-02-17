@@ -1,0 +1,16 @@
+footer.site-footer.text-center.py-4
+  .container
+    p.footer-order
+      strong= contact.order_hint
+      |  – #{site.footer_order_text || 'Bestellungen nur per Telefon: '}
+      a.footer-link(href='tel:' + contact.phone.replace(/\s/g, ''))= contact.phone
+    p.footer-hours
+      span.footer-label= site.footer_hours_label || 'Öffnungszeiten: '
+      span= contact.hours
+    p.footer-address
+      span.footer-label= site.footer_address_label || 'Anfahrt: '
+      a.footer-link(href=contact.directions_url, target='_blank', rel='noopener noreferrer')= contact.address
+    p.footer-impressum
+      a.footer-link(href=basePath + '/impressum.html')= site.nav && site.nav.impressum ? site.nav.impressum : 'Impressum'
+    p.footer-copyright
+      | © #{new Date().getFullYear()} #{site.footer_copyright || 'Das Frittierwerk – Alle Rechte vorbehalten.'}

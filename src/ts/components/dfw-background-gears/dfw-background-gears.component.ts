@@ -1,41 +1,15 @@
 import { Component } from "@ribajs/core";
 import { hasChildNodesTrim } from "@ribajs/utils/src/dom.js";
 
-import templateHtml from "./dfw-app.component.html?raw";
-import type { MarkdownContent } from "../../types/index.js";
-import * as aboutContent from "../../../content/about.md";
-import * as qualityContent from "../../../content/quality.md";
-import galleryData from "../../../content/gallery.yml";
-import contactData from "../../../content/contact.yml";
+import templateHtml from "./dfw-background-gears.component.html?raw";
 import gear1Url from "../../../assets/gears/gear_01.svg?url";
 import gear2Url from "../../../assets/gears/gear_02.svg?url";
 import gear3Url from "../../../assets/gears/gear_03.svg?url";
 import gear4Url from "../../../assets/gears/gear_04.svg?url";
 import gear5Url from "../../../assets/gears/gear_05.svg?url";
 
-interface GalleryYaml {
-  images?: unknown[];
-}
-
-interface ContactYaml {
-  phone?: string;
-  address?: string;
-  location?: string;
-  hours?: string;
-  order_hint?: string;
-  directions_url?: string;
-}
-
-function hasContent(html: string | undefined): boolean {
-  return typeof html === "string" && html.trim().length > 0;
-}
-
-function hasGalleryImages(data: GalleryYaml): boolean {
-  return Array.isArray(data?.images) && data.images.length > 0;
-}
-
-export class DfwAppComponent extends Component {
-  public static tagName = "dfw-app";
+export class DfwBackgroundGearsComponent extends Component {
+  public static tagName = "dfw-background-gears";
 
   protected autobind = true;
 
@@ -51,20 +25,6 @@ export class DfwAppComponent extends Component {
   }
 
   public scope = {
-    about: {
-      title: (aboutContent as MarkdownContent).attributes?.title || "Über uns",
-      html: (aboutContent as MarkdownContent).html || "",
-    },
-    quality: {
-      title: (qualityContent as MarkdownContent).attributes?.title || "Qualität",
-      html: (qualityContent as MarkdownContent).html || "",
-    },
-    currentYear: new Date().getFullYear(),
-    contact: (contactData as unknown) as ContactYaml,
-    telHref: `tel:${((contactData as unknown) as ContactYaml).phone?.replace(/\s/g, "") ?? ""}`,
-    hasAbout: hasContent((aboutContent as MarkdownContent).html),
-    hasQuality: hasContent((qualityContent as MarkdownContent).html),
-    hasGallery: hasGalleryImages(galleryData as GalleryYaml),
     backgroundGears: [
       { src: gear1Url, speed: 0.22, class: "bg-gear--1", maskStyle: { "--gear-mask": `url("${gear1Url}")` } },
       { src: gear2Url, speed: -0.28, class: "bg-gear--2", maskStyle: { "--gear-mask": `url("${gear2Url}")` } },
@@ -90,7 +50,6 @@ export class DfwAppComponent extends Component {
       const scrollHeight = document.documentElement.scrollHeight;
       const maxScroll = Math.max(0, scrollHeight - innerHeight);
       const progress = maxScroll > 0 ? scrollY / maxScroll : 0;
-      // Multiple cycles over the page: triangle wave 0% → 100% → 0%
       const cycles = 3;
       const phase = (progress * cycles) % 1;
       const yPercent =
@@ -110,7 +69,7 @@ export class DfwAppComponent extends Component {
 
   protected connectedCallback() {
     super.connectedCallback();
-    this.init(DfwAppComponent.observedAttributes);
+    this.init(DfwBackgroundGearsComponent.observedAttributes);
 
     this.updateShineFromScroll();
     window.addEventListener("scroll", this.boundUpdateShineFromScroll, {

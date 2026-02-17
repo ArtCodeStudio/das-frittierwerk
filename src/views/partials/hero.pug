@@ -1,0 +1,7 @@
+section#hero.hero-section.text-center
+  .container
+    dfw-logo.mb-4
+    p.hero-subtitle= site.hero_subtitle || 'Dein Imbisstaurant für krossen Geschmack'
+    p.hero-location= contact.location
+    p.hero-subtitle.hero-subtitle--secondary= site.hero_cta_text || 'Jetzt telefonisch bestellen & kross abholen'
+    a.btn.btn-order.mt-4(href='tel:' + contact.phone.replace(/\s/g, ''))= site.hero_cta_button || 'Jetzt anrufen'

@@ -4,6 +4,7 @@ import { resolve } from 'path'
 import yamPlugin from '@modyfi/vite-plugin-yaml';
 import { plugin as mdPlugin } from 'vite-plugin-markdown';
 import { manifestPlugin } from './vite-plugin-manifest.js';
+import { pugPagesPlugin } from './vite-plugin-pug-pages.js';
 
 const __dirname = new URL('.', import.meta.url).pathname;
 dns.setDefaultResultOrder('verbatim')
@@ -21,13 +22,14 @@ export default defineConfig(({ command, mode, ssrBuild }) => {
     build: {
       outDir: '../_site',
       emptyOutDir: true,
-      rollupOptions: {
-        input: {
-          'main': resolve(basedir, 'index.html'),
-        },
-      }
+      // rollupOptions.input is auto-populated by pugPagesPlugin
     },
     plugins: [
+      pugPagesPlugin({
+        pagesDir: resolve(basedir, 'views/pages'),
+        basedir: resolve(basedir, 'views'),
+        contentDir: resolve(basedir, 'content'),
+      }),
       yamPlugin(),
       mdPlugin({ mode: 'html' }),
       manifestPlugin(),

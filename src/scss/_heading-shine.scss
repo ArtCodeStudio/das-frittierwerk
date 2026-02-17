@@ -1,11 +1,11 @@
-// Metallic heading shine: CSS custom properties (set by DfwAppComponent)
+// Metallic heading shine: CSS custom properties (defaults; updated by dfw-background-gears on scroll/pointer).
 :root {
   --shine-x: 10%;
   --shine-y: 50%;
 }
 
 // Utility: metallic gradient text (heading shine).
-// Apply via class .text-shine. --shine-x / --shine-y set by DfwAppComponent.
+// Apply via class .text-shine. --shine-x / --shine-y driven by dfw-background-gears.
 // Tighter ellipse and stronger contrast so the scroll-driven shine stays clearly visible.
 .text-shine {
   background: radial-gradient(

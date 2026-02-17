@@ -1,0 +1,7 @@
+extends ../layouts/main.pug
+
+block content
+  section
+    .container
+      h2.section-title.text-shine= about.title || 'Über uns'
+      .page-content!= about.html

@@ -1,0 +1,21 @@
+doctype html
+html(lang='de')
+  head
+    meta(charset='UTF-8')
+    title= site.title
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    meta(name='description', content=site.description)
+    link(rel='icon', type='image/x-icon', href=basePath + '/assets/favicon/favicon.ico')
+    link(rel='icon', type='image/svg+xml', href=basePath + '/assets/favicon/favicon.svg')
+    link(rel='apple-touch-icon', sizes='180x180', href=basePath + '/assets/favicon/apple-touch-icon.png')
+    link(rel='manifest', href=basePath + '/assets/favicon/site.webmanifest')
+  body
+    include ../partials/background-gears.pug
+    .app-content
+      include ../partials/navbar.pug
+      include ../partials/hero.pug
+      hr.gold-divider
+      router-view#main(listen-all-links='true')
+        block content
+      include ../partials/footer.pug
+    script(src=basePath + '/ts/main.ts', type='module')

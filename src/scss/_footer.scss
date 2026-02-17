@@ -1,0 +1,40 @@
+.site-footer {
+  border-top: 2px solid #a07030;
+  background-color: rgba(26, 15, 10, 0.8);
+
+  .footer-order {
+    color: #c4a882;
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .footer-link {
+    color: #e8c882;
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  .footer-link:hover {
+    text-decoration: underline;
+  }
+
+  .footer-hours,
+  .footer-address,
+  .footer-impressum {
+    color: #806040;
+    font-size: 0.85rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .footer-label {
+    color: #a07030;
+    font-weight: 600;
+  }
+
+  .footer-copyright {
+    color: #806040;
+    font-size: 0.8rem;
+    margin-top: 0.75rem;
+    margin-bottom: 0;
+  }
+}

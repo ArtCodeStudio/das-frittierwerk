@@ -1,0 +1,18 @@
+section#speisekarte
+  .menu-section
+    .container
+      h2.section-title.text-shine Speisekarte
+      .menu-grid
+        each category in (menu.categories || [])
+          .menu-category
+            h3.menu-category__title.text-shine= category.name
+            each item in (category.items || [])
+              .menu-item-wrapper
+                .menu-item
+                  span.menu-item__name= item.name
+                  span.menu-item__dots
+                  span.menu-item__price= formatPrice(item.price)
+                if item.description
+                  p.menu-item__description= item.description
+                if item.info
+                  p.menu-item__description= item.info
