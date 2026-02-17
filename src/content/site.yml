@@ -1,0 +1,12 @@
+# Site metadata – used for index.html (title, description) and PWA manifest (site.webmanifest).
+# Single source of truth for app name and branding.
+
+name: "Das Frittierwerk"
+short_name: "Frittierwerk"
+title: "Das Frittierwerk - Krosses Hähnchen & mehr"
+description: "Krosses Hähnchen, Pommes, Wurst, Fisch und mehr an der Wurster Nordseeküste. Jetzt bestellen & kross abholen!"
+
+# PWA / web app manifest
+theme_color: "#ffffff"
+background_color: "#ffffff"
+display: "standalone"

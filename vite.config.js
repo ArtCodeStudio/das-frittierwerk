@@ -3,6 +3,7 @@ import dns from 'dns'
 import { resolve } from 'path'
 import yamPlugin from '@modyfi/vite-plugin-yaml';
 import { plugin as mdPlugin } from 'vite-plugin-markdown';
+import { manifestPlugin } from './vite-plugin-manifest.js';
 
 const __dirname = new URL('.', import.meta.url).pathname;
 dns.setDefaultResultOrder('verbatim')
@@ -29,6 +30,7 @@ export default defineConfig(({ command, mode, ssrBuild }) => {
     plugins: [
       yamPlugin(),
       mdPlugin({ mode: 'html' }),
+      manifestPlugin(),
     ],
   }
 })
