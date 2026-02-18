@@ -11,6 +11,8 @@ footer.site-footer.text-center.py-4
       span.footer-label= site.footer_address_label || 'Anfahrt: '
       a.footer-link(href=contact.directions_url, target='_blank', rel='noopener noreferrer')= contact.address
     p.footer-impressum
-      a.footer-link(href=basePath + '/impressum.html')= site.nav && site.nav.impressum ? site.nav.impressum : 'Impressum'
+      a.footer-link(href=basePath + '/impressum.html')= site.nav && site.nav.impressum ? site.nav.impressum : 'Impressum' 
+      span= ' | '
+      a.footer-link(href='https://github.com/ArtCodeStudio/das-frittierwerk')= site.nav && site.nav.source_code ? site.nav.source_code : 'Quellcode der Seite'
     p.footer-copyright
       | © #{new Date().getFullYear()} #{site.footer_copyright || 'Das Frittierwerk – Alle Rechte vorbehalten.'}

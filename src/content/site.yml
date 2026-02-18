@@ -20,6 +20,7 @@ nav:
   galerie: "Galerie"
   kontakt: "Kontakt"
   impressum: "Impressum"
+  source_code: "Quellcode der Seite"
 
 # Footer labels (trailing space so value and following content are separated)
 footer_order_text: "Bestellungen nur per Telefon: "
@@ -28,6 +29,6 @@ footer_address_label: "Anfahrt: "
 footer_copyright: "Das Frittierwerk – Alle Rechte vorbehalten."
 
 # PWA / web app manifest
-theme_color: "#ffffff"
-background_color: "#ffffff"
+theme_color: "#1a0f0a"
+background_color: "#1a0f0a"
 display: "standalone"
