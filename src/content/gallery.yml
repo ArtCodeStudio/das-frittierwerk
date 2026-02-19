@@ -3,6 +3,8 @@
 # Bilder in src/assets/gallery/ ablegen und hier referenzieren.
 # Unterstützte Formate: jpg, png, webp
 
+title: "Galerie"
+
 images: []
   # Beispiel:
   # - src: "../assets/gallery/haenchen-kross.jpg"

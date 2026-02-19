@@ -43,6 +43,22 @@ function formatPrice(price) {
 }
 
 /**
+ * Derive a URL-safe section id from a title (e.g. "Über uns" -> "ueber-uns").
+ */
+function slugify(text) {
+  if (!text || typeof text !== 'string') return '';
+  return text
+    .trim()
+    .toLowerCase()
+    .replace(/\s+/g, '-')
+    .replace(/ä/g, 'ae')
+    .replace(/ö/g, 'oe')
+    .replace(/ü/g, 'ue')
+    .replace(/ß/g, 'ss')
+    .replace(/[^a-z0-9-]/g, '');
+}
+
+/**
  * Load all content and build Pug locals.
  */
 function loadLocals(contentDir) {
@@ -65,6 +81,7 @@ function loadLocals(contentDir) {
     impressum,
     datenschutz,
     formatPrice,
+    slugify,
     // Logo assets: files live in src/public/assets/ (copied to output by Vite); paths relative to site root
     logoBase: 'assets/dasfrittierwerk_logo-animation.avif',
     logoGear: 'assets/dasfrittierwerk_logo-animation2.avif',

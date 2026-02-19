@@ -1,7 +1,7 @@
-section#speisekarte
+section(id=slugify(menu.title || 'Speisekarte'))
   .menu-section
     .container
-      h2.section-title.text-shine Speisekarte
+      h2.section-title.text-shine= menu.title || 'Speisekarte'
       .menu-grid
         each category in (menu.categories || [])
           .menu-category

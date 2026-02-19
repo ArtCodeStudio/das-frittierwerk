@@ -1,7 +1,8 @@
 extends ../layouts/main.pug
 
 block content
-  section
+  - const pageTitle = about.title || 'Über uns'
+  section(id=slugify(pageTitle))
     .container
-      h2.section-title.text-shine= about.title || 'Über uns'
+      h2.section-title.text-shine= pageTitle
       .page-content!= about.html

@@ -1,5 +1,8 @@
 extends ../layouts/main.pug
 
 block content
-  section
+  - const pageTitle = gallery.title || 'Galerie'
+  section(id=slugify(pageTitle))
+    .container
+      h2.section-title.text-shine= pageTitle
     dfw-gallery

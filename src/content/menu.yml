@@ -2,6 +2,8 @@
 # Entspricht der aktuellen Speisekarte (Screenshots).
 # Preise als Zahl angeben (z.B. 9 oder 4.50)
 
+title: "Speisekarte"
+
 categories:
   - name: "Krosses Hähnchen"
     items:
