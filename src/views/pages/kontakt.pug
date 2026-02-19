@@ -22,3 +22,7 @@ block content
                 a.contact-link(href=contact.directions_url, target='_blank', rel='noopener noreferrer')= contact.address
         .col-12.col-md-7.px-0
           dfw-contact-map
+            .map-scroll-wrapper.scrollbar-invisible(rv-scrollbar-draggable rv-element="scrollWrapperEl")
+              img(src=basePath + '/assets/map.avif', alt="Karte Standort Das Frittierwerk", draggable="false", rv-on-load="center")
+            a.map-copyright(href="https://www.openstreetmap.org/copyright", target="_blank", rel="nofollow")
+              small.me-2 © OpenStreetMap-Mitwirkende

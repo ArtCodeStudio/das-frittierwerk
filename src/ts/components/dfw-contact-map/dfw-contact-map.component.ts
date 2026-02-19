@@ -1,10 +1,6 @@
 import { Component } from "@ribajs/core";
 import { hasChildNodesTrim } from "@ribajs/utils/src/dom.js";
 
-import templateHtml from "./dfw-contact-map.component.html?raw";
-
-const MAP_IMAGE_URL = new URL("../../../assets/map.avif", import.meta.url).href;
-
 function debounce<T extends (...args: unknown[]) => void>(
   fn: T,
   ms: number
@@ -25,7 +21,6 @@ function scrollToCenter(wrapper: HTMLElement): void {
 }
 
 export interface DfwContactMapScope {
-  mapImageUrl: string;
   scrollWrapperEl: HTMLDivElement | null;
   center: () => void;
 }
@@ -40,7 +35,6 @@ export class DfwContactMapComponent extends Component {
   }
 
   public scope: DfwContactMapScope = {
-    mapImageUrl: MAP_IMAGE_URL,
     scrollWrapperEl: null,
     center: this.center.bind(this),
   };
@@ -82,6 +76,6 @@ export class DfwContactMapComponent extends Component {
     if (hasChildNodesTrim(this)) {
       return null;
     }
-    return templateHtml;
+    return `<p>Missing child template</p>`;
   }
 }
