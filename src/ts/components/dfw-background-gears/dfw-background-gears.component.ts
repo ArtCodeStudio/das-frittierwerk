@@ -1,5 +1,6 @@
 import { Component } from "@ribajs/core";
 import { EventDispatcher } from "@ribajs/events";
+import { debounceCb, debounceF } from "@ribajs/utils/src/control.js";
 import { hasChildNodesTrim } from "@ribajs/utils/src/dom.js";
 
 import templateHtml from "./dfw-background-gears.component.html?raw";
@@ -34,13 +35,16 @@ export class DfwBackgroundGearsComponent extends Component {
 
   protected autobind = true;
 
-  private shineRafId: number | null = null;
   private resizeObserver: ResizeObserver | null = null;
+  private static readonly RESIZE_DEBOUNCE_MS = 450;
   private routerUnsubscribe: (() => void) | null = null;
-  private readonly boundUpdateShineFromScroll = () => this.updateShineFromScroll();
+  private debouncedShineFromScroll!: () => void;
+  private debouncedShineFromPointer!: (e: MouseEvent) => void;
+  private readonly boundUpdateShineFromScroll = () => this.debouncedShineFromScroll();
   private readonly boundUpdateShineFromPointer = (e: MouseEvent) =>
-    this.updateShineFromPointer(e);
-  private readonly boundUpdateHeightToPage = () => this.updateHeightToPage();
+    this.debouncedShineFromPointer(e);
+  private readonly boundOnResize = () => this.onResize();
+  private debouncedResizeDone!: () => void;
   private readonly boundOnTransitionCompleted = () => this.onTransitionCompleted();
   private readonly boundOnInitStateChange = (
     _viewId: string,
@@ -59,15 +63,30 @@ export class DfwBackgroundGearsComponent extends Component {
     { src: gear2Url, speed: 0.32, class: "bg-gear--5", maskStyle: { "--gear-mask": `url("${gear2Url}")` } },
   ] as const;
 
-  /** Set gears container height to full page height so gear positions (top: X%) distribute along the page. */
+  /** Hide gears and schedule debounced repositioning when viewport size changes. */
+  private onResize(): void {
+    (this as unknown as HTMLElement).classList.add("dfw-background-gears--resizing");
+    this.debouncedResizeDone();
+  }
+
+  /** Set gears container height to content height so gear positions (top: X%) distribute along the page.
+   * Height is read while gears container is collapsed to avoid the gears contributing to document height. */
   private updateHeightToPage(): void {
+    const container = this.parentElement as HTMLElement | null;
+    const self = this as unknown as HTMLElement;
+
+    if (container?.classList.contains("background-gears")) {
+      container.style.height = "0";
+    }
+    self.style.height = "0";
+
     const h = document.documentElement.scrollHeight;
     const px = `${h}px`;
-    const container = this.parentElement;
+
     if (container?.classList.contains("background-gears")) {
-      (container as HTMLElement).style.height = px;
+      container.style.height = px;
     }
-    (this as unknown as HTMLElement).style.height = px;
+    self.style.height = px;
   }
 
   /** Collapse gears container and remove gear nodes so document height is not preserved on page change. */
@@ -130,39 +149,44 @@ export class DfwBackgroundGearsComponent extends Component {
     document.documentElement.style.setProperty("--shine-y", y);
   }
 
-  private updateShineFromScroll(): void {
-    if (this.shineRafId !== null) return;
-    this.shineRafId = requestAnimationFrame(() => {
-      this.shineRafId = null;
-      const scrollY = window.scrollY ?? document.documentElement.scrollTop;
-      const innerHeight = window.innerHeight;
-      const scrollHeight = document.documentElement.scrollHeight;
-      const maxScroll = Math.max(0, scrollHeight - innerHeight);
-      const progress = maxScroll > 0 ? scrollY / maxScroll : 0;
-      const cycles = 3;
-      const phase = (progress * cycles) % 1;
-      const yPercent =
-        phase <= 0.5 ? phase * 200 : (1 - phase) * 200;
-      this.setShine(this.shineX, `${Math.min(100, Math.max(0, yPercent))}%`);
-    });
+  private doUpdateShineFromScroll(): void {
+    if (!this.isConnected) return;
+    const scrollY = window.scrollY ?? document.documentElement.scrollTop;
+    const innerHeight = window.innerHeight;
+    const scrollHeight = document.documentElement.scrollHeight;
+    const maxScroll = Math.max(0, scrollHeight - innerHeight);
+    const progress = maxScroll > 0 ? scrollY / maxScroll : 0;
+    const cycles = 3;
+    const phase = (progress * cycles) % 1;
+    const yPercent =
+      phase <= 0.5 ? phase * 200 : (1 - phase) * 200;
+    this.setShine(this.shineX, `${Math.min(100, Math.max(0, yPercent))}%`);
   }
 
-  private updateShineFromPointer(e: MouseEvent): void {
-    if (this.shineRafId !== null) return;
-    this.shineRafId = requestAnimationFrame(() => {
-      this.shineRafId = null;
-      const xPercent = (e.clientX / window.innerWidth) * 100;
-      this.setShine(`${xPercent}%`, this.shineY);
-    });
+  private doUpdateShineFromPointer(e: MouseEvent): void {
+    if (!this.isConnected) return;
+    const xPercent = (e.clientX / window.innerWidth) * 100;
+    this.setShine(`${xPercent}%`, this.shineY);
   }
 
   protected connectedCallback() {
     super.connectedCallback();
     this.init(DfwBackgroundGearsComponent.observedAttributes);
 
+    this.debouncedResizeDone = debounceCb(() => {
+      if (!this.isConnected) return;
+      (this as unknown as HTMLElement).classList.remove("dfw-background-gears--resizing");
+      this.updateHeightToPage();
+      this.scope.backgroundGears = this.buildGearsWithRandomLayout();
+      this.view?.update(this.scope);
+    }, DfwBackgroundGearsComponent.RESIZE_DEBOUNCE_MS);
+
+    this.debouncedShineFromScroll = debounceF(() => this.doUpdateShineFromScroll());
+    this.debouncedShineFromPointer = debounceF((e: MouseEvent) => this.doUpdateShineFromPointer(e));
+
     this.scope.backgroundGears = this.buildGearsWithRandomLayout();
     this.updateHeightToPage();
-    this.updateShineFromScroll();
+    this.debouncedShineFromScroll();
 
     const dispatcher = EventDispatcher.getInstance(ROUTER_VIEW_ID);
     dispatcher.on("initStateChange", this.boundOnInitStateChange);
@@ -176,8 +200,8 @@ export class DfwBackgroundGearsComponent extends Component {
       passive: true,
     });
     window.addEventListener("resize", this.boundUpdateShineFromScroll);
-    window.addEventListener("resize", this.boundUpdateHeightToPage);
-    this.resizeObserver = new ResizeObserver(() => this.updateHeightToPage());
+    window.addEventListener("resize", this.boundOnResize);
+    this.resizeObserver = new ResizeObserver(this.boundOnResize);
     this.resizeObserver.observe(document.body);
     if (window.matchMedia("(pointer: fine)").matches) {
       window.addEventListener("mousemove", this.boundUpdateShineFromPointer);
@@ -187,15 +211,11 @@ export class DfwBackgroundGearsComponent extends Component {
   protected disconnectedCallback(): void {
     this.routerUnsubscribe?.();
     this.routerUnsubscribe = null;
-    if (this.shineRafId !== null) {
-      cancelAnimationFrame(this.shineRafId);
-      this.shineRafId = null;
-    }
     this.resizeObserver?.disconnect();
     this.resizeObserver = null;
     window.removeEventListener("scroll", this.boundUpdateShineFromScroll);
     window.removeEventListener("resize", this.boundUpdateShineFromScroll);
-    window.removeEventListener("resize", this.boundUpdateHeightToPage);
+    window.removeEventListener("resize", this.boundOnResize);
     window.removeEventListener("mousemove", this.boundUpdateShineFromPointer);
     super.disconnectedCallback();
   }

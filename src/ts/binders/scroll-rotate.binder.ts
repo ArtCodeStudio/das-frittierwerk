@@ -1,4 +1,5 @@
 import { Binder } from "@ribajs/core";
+import { debounceF } from "@ribajs/utils/src/control.js";
 
 /**
  * Rotates an element based on the window scroll position.
@@ -10,9 +11,9 @@ export class ScrollRotateBinder extends Binder<number, HTMLElement> {
 
   private scrollHandler: (() => void) | null = null;
   private speed = 0.15;
-  private animationFrameId: number | null = null;
 
   private applyRotation() {
+    if (!this.el.isConnected) return;
     const scrollY = window.scrollY || window.pageYOffset;
     const degrees = scrollY * this.speed;
     this.el.style.transform = `rotate(${degrees}deg)`;
@@ -26,15 +27,8 @@ export class ScrollRotateBinder extends Binder<number, HTMLElement> {
   }
 
   bind(el: HTMLElement) {
-    this.scrollHandler = () => {
-      if (this.animationFrameId) {
-        cancelAnimationFrame(this.animationFrameId);
-      }
-      this.animationFrameId = requestAnimationFrame(() => {
-        this.applyRotation();
-        this.animationFrameId = null;
-      });
-    };
+    const debouncedApply = debounceF(() => this.applyRotation());
+    this.scrollHandler = () => debouncedApply();
 
     window.addEventListener('scroll', this.scrollHandler, { passive: true });
 
@@ -46,10 +40,6 @@ export class ScrollRotateBinder extends Binder<number, HTMLElement> {
     if (this.scrollHandler) {
       window.removeEventListener('scroll', this.scrollHandler);
       this.scrollHandler = null;
-    }
-    if (this.animationFrameId) {
-      cancelAnimationFrame(this.animationFrameId);
-      this.animationFrameId = null;
     }
   }
 }

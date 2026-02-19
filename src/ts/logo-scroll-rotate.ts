@@ -1,3 +1,5 @@
+import { debounceF } from "@ribajs/utils/src/control.js";
+
 /**
  * Applies scroll-based rotation to static elements with data-scroll-rotate (e.g. .logo-gear).
  * Same behavior as ScrollRotateBinder; used for static Pug-rendered logo so no Riba component is needed.
@@ -18,16 +20,9 @@ function updateAll() {
   });
 }
 
-let rafId: number | null = null;
-function onScroll() {
-  if (rafId !== null) return;
-  rafId = requestAnimationFrame(() => {
-    rafId = null;
-    updateAll();
-  });
-}
-
 export function initLogoScrollRotate(): void {
+  const onScroll = debounceF(updateAll);
+
   updateAll();
-  window.addEventListener("scroll", onScroll, { passive: true });
+  window.addEventListener("scroll", () => onScroll(), { passive: true });
 }

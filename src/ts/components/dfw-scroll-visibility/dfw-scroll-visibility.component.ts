@@ -1,4 +1,5 @@
 import { Component } from "@ribajs/core";
+import { debounceF } from "@ribajs/utils/src/control.js";
 import { hasChildNodesTrim } from "@ribajs/utils/src/dom.js";
 
 const VISIBLE_SCROLL_START = 0.1; // show after 10% from top
@@ -19,33 +20,16 @@ export class DfwScrollVisibilityComponent extends Component {
     return [];
   }
 
-  private rafId: number | null = null;
-  private readonly boundUpdateVisibility = () => this.updateVisibility();
+  private debouncedUpdateVisibility!: () => void;
+  private readonly boundUpdateVisibility = () => this.debouncedUpdateVisibility();
 
   protected connectedCallback() {
     super.connectedCallback();
     this.setAttribute("data-visible", "false");
     this.init(DfwScrollVisibilityComponent.observedAttributes);
-  }
 
-  protected async afterBind() {
-    await super.afterBind();
-    this.updateVisibility();
-    window.addEventListener("scroll", this.boundUpdateVisibility, { passive: true });
-  }
-
-  protected disconnectedCallback() {
-    window.removeEventListener("scroll", this.boundUpdateVisibility);
-    if (this.rafId !== null) {
-      cancelAnimationFrame(this.rafId);
-    }
-    super.disconnectedCallback();
-  }
-
-  private updateVisibility(): void {
-    if (this.rafId !== null) return;
-    this.rafId = requestAnimationFrame(() => {
-      this.rafId = null;
+    this.debouncedUpdateVisibility = debounceF(() => {
+      if (!this.isConnected) return;
       const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
       const visible =
         maxScroll <= 0 ||
@@ -53,6 +37,17 @@ export class DfwScrollVisibilityComponent extends Component {
          window.scrollY <= maxScroll * VISIBLE_SCROLL_END);
       this.setAttribute("data-visible", visible ? "true" : "false");
     });
+  }
+
+  protected async afterBind() {
+    await super.afterBind();
+    this.debouncedUpdateVisibility();
+    window.addEventListener("scroll", this.boundUpdateVisibility, { passive: true });
+  }
+
+  protected disconnectedCallback() {
+    window.removeEventListener("scroll", this.boundUpdateVisibility);
+    super.disconnectedCallback();
   }
 
   protected requiredAttributes(): string[] {

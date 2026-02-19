@@ -1,24 +1,6 @@
 import { Component } from "@ribajs/core";
-import { hasChildNodesTrim } from "@ribajs/utils/src/dom.js";
-
-function debounce<T extends (...args: unknown[]) => void>(
-  fn: T,
-  ms: number
-): (...args: Parameters<T>) => void {
-  let timeoutId: ReturnType<typeof setTimeout>;
-  return (...args: Parameters<T>) => {
-    clearTimeout(timeoutId);
-    timeoutId = setTimeout(() => fn(...args), ms);
-  };
-}
-
-/**
- * Scrolls the map wrapper so the image is centered (like mm-map in markus-morische-rechtsanwalt-website).
- */
-function scrollToCenter(wrapper: HTMLElement): void {
-  wrapper.scrollLeft = (wrapper.scrollWidth - wrapper.clientWidth) / 2;
-  wrapper.scrollTop = (wrapper.scrollHeight - wrapper.clientHeight) / 2;
-}
+import { debounceCb } from "@ribajs/utils/src/control.js";
+import { hasChildNodesTrim, scrollToPosition } from "@ribajs/utils/src/dom.js";
 
 export interface DfwContactMapScope {
   scrollWrapperEl: HTMLDivElement | null;
@@ -39,7 +21,7 @@ export class DfwContactMapComponent extends Component {
     center: this.center.bind(this),
   };
 
-  private boundCenter = debounce(this.center.bind(this), 100);
+  private boundCenter = debounceCb(this.center.bind(this), 100);
 
   protected connectedCallback() {
     super.connectedCallback();
@@ -64,7 +46,7 @@ export class DfwContactMapComponent extends Component {
   public center(): void {
     const wrapper = this.scope.scrollWrapperEl;
     if (wrapper) {
-      scrollToCenter(wrapper);
+      scrollToPosition(wrapper, "center", "both", "auto");
     }
   }
 
