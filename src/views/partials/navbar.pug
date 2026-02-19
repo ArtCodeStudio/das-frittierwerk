@@ -1,18 +1,18 @@
 nav.navbar.navbar-expand-md.navbar-dark.fixed-top(rv-close-nav-on-link='')
   .container
     a.navbar-brand(href=basePath + '/index.html')
-      span.brand-text.text-shine= site.name
+      span.brand-text.text-shine.fw-bold.text-uppercase= site.name
     button.navbar-toggler(type='button', data-bs-toggle='collapse', data-bs-target='#navbarCollapse', aria-controls='navbarCollapse', aria-expanded='false', aria-label='Navigation umschalten')
       span.navbar-toggler-icon
     #navbarCollapse.navbar-collapse.collapse
       ul.navbar-nav.ms-auto
-        li.nav-item
-          a.nav-link(href=basePath + '/index.html#speisekarte')= site.nav && site.nav.speisekarte ? site.nav.speisekarte : 'Speisekarte'
-        li.nav-item
-          a.nav-link(href=basePath + '/ueber-uns.html#das-frittierwerk')= site.nav && site.nav.ueber_uns ? site.nav.ueber_uns : 'Über uns'
-        li.nav-item
-          a.nav-link(href=basePath + '/qualitaet.html#unsere-qualitaet')= site.nav && site.nav.qualitaet ? site.nav.qualitaet : 'Qualität'
-        //- li.nav-item
-        //-   a.nav-link(href=basePath + '/galerie.html#galerie')= site.nav && site.nav.galerie ? site.nav.galerie : 'Galerie'
-        li.nav-item
-          a.nav-link(href=basePath + '/kontakt.html#kontakt')= site.nav && site.nav.kontakt ? site.nav.kontakt : 'Kontakt'
+        li.nav-item.mb-2.mb-md-0
+          a.nav-link.text-uppercase.fw-semibold(href=basePath + '/index.html#speisekarte')= site.nav && site.nav.speisekarte ? site.nav.speisekarte : 'Speisekarte'
+        li.nav-item.mb-2.mb-md-0
+          a.nav-link.text-uppercase.fw-semibold(href=basePath + '/ueber-uns.html#das-frittierwerk')= site.nav && site.nav.ueber_uns ? site.nav.ueber_uns : 'Über uns'
+        li.nav-item.mb-2.mb-md-0
+          a.nav-link.text-uppercase.fw-semibold(href=basePath + '/qualitaet.html#unsere-qualitaet')= site.nav && site.nav.qualitaet ? site.nav.qualitaet : 'Qualität'
+        //- li.nav-item.mb-2.mb-md-0
+        //-   a.nav-link.text-uppercase.fw-semibold(href=basePath + '/galerie.html#galerie')= site.nav && site.nav.galerie ? site.nav.galerie : 'Galerie'
+        li.nav-item.mb-2.mb-md-0
+          a.nav-link.text-uppercase.fw-semibold(href=basePath + '/kontakt.html#kontakt')= site.nav && site.nav.kontakt ? site.nav.kontakt : 'Kontakt'

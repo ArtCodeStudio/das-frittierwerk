@@ -1,40 +1,31 @@
 .hero-section {
-  padding: 4rem 0 3rem;
-
+  // Spacing, font-size, font-weight now handled by utilities in Pug
   .hero-subtitle {
-    font-family: 'Palanquin Dark', sans-serif;
-    font-weight: 600;
-    font-size: 1.5rem;
-    color: #e8d5b5;
-    margin-top: 1.5rem;
-    letter-spacing: 0.04em;
+    letter-spacing: 0.04em; // Custom, no Bootstrap utility
   }
 
   .hero-location {
-    font-family: 'Palanquin', sans-serif;
-    color: #c4a882;
-    font-size: 1.1rem;
-    margin-bottom: 1.5rem;
+    color: $cream-dark; // Custom color
   }
 
   .btn-order {
-    display: inline-block;
-    background-color: #c4913b;
-    color: #1a0f0a;
-    font-family: 'Palanquin Dark', sans-serif;
-    font-weight: 700;
-    font-size: 1.1rem;
+    // Most styles handled by Bootstrap btn-primary, but we need custom hover transform
+    background-color: $btn-primary-bg;
+    color: $btn-primary-color;
+    font-family: $btn-font-family;
+    font-weight: $btn-font-weight;
+    font-size: $btn-font-size;
     text-transform: uppercase;
     letter-spacing: 0.06em;
-    padding: 0.75rem 2rem;
-    border: 2px solid #a07030;
-    border-radius: 0.25rem;
+    padding: $btn-padding-y $btn-padding-x;
+    border: $btn-border-width solid $btn-primary-border-color;
+    border-radius: $btn-border-radius;
     text-decoration: none;
     transition: background-color 0.2s ease, transform 0.1s ease;
 
     &:hover {
-      background-color: #d4a84b;
-      transform: translateY(-1px);
+      background-color: $btn-primary-hover-bg;
+      transform: translateY(-1px); // Custom transform
     }
 
     &:active {

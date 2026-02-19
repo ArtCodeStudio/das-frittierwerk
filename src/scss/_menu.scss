@@ -1,67 +1,38 @@
 // Speisekarte specific styles
 .menu-category {
-  margin-bottom: 2rem;
+  // margin-bottom now handled by mb-5 utility
   break-inside: avoid;
   page-break-inside: avoid;
 
   &__title {
-    font-family: $headings-font-family;
-    font-weight: 700;
-    color: $gold;
-    text-transform: uppercase;
-    font-size: 1.6rem;
-    letter-spacing: 0.05em;
-    margin-bottom: 1rem;
-    border-bottom: 2px solid $gold-dark;
-    padding-bottom: 0.5rem;
+    // Spacing, text-transform, border-bottom now handled by utilities
+    // Bootstrap already applies $headings-font-family, $headings-font-weight, $headings-color
+    font-size: $h2-font-size * 0.8; // Custom scaled size
+    letter-spacing: 0.05em; // Custom, no Bootstrap utility
   }
 }
 
 .menu-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0.3rem 0;
-  gap: 0.5rem;
-
+  // display, justify-content, align-items, padding, gap now handled by utilities
   &__name {
-    font-family: $headings-font-family;
-    font-weight: 600;
-    color: $cream;
-    font-size: 1.05rem;
-    min-width: 0;
-    overflow-wrap: break-word;
-    word-break: break-word;
+    // font-weight, text-break now handled by utilities
+    // Bootstrap already applies $font-size-base and $body-color via body
+    font-family: $headings-font-family; // Custom font family
+    min-width: 0; // Needed for text-break to work
   }
 
   &__dots {
     flex: 1;
-    min-width: 1rem;
-    margin: auto 0.25rem;
-    border-bottom: 1px dotted $gold-dark;
-    padding-top: 0.3rem;
-  }
-
-  &__price {
-    font-family: $headings-font-family;
-    font-weight: 700;
-    color: $gold-light;
-    font-size: 1.05rem;
-    flex-shrink: 0;
+    min-width: $spacer;
+    margin: auto $spacer * 0.25;
+    border-bottom: $border-width dotted $border-color;
+    padding-top: $spacer * 0.3;
   }
 
   &__description {
-    font-size: 0.85rem;
-    color: $cream-dark;
-    margin-top: -0.2rem;
-    padding-bottom: 0.2rem;
-    overflow-wrap: break-word;
-    word-break: break-word;
+    // font-size, color, padding-bottom, text-break now handled by utilities
+    margin-top: -$spacer * 0.2; // Negative margin, no Bootstrap utility
   }
-}
-
-.menu-section {
-  padding: 2rem 0;
 }
 
 // Multi-column layout: categories flow into columns, no row alignment.

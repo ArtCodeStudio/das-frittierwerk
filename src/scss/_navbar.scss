@@ -2,43 +2,43 @@
 // Applied to .app-content so both layout partial and component get the same look.
 .app-content {
   .navbar {
-    background-color: rgba(26, 15, 10, 0.72) !important;
+    background-color: $navbar-dark-bg !important;
     backdrop-filter: blur(10px);
-    border-bottom: 2px solid #a07030;
-    padding: 0.6rem 0;
-    z-index: 1030;
+    border-bottom: $navbar-border-width solid $navbar-border-color;
+    padding: $navbar-padding-y $navbar-padding-x;
+    // Bootstrap already applies $zindex-fixed via .fixed-top class
   }
 
   .navbar .brand-text {
-    font-family: 'Palanquin Dark', sans-serif;
-    font-weight: 700;
-    color: #c4913b;
-    font-size: 1.25rem;
+    font-family: $navbar-brand-font-family;
+    font-weight: $navbar-brand-font-weight;
+    color: $navbar-dark-hover-color;
+    font-size: $navbar-brand-font-size;
     letter-spacing: 0.05em;
     text-transform: uppercase;
   }
 
   .navbar .nav-link {
-    font-family: 'Palanquin Dark', sans-serif;
-    font-weight: 600;
-    color: #e8d5b5 !important;
+    font-family: $navbar-nav-link-font-family;
+    font-weight: $navbar-nav-link-font-weight;
+    color: $navbar-dark-color !important;
     text-transform: uppercase;
     letter-spacing: 0.04em;
-    font-size: 0.9rem;
-    padding: 0.5rem 1rem !important;
+    font-size: $navbar-nav-link-font-size;
+    padding: $navbar-nav-link-padding-y $navbar-nav-link-padding-x !important;
     transition: color 0.2s ease;
 
     &:hover,
     &:focus {
-      color: #c4913b !important;
+      color: $navbar-dark-hover-color !important;
     }
   }
 
   .navbar .navbar-toggler {
-    border-color: transparent;
+    border-color: $navbar-dark-toggler-border-color;
 
     &:focus {
-      box-shadow: 0 0 0 0.2rem rgba(196, 145, 59, 0.3);
+      box-shadow: $navbar-toggler-focus-box-shadow;
     }
   }
 
@@ -49,9 +49,9 @@
   @media (max-width: 767.98px) {
     .navbar .navbar-collapse {
       display: none;
-      border-top: 1px solid #a07030;
-      margin-top: 0.5rem;
-      padding-top: 0.5rem;
+      border-top: $border-width solid $navbar-border-color;
+      margin-top: $spacer * 0.5;
+      padding-top: $spacer * 0.5;
 
       &.show {
         display: block;

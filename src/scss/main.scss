@@ -4,10 +4,10 @@
 // Bootstrap 5 core
 @import 'bootstrap/scss/bootstrap';
 
-// Override navbar toggler border (in case SCSS variable override is not applied by build order)
+// Bootstrap already applies $navbar-dark-toggler-border-color via variables
+// Only keep CSS variable override if needed for build order issues
 .navbar-toggler {
   --bs-navbar-toggler-border-color: transparent;
-  border-color: transparent;
 }
 
 // Riba.js Bootstrap 5 extensions
@@ -28,47 +28,44 @@
 @import './page-content';
 
 // Global custom styles
-h1, h2, h3, h4, h5, h6 {
-  font-family: $headings-font-family;
-  color: $gold;
-}
+// Bootstrap already applies $headings-font-family and $headings-color to h1-h6 via variables
 
 section {
-  padding: 3rem 0;
+  padding: $section-padding-y 0;
 }
 
 .section-title {
   font-family: $headings-font-family;
-  font-weight: 700;
-  color: $gold;
+  font-weight: $headings-font-weight;
+  color: $headings-color;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  font-size: 2rem;
+  font-size: $h2-font-size;
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: $spacer * 2;
 
   &::after {
     content: '';
     display: block;
     width: 80px;
     height: 3px;
-    background-color: $gold-dark;
-    margin: 0.75rem auto 0;
+    background-color: $navbar-border-color;
+    margin: $spacer * 0.75 auto 0;
   }
 }
 
 .gold-divider {
   border: none;
-  height: 2px;
+  height: $navbar-border-width;
   background: linear-gradient(
     to right,
     transparent,
-    $gold-dark,
-    $gold,
-    $gold-dark,
+    $navbar-border-color,
+    $headings-color,
+    $navbar-border-color,
     transparent
   );
-  margin: 2rem 0;
+  margin: $spacer * 2 0;
 }
 
 // Metallic shine for headings (must come after .section-title so gradient overrides color)

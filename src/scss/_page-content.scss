@@ -2,37 +2,29 @@
 .page-content {
   max-width: 800px;
   margin: 0 auto;
-  font-size: 1.05rem;
-  line-height: 1.7;
-  color: #e8d5b5;
+  // Bootstrap already applies $font-size-base, $line-height-base, and $body-color via body
+  line-height: $line-height-lg;
 
   h3 {
-    color: #c4913b;
-    font-family: 'Palanquin Dark', sans-serif;
-    margin-top: 1.5rem;
+    // Bootstrap already applies $headings-color and $headings-font-family
+    margin-top: $spacer * 1.5;
   }
 
   p {
-    margin-bottom: 1rem;
+    margin-bottom: $spacer;
   }
 
-  a {
-    color: #d4a84b;
-
-    &:hover {
-      color: #c4913b;
-    }
-  }
+  // Bootstrap already applies $link-color and $link-hover-color to links
 
   ul, ol {
-    padding-left: 1.5rem;
+    padding-left: $spacer * 1.5;
 
     li {
-      margin-bottom: 0.25rem;
+      margin-bottom: $spacer * 0.25;
     }
   }
 
   strong {
-    color: #d4a84b;
+    color: $info;
   }
 }

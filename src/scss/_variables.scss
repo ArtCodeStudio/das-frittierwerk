@@ -34,6 +34,9 @@ $danger:        #a03020;
 $light:         $cream;
 $dark:          $dark-bg;
 
+// Custom theme color for borders (gold-dark)
+$gold-dark-color: $gold-dark;
+
 $theme-colors: (
   "primary":    $primary,
   "secondary":  $secondary,
@@ -42,7 +45,8 @@ $theme-colors: (
   "warning":    $warning,
   "danger":     $danger,
   "light":      $light,
-  "dark":       $dark
+  "dark":       $dark,
+  "gold-dark":  $gold-dark-color,
 );
 
 // Options
@@ -59,25 +63,30 @@ $headings-font-family: 'Palanquin Dark', sans-serif;
 $headings-font-weight: 700;
 $headings-color: $gold;
 
-// Links
-$link-color: $gold-light;
-$link-hover-color: $gold;
-$link-decoration: none;
-$link-hover-decoration: underline;
+// Base font sizes
+$font-size-base: 1.15rem;
+$font-size-sm: $font-size-base * .875;
+$font-size-lg: $font-size-base * 1.25;
 
-// Borders
-$border-width: 1px;
-$border-color: $gold-dark;
-$border-radius: 0.25rem;
+// Heading font sizes (derived from base)
+$h1-font-size: $font-size-base * 2.5;
+$h2-font-size: $font-size-base * 2;
+$h3-font-size: $font-size-base * 1.75;
+$h4-font-size: $font-size-base * 1.5;
+$h5-font-size: $font-size-base * 1.25;
+$h6-font-size: $font-size-base;
 
-// Navbar
-$navbar-dark-color: $cream;
-$navbar-dark-hover-color: $gold;
-$navbar-dark-active-color: $gold-light;
-$navbar-dark-toggler-border-color: transparent;
-$navbar-light-toggler-border-color: transparent;
+// Font sizes map for utilities (fs-1 to fs-6)
+$font-sizes: (
+  1: $h1-font-size,
+  2: $h2-font-size,
+  3: $h3-font-size,
+  4: $h4-font-size,
+  5: $h5-font-size,
+  6: $h6-font-size
+);
 
-// Spacing
+// Spacing (must be defined early as it's used by other variables)
 $spacer: 1rem;
 $spacers: (
   0: 0,
@@ -87,7 +96,98 @@ $spacers: (
   4: $spacer * 1.5,
   5: $spacer * 3,
   6: $spacer * 4,
+  7: $spacer * 0.3, // 0.3rem
+  8: $spacer * 0.6, // 0.6rem
+  9: $spacer * 0.75, // 0.75rem
+  10: $spacer * 2.5, // 2.5rem
 );
+
+// Section spacing
+$section-padding-y: $spacer * 3; // 3rem
+
+// Borders (must be defined early as it's used by other variables)
+$border-width: 1px;
+$border-color: $gold-dark;
+$border-radius: 0.25rem;
+$border-widths: (
+  1: 1px,
+  2: 2px,
+  3: 3px,
+  4: 4px,
+  5: 5px
+);
+
+// Line height
+$line-height-base: 1.5;
+$line-height-lg: 1.7;
+$line-height-sm: 1.25;
+
+// Links
+$link-color: $gold-light;
+$link-hover-color: $gold;
+$link-decoration: none;
+$link-hover-decoration: underline;
+
+// Navbar font sizes
+$navbar-brand-font-size: $font-size-base * 1.087; // ~1.25rem scaled from base
+$navbar-nav-link-font-size: $font-size-base * 0.783; // ~0.9rem scaled from base
+
+// Navbar
+$navbar-dark-color: $cream;
+$navbar-dark-hover-color: $gold;
+$navbar-dark-active-color: $gold-light;
+$navbar-dark-bg: rgba(26, 15, 10, 0.72);
+$navbar-dark-toggler-border-color: transparent;
+$navbar-light-toggler-border-color: transparent;
+
+// Navbar spacing and borders
+$navbar-border-width: 2px;
+$navbar-border-color: $gold-dark;
+$navbar-padding-y: $spacer * 0.6; // 0.6rem
+$navbar-padding-x: 0;
+$navbar-nav-link-padding-x: $spacer; // 1rem
+$navbar-nav-link-padding-y: $spacer * 0.5; // 0.5rem
+
+// Navbar typography
+$navbar-brand-font-family: $headings-font-family;
+$navbar-brand-font-weight: $headings-font-weight;
+$navbar-nav-link-font-family: $headings-font-family;
+$navbar-nav-link-font-weight: 600;
+
+// Navbar toggler
+$navbar-toggler-focus-width: 0.2rem;
+$navbar-toggler-focus-box-shadow: 0 0 0 $navbar-toggler-focus-width rgba(196, 145, 59, 0.3);
+
+// Button font size
+$btn-font-size: $font-size-base * 0.957; // ~1.1rem scaled from base
+
+// Button variables
+$btn-padding-y: $spacer * 0.75; // 0.75rem
+$btn-padding-x: $spacer * 2; // 2rem
+$btn-font-family: $headings-font-family;
+$btn-font-weight: $headings-font-weight;
+$btn-border-width: $navbar-border-width;
+$btn-border-radius: $border-radius;
+$btn-primary-bg: $gold;
+$btn-primary-border-color: $gold-dark;
+$btn-primary-color: $dark-bg;
+$btn-primary-hover-bg: $gold-light;
+$btn-primary-hover-border-color: $gold-dark;
+
+// Footer
+$footer-bg: rgba(26, 15, 10, 0.8);
+$footer-border-width: $navbar-border-width;
+$footer-border-color: $gold-dark;
+$footer-order-color: $cream-dark;
+$footer-link-color: $gold-light;
+$footer-text-color: $gray-400;
+$footer-label-color: $gold-dark;
+$footer-copyright-color: $gray-400;
+
+// Z-index (Bootstrap variables)
+// Navbar uses $zindex-fixed (default 1030), button needs higher
+$zindex-fixed: 1030; // Navbar
+$zindex-offcanvas-backdrop: 1040; // Fixed call button above navbar
 
 // Import Bootstrap defaults (after our overrides)
 @import 'bootstrap/scss/variables';
@@ -95,3 +195,19 @@ $spacers: (
 @import 'bootstrap/scss/mixins';
 @import 'bootstrap/scss/root';
 @import 'bootstrap/scss/utilities';
+
+// Custom z-index utility using Bootstrap's z-index variables
+// Must be defined after utilities import but before utilities/api
+$utilities: map-merge(
+  $utilities,
+  (
+    "z-index": (
+      property: z-index,
+      class: z,
+      values: (
+        fixed: $zindex-fixed,
+        offcanvas-backdrop: $zindex-offcanvas-backdrop,
+      ),
+    ),
+  )
+);

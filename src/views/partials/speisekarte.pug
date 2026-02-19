@@ -1,18 +1,18 @@
 section(id=slugify(menu.title || 'Speisekarte'))
-  .menu-section
+  .menu-section.py-5
     .container
       h2.section-title.text-shine= menu.title || 'Speisekarte'
       .menu-grid
         each category in (menu.categories || [])
-          .menu-category
-            h3.menu-category__title.text-shine= category.name
+          .menu-category.mb-5
+            h3.menu-category__title.text-shine.text-uppercase.pb-2.mb-3.border-bottom= category.name
             each item in (category.items || [])
               .menu-item-wrapper
-                .menu-item
-                  span.menu-item__name= item.name
+                .menu-item.d-flex.justify-content-between.align-items-center.py-1.gap-2
+                  span.menu-item__name.fw-semibold.text-break= item.name
                   span.menu-item__dots
-                  span.menu-item__price= formatPrice(item.price)
+                  span.menu-item__price.text-info.flex-shrink-0= formatPrice(item.price)
                 if item.description
-                  p.menu-item__description= item.description
+                  p.menu-item__description.fs-6.text-info.mt-n1.pb-1.text-break= item.description
                 if item.info
-                  p.menu-item__description= item.info
+                  p.menu-item__description.fs-6.text-info.mt-n1.pb-1.text-break= item.info

@@ -1,20 +1,20 @@
-footer.site-footer.text-center.py-4
+footer.site-footer.text-center.border-top.border-2.border-gold-dark.pt-4.pb-6.pb-md-4
   .container
-    p.footer-order
+    p.footer-order.mb-2
       strong= contact.order_hint
       |  – #{site.footer_order_text || 'Bestellungen nur per Telefon: '}
-      a.footer-link(href='tel:' + contact.phone.replace(/\s/g, ''))= contact.phone
-    p.footer-hours
-      span.footer-label= site.footer_hours_label || 'Öffnungszeiten: '
+      a.footer-link.fw-semibold(href='tel:' + contact.phone.replace(/\s/g, ''))= contact.phone
+    p.footer-hours.fs-6.mb-1
+      span.footer-label.fw-semibold= site.footer_hours_label || 'Öffnungszeiten: '
       span= contact.hours
-    p.footer-address
-      span.footer-label= site.footer_address_label || 'Anfahrt: '
+    p.footer-address.fs-6.mb-1
+      span.footer-label.fw-semibold= site.footer_address_label || 'Anfahrt: '
       a.footer-link(href=contact.directions_url, target='_blank', rel='noopener noreferrer')= contact.address
-    p.footer-impressum
+    p.footer-impressum.fs-6.mb-1
       a.footer-link(href=basePath + '/impressum.html')= site.nav && site.nav.impressum ? site.nav.impressum : 'Impressum' 
       span= ' | '
       a.footer-link(href=basePath + '/datenschutz.html') Datenschutz
       span= ' | '
       a.footer-link(href='https://github.com/ArtCodeStudio/das-frittierwerk')= site.nav && site.nav.source_code ? site.nav.source_code : 'Quellcode der Seite'
-    p.footer-copyright
-      | © #{new Date().getFullYear()} #{site.footer_copyright || 'Das Frittierwerk – Alle Rechte vorbehalten.'}
+    p.footer-copyright.fs-6.mt-3.mb-0
+      small © #{new Date().getFullYear()} #{site.footer_copyright || 'Das Frittierwerk – Alle Rechte vorbehalten.'}
