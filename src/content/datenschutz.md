@@ -23,20 +23,31 @@ Die verantwortliche Stelle ist die natürliche oder juristische Person, die alle
 
 ## 2. Datenerfassung auf dieser Website
 
-### Server-Log-Dateien
+### Server-Log-Dateien / Hosting
 
-Diese Website wird auf GitHub Pages gehostet. Der Hoster erhebt automatisch Informationen in sogenannten Server-Log-Dateien, die Ihr Browser automatisch übermittelt. Dies sind:
+Diese Website wird auf GitHub Pages gehostet. Der Hoster (GitHub) erhebt in sogenannten Log-Dateien unter anderem folgende Daten, die Ihr Browser übermittelt:
 
-- Browsertyp und Browserversion
-- verwendetes Betriebssystem
-- Referrer URL
-- Hostname des zugreifenden Rechners
-- Uhrzeit der Serveranfrage
 - IP-Adresse
+- Adresse der zuvor besuchten Seite (Referer)
+- Datum und Uhrzeit der Anfrage
+- Inhalt der Anforderung, HTTP-Statuscode, übertragene Datenmenge
+- Browsertyp und Browserversion, verwendetes Betriebssystem
+- Hostname des zugreifenden Rechners
 
-Diese Daten werden nicht mit anderen Datenquellen zusammengeführt. Die Erfassung dieser Daten erfolgt automatisch, sobald Sie diese Website betreten. Die Speicherdauer der Log-Dateien wird durch GitHub bestimmt und liegt in der Regel bei 90 Tagen.
+Das ist erforderlich, um die Website anzuzeigen sowie Stabilität und Sicherheit zu gewährleisten (berechtigtes Interesse gemäß Art. 6 Abs. 1 S. 1 lit. f DSGVO). Es erfolgt kein Tracking; wir haben auf diese Daten keinen direkten Zugriff. Die Daten werden nicht mit anderen Datenquellen zusammengeführt. Die Speicherdauer der Log-Dateien wird durch GitHub bestimmt (in der Regel etwa 90 Tage); die Daten werden gelöscht, sobald der Zweck der Verarbeitung entfällt.
 
-Die Verarbeitung dieser Daten erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO. Das berechtigte Interesse besteht in der technischen Bereitstellung und Sicherstellung der Funktionsfähigkeit der Website.
+**Eingesetzter Hoster / Empfänger personenbezogener Daten:**
+
+GitHub Inc.  
+88 Colin P Kelly Jr St  
+San Francisco, CA 94107  
+United States
+
+Der Serverstandort ist die USA. Dies entspricht unserem berechtigten Interesse (Art. 6 Abs. 1 S. 1 lit. f DSGVO), selbst keinen Server betreiben zu müssen. GitHub hat Compliance-Maßnahmen für internationale Datenübermittlungen umgesetzt (u. a. EU-Standardvertragsklauseln). Weitere Informationen: [GitHub-Datenschutzerklärung](https://docs.github.com/de/site-policy/privacy-policies/github-privacy-statement) sowie [GitHub Pages](https://docs.github.com/de/pages/getting-started-with-github-pages/what-is-github-pages#data-collection).
+
+Sie haben das Recht, der Verarbeitung zu widersprechen; ob der Widerspruch erfolgreich ist, wird im Rahmen einer Interessenabwägung ermittelt.
+
+Bei rein statischen Webseiten ohne Tracking und ohne Erhebung personenbezogener Daten durch den Betreiber kann nach Auffassung von Datenschutzaufsichtsbehörden (z. B. [LDA Bayern](https://www.lda.bayern.de/media/veroeffentlichungen/FAQ_Hosting_keine_Auftragsverarbeitung.pdf)) keine Auftragsverarbeitung vorliegen; die IP-Verarbeitung wird dann der Zugangsvermittlung bzw. Sicherheit des Hosters zugerechnet.
 
 ### Keine Cookies
 
@@ -44,7 +55,7 @@ Diese Website verwendet keine Cookies. Es werden keine Daten auf Ihrem Endgerät
 
 ### Keine externen Dienste
 
-Diese Website lädt keine Inhalte von externen Diensten (z. B. Google Fonts, Google Analytics, Social Media Plugins). Alle Inhalte werden direkt von unserem Server bereitgestellt.
+Diese Website lädt keine Inhalte von externen Diensten (z. B. Google Fonts, Google Analytics, Social Media Plugins). Die Seite wird bei GitHub Pages gehostet; alle Inhalte werden statisch von der Webseite ausgeliefert, ohne weitere Drittanbieter-Dienste.
 
 ## 3. Ihre Rechte
 
