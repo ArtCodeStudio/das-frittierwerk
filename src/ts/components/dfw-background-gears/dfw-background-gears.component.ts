@@ -1,6 +1,6 @@
 import { Component } from "@ribajs/core";
 import { EventDispatcher } from "@ribajs/events";
-import { debounceCb, debounceF } from "@ribajs/utils/src/control.js";
+import { debounceF } from "@ribajs/utils/src/control.js";
 import { hasChildNodesTrim } from "@ribajs/utils/src/dom.js";
 
 import templateHtml from "./dfw-background-gears.component.html?raw";
@@ -35,16 +35,12 @@ export class DfwBackgroundGearsComponent extends Component {
 
   protected autobind = true;
 
-  private resizeObserver: ResizeObserver | null = null;
-  private static readonly RESIZE_DEBOUNCE_MS = 450;
   private routerUnsubscribe: (() => void) | null = null;
   private debouncedShineFromScroll!: () => void;
   private debouncedShineFromPointer!: (e: MouseEvent) => void;
   private readonly boundUpdateShineFromScroll = () => this.debouncedShineFromScroll();
   private readonly boundUpdateShineFromPointer = (e: MouseEvent) =>
     this.debouncedShineFromPointer(e);
-  private readonly boundOnResize = () => this.onResize();
-  private debouncedResizeDone!: () => void;
   private readonly boundOnTransitionCompleted = () => this.onTransitionCompleted();
   private readonly boundOnInitStateChange = (
     _viewId: string,
@@ -62,12 +58,6 @@ export class DfwBackgroundGearsComponent extends Component {
     { src: gear2Url, speed: -0.2, class: "bg-gear--4", maskStyle: { "--gear-mask": `url("${gear2Url}")` } },
     { src: gear2Url, speed: 0.32, class: "bg-gear--5", maskStyle: { "--gear-mask": `url("${gear2Url}")` } },
   ] as const;
-
-  /** Hide gears and schedule debounced repositioning when viewport size changes. */
-  private onResize(): void {
-    (this as unknown as HTMLElement).classList.add("dfw-background-gears--resizing");
-    this.debouncedResizeDone();
-  }
 
   /** Set gears container height to content height so gear positions (top: X%) distribute along the page.
    * Height is read while gears container is collapsed to avoid the gears contributing to document height. */
@@ -173,14 +163,6 @@ export class DfwBackgroundGearsComponent extends Component {
     super.connectedCallback();
     this.init(DfwBackgroundGearsComponent.observedAttributes);
 
-    this.debouncedResizeDone = debounceCb(() => {
-      if (!this.isConnected) return;
-      (this as unknown as HTMLElement).classList.remove("dfw-background-gears--resizing");
-      this.updateHeightToPage();
-      this.scope.backgroundGears = this.buildGearsWithRandomLayout();
-      this.view?.update(this.scope);
-    }, DfwBackgroundGearsComponent.RESIZE_DEBOUNCE_MS);
-
     this.debouncedShineFromScroll = debounceF(() => this.doUpdateShineFromScroll());
     this.debouncedShineFromPointer = debounceF((e: MouseEvent) => this.doUpdateShineFromPointer(e));
 
@@ -200,9 +182,6 @@ export class DfwBackgroundGearsComponent extends Component {
       passive: true,
     });
     window.addEventListener("resize", this.boundUpdateShineFromScroll);
-    window.addEventListener("resize", this.boundOnResize);
-    this.resizeObserver = new ResizeObserver(this.boundOnResize);
-    this.resizeObserver.observe(document.body);
     if (window.matchMedia("(pointer: fine)").matches) {
       window.addEventListener("mousemove", this.boundUpdateShineFromPointer);
     }
@@ -211,11 +190,8 @@ export class DfwBackgroundGearsComponent extends Component {
   protected disconnectedCallback(): void {
     this.routerUnsubscribe?.();
     this.routerUnsubscribe = null;
-    this.resizeObserver?.disconnect();
-    this.resizeObserver = null;
     window.removeEventListener("scroll", this.boundUpdateShineFromScroll);
     window.removeEventListener("resize", this.boundUpdateShineFromScroll);
-    window.removeEventListener("resize", this.boundOnResize);
     window.removeEventListener("mousemove", this.boundUpdateShineFromPointer);
     super.disconnectedCallback();
   }
