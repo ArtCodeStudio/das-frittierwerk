@@ -138,6 +138,9 @@ $navbar-dark-hover-color: $gold;
 $navbar-dark-active-color: $gold-light;
 $navbar-dark-bg: rgba(26, 15, 10, 0.72);
 $navbar-dark-toggler-border-color: transparent;
+$navbar-dark-icon-color: $gold;
+$navbar-dark-brand-color: $gold;
+$navbar-dark-brand-hover-color: $gold;
 $navbar-light-toggler-border-color: transparent;
 
 // Navbar spacing and borders
@@ -154,6 +157,10 @@ $navbar-brand-font-weight: $headings-font-weight;
 $navbar-nav-link-font-family: $headings-font-family;
 $navbar-nav-link-font-weight: 600;
 
+// Bootstrap nav-link variables (used by .navbar-nav CSS custom properties)
+$nav-link-font-size: $navbar-nav-link-font-size;
+$nav-link-font-weight: $navbar-nav-link-font-weight;
+
 // Navbar toggler
 $navbar-toggler-focus-width: 0.2rem;
 $navbar-toggler-focus-box-shadow: 0 0 0 $navbar-toggler-focus-width rgba(196, 145, 59, 0.3);
@@ -168,11 +175,6 @@ $btn-font-family: $headings-font-family;
 $btn-font-weight: $headings-font-weight;
 $btn-border-width: $navbar-border-width;
 $btn-border-radius: $border-radius;
-$btn-primary-bg: $gold;
-$btn-primary-border-color: $gold-dark;
-$btn-primary-color: $dark-bg;
-$btn-primary-hover-bg: $gold-light;
-$btn-primary-hover-border-color: $gold-dark;
 
 // Button close (used in modals)
 $btn-close-color: $navbar-dark-hover-color; // Same as navbar hover: $gold

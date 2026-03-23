@@ -7,29 +7,4 @@
   .hero-location {
     color: $cream-dark; // Custom color
   }
-
-  .btn-order {
-    // Most styles handled by Bootstrap btn-primary, but we need custom hover transform
-    background-color: $btn-primary-bg;
-    color: $btn-primary-color;
-    font-family: $btn-font-family;
-    font-weight: $btn-font-weight;
-    font-size: $btn-font-size;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    padding: $btn-padding-y $btn-padding-x;
-    border: $btn-border-width solid $btn-primary-border-color;
-    border-radius: $btn-border-radius;
-    text-decoration: none;
-    transition: background-color 0.2s ease, transform 0.1s ease;
-
-    &:hover {
-      background-color: $btn-primary-hover-bg;
-      transform: translateY(-1px); // Custom transform
-    }
-
-    &:active {
-      transform: translateY(0);
-    }
-  }
 }

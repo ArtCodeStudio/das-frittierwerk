@@ -4,12 +4,6 @@
 // Bootstrap 5 core
 @import 'bootstrap/scss/bootstrap';
 
-// Bootstrap already applies $navbar-dark-toggler-border-color via variables
-// Only keep CSS variable override if needed for build order issues
-.navbar-toggler {
-  --bs-navbar-toggler-border-color: transparent;
-}
-
 // Riba.js Bootstrap 5 extensions
 @import '@ribajs/bs5/src/index';
 

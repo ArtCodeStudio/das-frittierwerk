@@ -5,12 +5,12 @@
   height: 280px;
   margin: 0 auto;
 
-  @media (min-width: 768px) {
+  @include media-breakpoint-up(md) {
     width: 360px;
     height: 360px;
   }
 
-  @media (min-width: 1200px) {
+  @include media-breakpoint-up(xl) {
     width: 420px;
     height: 420px;
   }

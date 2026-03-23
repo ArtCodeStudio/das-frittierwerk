@@ -21,7 +21,7 @@
   border: $navbar-border-width solid $navbar-border-color;
   border-radius: $border-radius;
 
-  @media (min-width: 768px) {
+  @include media-breakpoint-up(md) {
     height: 420px;
   }
 }

@@ -6,13 +6,11 @@
     background-color: $navbar-dark-bg;
     backdrop-filter: blur(10px);
     border-bottom: $navbar-border-width solid $navbar-border-color;
-    padding: $navbar-padding-y $navbar-padding-x;
   }
 
   .navbar .brand-text {
     font-family: $navbar-brand-font-family;
     font-weight: $navbar-brand-font-weight;
-    color: $navbar-dark-hover-color;
     font-size: $navbar-brand-font-size;
     letter-spacing: 0.05em;
     text-transform: uppercase;
@@ -20,33 +18,19 @@
 
   .navbar .nav-link {
     font-family: $navbar-nav-link-font-family;
-    font-weight: $navbar-nav-link-font-weight;
-    color: $navbar-dark-color;
     text-transform: uppercase;
     letter-spacing: 0.04em;
-    font-size: $navbar-nav-link-font-size;
     padding: $navbar-nav-link-padding-y $navbar-nav-link-padding-x;
     transition: color 0.2s ease;
-
-    &:hover,
-    &:focus {
-      color: $navbar-dark-hover-color;
-    }
   }
 
   .navbar .navbar-toggler {
-    border-color: $navbar-dark-toggler-border-color;
-
     &:focus {
       box-shadow: $navbar-toggler-focus-box-shadow;
     }
   }
 
-  .navbar .navbar-toggler-icon {
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23c4913b' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
-  }
-
-  @media (max-width: 767.98px) {
+  @include media-breakpoint-down(md) {
     .navbar .navbar-collapse {
       display: none;
       border-top: $border-width solid $navbar-border-color;
@@ -59,7 +43,7 @@
     }
   }
 
-  @media (min-width: 768px) {
+  @include media-breakpoint-up(md) {
     // Bootstrap sets display: none on collapsed state; this ensures it shows on desktop
     .navbar .navbar-collapse {
       display: flex;

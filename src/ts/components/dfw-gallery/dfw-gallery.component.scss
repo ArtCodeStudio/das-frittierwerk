@@ -4,13 +4,13 @@ dfw-gallery {
   .gallery-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
+    gap: $spacer;
 
-    @media (min-width: 768px) {
+    @include media-breakpoint-up(md) {
       grid-template-columns: repeat(3, 1fr);
     }
 
-    @media (min-width: 1200px) {
+    @include media-breakpoint-up(xl) {
       grid-template-columns: repeat(4, 1fr);
     }
   }

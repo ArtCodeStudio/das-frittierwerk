@@ -33,11 +33,11 @@
   column-count: 1;
   column-gap: 2.5rem;
 
-  @media (min-width: 768px) {
+  @include media-breakpoint-up(md) {
     column-count: 2;
   }
 
-  @media (min-width: 1200px) {
+  @include media-breakpoint-up(xl) {
     column-count: 3;
     column-gap: 3rem;
   }
@@ -49,11 +49,11 @@
   grid-template-columns: 1fr;
   gap: $spacer * 1.5;
 
-  @media (min-width: 768px) {
+  @include media-breakpoint-up(md) {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  @media (min-width: 1200px) {
+  @include media-breakpoint-up(xl) {
     grid-template-columns: repeat(3, 1fr);
   }
 }

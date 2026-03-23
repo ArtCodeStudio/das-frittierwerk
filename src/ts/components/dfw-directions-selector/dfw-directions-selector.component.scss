@@ -37,9 +37,6 @@ dfw-directions-selector {
 // Styles for directions service buttons in modal
 .directions-service-btn {
   min-height: 44px;
-  padding: $btn-padding-y $btn-padding-x;
-  font-family: $btn-font-family;
-  font-weight: $btn-font-weight;
   text-transform: uppercase;
   letter-spacing: 0.06em;
   transition: background-color 0.2s ease, transform 0.1s ease;
@@ -52,7 +49,7 @@ dfw-directions-selector {
     transform: translateY(0);
   }
 
-  @media (max-width: 575.98px) {
+  @include media-breakpoint-down(sm) {
     width: 100%;
   }
 }
