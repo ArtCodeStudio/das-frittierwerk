@@ -1,203 +1,208 @@
 # Das Frittierwerk
 
-Official website for **Das Frittierwerk**, a fast-food restaurant located at Wurster Nordseeküste (Wurster North Sea Coast), Germany. A static website hosted on **GitHub Pages** with content editable via YAML and Markdown files.
+**Dein Imbisstaurant für krossen Geschmack** an der Wurster Nordseeküste.
+
+Krosses Hähnchen, knusprige Pommes, Fisch, Wurst und mehr — frisch zubereitet zum Abholen. Diese Website ist vollständig Open Source und wird automatisch über GitHub Pages bereitgestellt.
+
+> **Feuerweg 1, 27639 Wurster Nordseeküste** · Tel. [04741 9818661](tel:04741981866) · Di–Sa 11:30–14:30 & 16:30–20:00
+
+<p align="center">
+  <img src="doc/preview.png" alt="Das Frittierwerk – Desktop- und Mobile-Ansicht" width="820">
+</p>
 
 ---
 
-## Features
+## Auf einen Blick
 
-- **Menu** — Dynamic menu system with categories and prices (`menu.yml`)
-- **Contact** — Contact information with interactive map using OpenStreetMap (OpenLayers)
-- **About Us / Quality** — Content pages written in Markdown
-- **Gallery** — Image gallery managed via `gallery.yml` with assets in `src/assets/gallery/`
-- **Navigation** — Single-page application with anchor links to all sections
-- **PWA Support** — Progressive Web App with manifest and offline capabilities
-- **Responsive Design** — Mobile-first design using Bootstrap 5
-
----
-
-## Content Editing
-
-All content is managed through simple YAML and Markdown files that can be edited directly on GitHub. After saving changes, the site automatically rebuilds and deploys.
-
-| Content | File |
-|---------|------|
-| Menu | [`src/content/menu.yml`](src/content/menu.yml) |
-| Contact | [`src/content/contact.yml`](src/content/contact.yml) |
-| Gallery | [`src/content/gallery.yml`](src/content/gallery.yml) |
-| Site Metadata | [`src/content/site.yml`](src/content/site.yml) |
-| About Us | [`src/content/about.md`](src/content/about.md) |
-| Quality | [`src/content/quality.md`](src/content/quality.md) |
-| Privacy Policy | [`src/content/datenschutz.md`](src/content/datenschutz.md) |
-| Legal Notice | [`src/content/impressum.md`](src/content/impressum.md) |
-
-**Editing on GitHub:** Simply edit the file → save → the site will rebuild and deploy automatically.
+| | |
+|---|---|
+| **Speisekarte** | Werkmenüs & Einzelgerichte mit Preisen |
+| **Kontakt** | Telefon, Öffnungszeiten, Anfahrt mit Kartenansicht |
+| **Über uns & Qualität** | Unser Anspruch an frische Zutaten |
+| **Galerie** | Bilder rund ums Frittierwerk |
+| **Open Source** | Quellcode öffentlich, MIT-Lizenz |
 
 ---
 
-## Tech Stack
+## Inhalte bearbeiten
 
-- **Build Tool:** [Vite](https://vitejs.dev/) — Fast build tool and dev server
-- **UI Framework:** [Riba.js](https://github.com/ribajs/riba) — Web Components with data binding
-- **Styling:** Bootstrap 5 (SCSS) with custom corporate design
-- **Templates:** [Pug](https://pugjs.org/) — Template engine for HTML generation
-- **Maps:** [OpenLayers](https://openlayers.org/) + OpenStreetMap
-- **Fonts:** [Fontsource](https://fontsource.org/) (Palanquin family)
-- **Content:** YAML + Markdown processed at build time
-- **Package Manager:** Yarn 4
+Alle Texte, Preise und Öffnungszeiten werden über einfache Textdateien verwaltet. Dafür wird **kein** Programmierwissen benötigt — die Dateien können direkt hier auf GitHub bearbeitet werden. Nach dem Speichern wird die Seite automatisch neu gebaut und veröffentlicht.
 
-**Requirements:** Node.js ≥ 24, Yarn 4
+### So funktioniert es
 
-**Output Directory:** `_site/`
+> **Voraussetzung:** Ein kostenloser [GitHub-Account](https://github.com/signup) mit Schreibzugriff auf dieses Repository. Wer noch keinen Account hat, kann sich in wenigen Minuten registrieren.
+
+1. Die gewünschte Datei in der Tabelle unten anklicken
+2. Oben rechts auf den **Stift** (Edit) klicken
+3. Änderungen vornehmen
+4. Unten auf **Commit changes** klicken — fertig!
+
+### Inhaltsdateien
+
+| Was | Datei | Format |
+|-----|-------|--------|
+| Werkmenüs (Menü 1–6, Kids) | [`src/content/werkmenus.yml`](src/content/werkmenus.yml) | YAML |
+| Speisekarte (Einzelgerichte) | [`src/content/menu.yml`](src/content/menu.yml) | YAML |
+| Kontakt & Öffnungszeiten | [`src/content/contact.yml`](src/content/contact.yml) | YAML |
+| Galerie | [`src/content/gallery.yml`](src/content/gallery.yml) | YAML |
+| Seitenname, Navigation, Footer | [`src/content/site.yml`](src/content/site.yml) | YAML |
+| Über uns | [`src/content/about.md`](src/content/about.md) | Markdown |
+| Qualität | [`src/content/quality.md`](src/content/quality.md) | Markdown |
+| Datenschutzerklärung | [`src/content/datenschutz.md`](src/content/datenschutz.md) | Markdown |
+| Impressum | [`src/content/impressum.md`](src/content/impressum.md) | Markdown |
+
+### Beispiel: Preis ändern
+
+In [`src/content/menu.yml`](src/content/menu.yml) steht z. B.:
+
+```yaml
+- name: "Hähnchen Trio*"
+  description: "Bruststreifen, Schenkel o. Knochen & Keule"
+  price: 8.50
+```
+
+Einfach `8.50` durch den neuen Preis ersetzen, speichern — die Seite aktualisiert sich automatisch.
+
+### Beispiel: Öffnungszeiten ändern
+
+In [`src/content/contact.yml`](src/content/contact.yml):
+
+```yaml
+hours:
+  - label: "Dienstag – Samstag"
+    times: "11:30 – 14:30 & 16:30 – 20:00"
+  - label: "Sonntag & Montag"
+    times: "Ruhetage"
+
+hours_short: "Di–Sa 11:30–14:30 & 16:30–20:00 | So & Mo Ruhetage"
+```
+
+> **Wichtig:** Sowohl `hours` (für die Kontaktseite) als auch `hours_short` (für den Footer) aktualisieren!
+
+### Beispiel: Galeriebilder hinzufügen
+
+1. Bild in den Ordner [`src/assets/gallery/`](src/assets/gallery/) hochladen
+2. In [`src/content/gallery.yml`](src/content/gallery.yml) einen Eintrag hinzufügen:
+
+```yaml
+images:
+  - src: /assets/gallery/mein-neues-bild.jpg
+    alt: "Beschreibung des Bildes"
+    caption: "Optionale Bildunterschrift"
+```
+
+### Hinweis zum Stern ★
+
+In der Speisekarte steht `*` hinter hausgemachten Spezialitäten (z. B. `Hähnchen Trio*`). Auf der Website wird das `*` automatisch als goldener Stern ★ dargestellt.
 
 ---
 
-## Project Structure
+## Technik
+
+### Tech Stack
+
+| Bereich | Technologie |
+|---------|-------------|
+| Build | [Vite](https://vitejs.dev/) |
+| UI-Framework | [Riba.js](https://github.com/ribajs/riba) (Web Components + Datenbindung) |
+| Styling | [Bootstrap 5](https://getbootstrap.com/) (SCSS) mit eigenem Corporate Design |
+| Templates | [Pug](https://pugjs.org/) |
+| Sprache | TypeScript |
+| Schriftarten | [Fontsource](https://fontsource.org/) (Palanquin) |
+| Inhalte | YAML + Markdown, zur Build-Zeit verarbeitet |
+| Hosting | GitHub Pages (automatisches Deployment) |
+| Paketmanager | Yarn 4 |
+
+### Projektstruktur
 
 ```
 das-frittier-werk/
 ├── src/
-│   ├── assets/          # Static assets (images, fonts, etc.)
-│   │   └── gallery/      # Gallery images
-│   ├── content/         # Content files (YAML + Markdown)
-│   │   ├── menu.yml      # Menu items and prices
-│   │   ├── contact.yml   # Contact information
-│   │   ├── gallery.yml   # Gallery configuration
-│   │   ├── site.yml      # Site metadata and labels
-│   │   ├── about.md      # About us page content
-│   │   ├── quality.md    # Quality page content
-│   │   ├── datenschutz.md # Privacy policy
-│   │   └── impressum.md  # Legal notice
-│   ├── scss/            # Stylesheets (Bootstrap + custom)
-│   ├── ts/              # TypeScript source files
-│   └── views/           # Pug templates
-│       ├── layouts/     # Layout templates
-│       ├── pages/       # Page templates
-│       └── partials/    # Reusable components
-├── scripts/             # Build scripts
-├── .github/
-│   └── workflows/       # GitHub Actions workflows
-├── vite.config.js       # Vite configuration
-├── vite-plugin-pug-pages.js  # Custom Pug plugin
-├── vite-plugin-manifest.js   # PWA manifest plugin
-└── package.json         # Dependencies and scripts
+│   ├── assets/            # Bilder, Favicons, SVGs
+│   │   ├── gallery/       # Galerie-Bilder
+│   │   ├── gears/         # Zahnrad-SVGs (Hintergrund)
+│   │   └── favicon/       # Favicons & App-Icons
+│   ├── content/           # Inhalte (YAML + Markdown)
+│   │   ├── werkmenus.yml  # Werkmenüs (Menü 1–6)
+│   │   ├── menu.yml       # Speisekarte (Einzelgerichte)
+│   │   ├── contact.yml    # Kontakt & Öffnungszeiten
+│   │   ├── gallery.yml    # Galerie-Konfiguration
+│   │   ├── site.yml       # Seitenname, Navigation, Footer
+│   │   ├── about.md       # Über uns
+│   │   ├── quality.md     # Qualität
+│   │   ├── datenschutz.md # Datenschutzerklärung
+│   │   └── impressum.md   # Impressum
+│   ├── scss/              # Stylesheets (Bootstrap + Custom)
+│   ├── ts/                # TypeScript-Quellcode
+│   │   ├── components/    # Web Components (Gallery, Map, etc.)
+│   │   ├── binders/       # Riba.js Binder (Scroll-Rotation, etc.)
+│   │   ├── utils/         # Hilfsfunktionen
+│   │   └── types/         # TypeScript-Typdefinitionen
+│   ├── views/             # Pug-Templates
+│   │   ├── layouts/       # Seitenlayout
+│   │   ├── pages/         # Seitenvorlagen
+│   │   └── partials/      # Wiederverwendbare Bausteine
+│   └── public/            # Statische Dateien (werden 1:1 kopiert)
+├── scripts/               # Build-Skripte
+├── .github/workflows/     # GitHub Actions (CI/CD)
+├── vite.config.js         # Vite-Konfiguration
+├── vite-plugin-pug-pages.js   # Custom Plugin: Pug → HTML
+├── vite-plugin-manifest.js    # Custom Plugin: PWA-Manifest
+└── package.json
 ```
 
----
-
-## Local Development
-
-### Prerequisites
+### Voraussetzungen
 
 - Node.js ≥ 24
 - Yarn 4
 
-### Installation
+### Installation & Entwicklung
 
 ```bash
+# Abhängigkeiten installieren
 yarn install
-```
 
-### Development Server
-
-Start the development server with live reload:
-
-```bash
+# Entwicklungsserver starten (Watch + Preview)
 yarn start
 ```
 
-This command runs both the file watcher and preview server concurrently. The site will be available at `http://localhost:4173` (or another port if 4173 is in use).
+Die Seite ist dann unter `http://localhost:4173` erreichbar.
 
-### Development Scripts
+### Verfügbare Skripte
 
-- `yarn start` — Start development server with live reload (watch + preview)
-- `yarn watch` — Watch for file changes and rebuild
-- `yarn hmr` — Start Vite dev server with HMR (Hot Module Replacement)
-- `yarn preview` — Preview production build locally
-- `yarn build` — Build for production
-- `yarn build:dev` — Build for development
-- `yarn check` — Type-check TypeScript without emitting files
-- `yarn clear` — Remove build output directory (`_site/`)
+| Befehl | Beschreibung |
+|--------|-------------|
+| `yarn start` | Entwicklungsserver mit Live-Reload |
+| `yarn watch` | Dateiänderungen beobachten & neu bauen |
+| `yarn hmr` | Vite Dev-Server mit Hot Module Replacement |
+| `yarn preview` | Produktions-Build lokal anzeigen |
+| `yarn build` | Produktions-Build erstellen (Ausgabe: `_site/`) |
+| `yarn build:dev` | Entwicklungs-Build erstellen |
+| `yarn check` | TypeScript-Typprüfung |
+| `yarn clear` | Build-Verzeichnis löschen (`_site/`) |
 
----
+### Deployment
 
-## Building
+Die Seite wird automatisch über **GitHub Actions** auf **GitHub Pages** deployed. Bei jedem Push auf `main` wird gebaut und veröffentlicht.
 
-### Production Build
+Ein manuelles Deployment ist über **Actions → Deploy GitHub Page → Run workflow** möglich.
 
-```bash
-yarn build
-```
+### Custom Vite Plugins
 
-The production build will be output to `_site/` directory.
-
-### Preview Production Build
-
-```bash
-yarn preview
-```
-
-This serves the production build locally, typically at `http://localhost:4173`.
+| Plugin | Beschreibung |
+|--------|-------------|
+| `vite-plugin-pug-pages.js` | Kompiliert Pug-Templates zu HTML, lädt YAML/Markdown-Inhalte und registriert sie als Multi-Page-Einträge |
+| `vite-plugin-manifest.js` | Generiert das PWA-Manifest (`site.webmanifest`) aus `site.yml` |
 
 ---
 
-## Deployment
+## Lizenz
 
-The site is automatically deployed to GitHub Pages using GitHub Actions.
+MIT — siehe [LICENSE](LICENSE).
 
-### Automatic Deployment
+## Autoren
 
-1. **Repository Setup:** Ensure the repository is on GitHub (e.g., `ArtCodeStudio/das-frittierwerk`)
-2. **GitHub Pages Configuration:** 
-   - Go to **Settings → Pages → Source**
-   - Select **GitHub Actions** as the source
-3. **Workflow:** The workflow file `.github/workflows/node-gh-pages.yml` automatically builds and deploys on every push to the `main` branch
+**[Art+Code Studio](https://artandcode.studio)**
 
-### Deployment URL
-
-- GitHub Pages URL: `https://artcodestudio.github.io/das-frittierwerk/`
-- Custom domain: Can be configured in GitHub Pages settings
-
-### Manual Deployment
-
-You can also trigger a manual deployment via GitHub Actions:
-- Go to **Actions** tab
-- Select **Deploy GitHub Page** workflow
-- Click **Run workflow**
-
----
-
-## Custom Plugins
-
-This project includes custom Vite plugins:
-
-- **`vite-plugin-pug-pages.js`** — Compiles Pug templates to HTML and registers them as multi-page entries. Automatically discovers `.pug` files, loads content from YAML/Markdown files, and injects them into Vite's build process.
-- **`vite-plugin-manifest.js`** — Generates PWA manifest file (`site.webmanifest`) from site metadata.
-
----
-
-## Browser Support
-
-The site is built with modern web standards and supports:
-- Chrome/Edge (latest)
-- Firefox (latest)
-- Safari (latest)
-- Mobile browsers (iOS Safari, Chrome Mobile)
-
----
-
-## License
-
-MIT License — see [LICENSE](LICENSE) file for details.
-
----
-
-## Author
-
-Pascal Garber <pascal@artandcode.studio>
-
----
-
-## Repository
-
-[GitHub Repository](https://github.com/ArtCodeStudio/das-frittierwerk)
+- **Pascal Garber** · Entwicklung
+- **Maya Philine Henze** · Design
