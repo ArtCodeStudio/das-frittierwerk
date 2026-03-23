@@ -8,16 +8,11 @@ $footer-font-size: $font-size-base * 0.826;
     color: $footer-order-color;
   }
 
-  // .footer-link color handled by Bootstrap $link-color (= $gold-light = $footer-link-color)
-
   .footer-hours,
   .footer-address,
-  .footer-impressum,
-  .footer-source-code {
+  .footer-impressum {
     color: $footer-text-color;
   }
-
-  // .footer-label color handled by .text-gold-dark utility in template
 
   .footer-copyright {
     color: $footer-copyright-color;

@@ -1,9 +1,4 @@
 dfw-background-gears {
   display: block;
   transition: opacity 0.15s ease-out;
-
-  &.dfw-background-gears--resizing {
-    opacity: 0;
-    pointer-events: none;
-  }
 }

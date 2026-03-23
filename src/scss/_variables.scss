@@ -153,7 +153,6 @@ $navbar-nav-link-padding-y: $spacer * 0.5; // 0.5rem
 
 // Navbar typography
 $navbar-brand-font-family: $headings-font-family;
-$navbar-brand-font-weight: $headings-font-weight;
 $navbar-nav-link-font-family: $headings-font-family;
 $navbar-nav-link-font-weight: 600;
 
@@ -181,12 +180,8 @@ $btn-close-color: $navbar-dark-hover-color; // Same as navbar hover: $gold
 
 // Footer
 $footer-bg: rgba(26, 15, 10, 0.8);
-$footer-border-width: $navbar-border-width;
-$footer-border-color: $gold-dark;
 $footer-order-color: $cream-dark;
-$footer-link-color: $gold-light;
 $footer-text-color: $gray-400;
-$footer-label-color: $gold-dark;
 $footer-copyright-color: $gray-400;
 
 // Modal variables - matching navbar and footer style
