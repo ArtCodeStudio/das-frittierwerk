@@ -1,24 +1,18 @@
 // Speisekarte specific styles
 .menu-category {
-  // margin-bottom now handled by mb-5 utility
   break-inside: avoid;
   page-break-inside: avoid;
 
   &__title {
-    // Spacing, text-transform, border-bottom now handled by utilities
-    // Bootstrap already applies $headings-font-family, $headings-font-weight, $headings-color
-    font-size: $h2-font-size * 0.8; // Custom scaled size
-    letter-spacing: 0.05em; // Custom, no Bootstrap utility
+    font-size: $h2-font-size * 0.8;
+    letter-spacing: 0.05em;
   }
 }
 
 .menu-item {
-  // display, justify-content, align-items, padding, gap now handled by utilities
   &__name {
-    // font-weight, text-break now handled by utilities
-    // Bootstrap already applies $font-size-base and $body-color via body
-    font-family: $headings-font-family; // Custom font family
-    min-width: 0; // Needed for text-break to work
+    font-family: $headings-font-family;
+    min-width: 0;
   }
 
   &__dots {
@@ -30,13 +24,11 @@
   }
 
   &__description {
-    // font-size, color, padding-bottom, text-break now handled by utilities
-    margin-top: -$spacer * 0.2; // Negative margin, no Bootstrap utility
+    margin-top: -$spacer * 0.2;
   }
 }
 
-// Multi-column layout: categories flow into columns, no row alignment.
-// Shorter blocks don't leave gaps; columns fill independently like a masonry flow.
+// Multi-column layout for Speisekarte categories
 .menu-grid {
   column-count: 1;
   column-gap: 2.5rem;
@@ -51,3 +43,48 @@
   }
 }
 
+// Werkmenüs card grid
+.werkmenus-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacer * 1.5;
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (min-width: 1200px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.werkmenu-card {
+  border: $navbar-border-width solid $gold-dark;
+  border-radius: $border-radius;
+  padding: $spacer * 1.25;
+  background-color: rgba($dark-bg, 0.5);
+  transition: border-color 0.2s ease;
+
+  &:hover {
+    border-color: $gold;
+  }
+
+  &__number {
+    font-family: $headings-font-family;
+    font-weight: $headings-font-weight;
+    font-size: $font-size-sm;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: $spacer * 0.25;
+    color: $gold;
+  }
+
+  &__name {
+    font-size: $h3-font-size * 0.85;
+    margin-bottom: $spacer * 0.5;
+  }
+
+  &__description {
+    font-size: $font-size-sm;
+  }
+}

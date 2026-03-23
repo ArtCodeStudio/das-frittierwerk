@@ -1,21 +1,22 @@
 # Speisekarte - Das Frittierwerk
-# Entspricht der aktuellen Speisekarte (Screenshots).
+# Entspricht der aktuellen Speisekarte (Hochkant-Karte).
 # Preise als Zahl angeben (z.B. 9 oder 4.50)
+# Stern (*) steht für hausgemachte Spezialitäten.
 
 title: "Speisekarte"
 
 categories:
   - name: "Krosses Hähnchen"
     items:
-      - name: "Hähnchen Trio"
-        description: "Bruststreifen, Schenkel & Keule"
-        price: 9
-      - name: "3 Bruststreifen"
+      - name: "Hähnchen Trio*"
+        description: "Bruststreifen, Schenkel o. Knochen & Keule"
+        price: 8.50
+      - name: "3 Bruststreifen*"
         price: 6
-      - name: "1 Schenkel ohne Knochen"
-        price: 4
-      - name: "3 Keulen"
-        price: 4
+      - name: "1 Schenkel* ohne Knochen"
+        price: 5
+      - name: "3 Keulen*"
+        price: 4.50
 
   - name: "Wurst"
     items:
@@ -26,10 +27,8 @@ categories:
 
   - name: "Veggie"
     items:
-      - name: "5 Falafel Bällchen"
+      - name: "Falafel Bällchen"
         price: 7.50
-      - name: "gebackener Feta"
-        price: 9
 
   - name: "Kids"
     items:
@@ -40,9 +39,9 @@ categories:
 
   - name: "Fisch"
     items:
-      - name: "zartes Backfischfilet"
+      - name: "zartes Backfischfilet*"
         price: 9
-      - name: "Backfischhappen"
+      - name: "Kibbeling"
         price: 6
       - name: "gebratene Garnelen"
         price: 10
@@ -56,50 +55,25 @@ categories:
       - name: "Pommes groß"
         price: 5
       - name: "Caesar Salad"
+        description: "mit Parmesan-Joghurt-Dressing"
         price: 5
-      - name: "Kartoffelsalat"
+      - name: "Kartoffelsalat*"
         price: 4
-      - name: "Brötchen"
-        price: 1
 
-  - name: "Dips & Saucen"
+  - name: "Dips & Toppings"
     items:
-      - name: "Ketchup, Mayo, Senf"
+      - name: "Ketchup, Mayo, Senf, Frühlingslauch"
         price: 0.50
-      - name: "Aioli, Currymayo, Paprikamayo, Minzjoghurt"
+      - name: "Aioli*, Currymayo*, Paprikamayo*, Minzjoghurt*, »Bruschetta«"
         price: 1.50
-      - name: "Remoulade, Sour Cream, Currysauce, Teriyaki, Süßsauer, Tomatensalsa"
-        price: 2.50
-      - name: "Käsesauce, Guacamole, Mango-Chili-Chutney, Trüffelmayo, Bratenfond"
-        price: 3
-
-  - name: "Toppings"
-    items:
-      - name: "gerösteter Sesam"
-        price: 0.50
-      - name: "Frühlingslauch"
-        price: 0.50
-      - name: "Bruschetta"
-        price: 1.50
-      - name: "Parmesan"
+      - name: "Remoulade*, Sour Cream, Currysauce*, Tomatensalsa*, Parmesan"
+        price: 2
+      - name: "Käsesauce, Guacamole, Mango-Chili-Chutney, Trüffelmayo*"
         price: 2.50
 
-  - name: "Menüs"
-    items:
-      - name: "Hähnchen Trio Menü"
-        description: "Bruststreifen, Schenkel & Keule mit hausgemachter Currymayo, knusprigen Pommes & Getränk"
-        price: 17.50
-      - name: "Schenkel Menü"
-        description: "1 Hähnchenschenkel mit hausgemachter Paprikamayo, knusprigen Pommes & Getränk"
-        price: 12.50
-      - name: "Backfisch Menü"
-        description: "frisches Backfischfilet mit hausgemachter Remoulade, knusprigen Pommes, Bio Zitrone & Getränk"
-        price: 18.50
-      - name: "Falafel Menü"
-        description: "hausgemachte Falafel mit Minzjoghurt, knusprigen Pommes & Getränk"
-        price: 16
-
-  - name: "Getränk"
+  - name: "Getränke"
     items:
       - name: "Je 0,33l"
         price: 3
+
+note: "Unser Stern ★ steht für hausgemachte Spezialitäten im Frittierwerk – für kompromisslosen Geschmack!"

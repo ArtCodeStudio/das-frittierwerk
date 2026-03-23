@@ -6,7 +6,7 @@ footer.site-footer.text-center.border-top.border-2.border-gold-dark.pt-4.pb-6.pb
       a.footer-link.fw-semibold(href='tel:' + contact.phone.replace(/\s/g, ''))= contact.phone
     p.footer-hours.fs-6.mb-1
       span.footer-label.fw-semibold= site.footer_hours_label || 'Öffnungszeiten: '
-      span= contact.hours
+      span= contact.hours_short || ''
     p.footer-address.fs-6.mb-1
       span.footer-label.fw-semibold= site.footer_address_label || 'Anfahrt: '
       a.footer-link(href=contact.directions_url, target='_blank', rel='noopener noreferrer')= contact.address

@@ -35,6 +35,27 @@
   hyphens: auto;
 }
 
+// Gold star for housemade items (replaces * and ★ in menu names)
+.text-star {
+  background: radial-gradient(
+    ellipse 75% 55% at var(--shine-x) var(--shine-y),
+    $cream 0%,
+    $gold-light 15%,
+    $gold 38%,
+    $gold-dark 65%,
+    $rust 100%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+
+  // Superscript variant for suffix markers (e.g. "Hähnchen Trio★")
+  &--sup {
+    font-size: 0.6em;
+    vertical-align: super;
+  }
+}
+
 section {
   padding: $section-padding-y 0;
 }

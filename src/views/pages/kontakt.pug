@@ -15,7 +15,11 @@ block content
                 a.contact-link(href='tel:' + contact.phone.replace(/\s/g, ''))= contact.phone
             .contact-block.mb-4
               h3.contact-label.text-shine.text-uppercase.mb-1= contact.label_hours || 'Öffnungszeiten'
-              p.contact-value.mb-0= contact.hours
+              each entry in (contact.hours || [])
+                p.contact-value.mb-0
+                  strong= entry.label
+                  br
+                  span= entry.times
             .contact-block.mb-4
               h3.contact-label.text-shine.text-uppercase.mb-1= contact.label_directions || 'Anfahrt'
               p.contact-value.mb-0= contact.address

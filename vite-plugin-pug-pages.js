@@ -7,6 +7,15 @@ import { marked } from 'marked';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
+/** @param {string} str */
+function escapeHtml(str) {
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
 /**
  * Load YAML file from content dir. Returns empty object if file missing.
  * @param {string} contentDir
@@ -51,6 +60,18 @@ function formatPrice(price) {
 }
 
 /**
+ * Format item name: replace * with a gold-colored ★ star.
+ * @param {string} name
+ * @returns {string} HTML string with styled star
+ */
+function formatName(name) {
+  if (!name || typeof name !== 'string') return '';
+  return escapeHtml(name)
+    .replace(/\*/g, '<span class="text-star text-star--sup">★</span>')
+    .replace(/★/g, '<span class="text-star">★</span>');
+}
+
+/**
  * Derive a URL-safe section id from a title (e.g. "Über uns" -> "ueber-uns").
  * @param {string} text
  * @returns {string}
@@ -71,7 +92,7 @@ function slugify(text) {
 /** Load all content and build Pug locals. */
 function loadLocals(contentDir) {
   const contentFiles = {
-    yaml: ['site', 'contact', 'menu', 'gallery'],
+    yaml: ['site', 'contact', 'menu', 'werkmenus', 'gallery'],
     markdown: ['about', 'quality', 'impressum', 'datenschutz'],
   };
 
@@ -88,6 +109,7 @@ function loadLocals(contentDir) {
   return {
     ...locals,
     formatPrice,
+    formatName,
     slugify,
     logoBase: 'assets/dasfrittierwerk_logo-animation.avif',
     logoGear: 'assets/dasfrittierwerk_logo-animation2.avif',

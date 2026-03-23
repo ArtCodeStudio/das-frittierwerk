@@ -1,0 +1,63 @@
+# Werkmenüs - Das Frittierwerk
+# Je Menü ein 0,33l Getränk inklusive!
+# Preise als Zahl angeben (z.B. 9 oder 4.50)
+# Stern (*) steht für hausgemachte Spezialitäten.
+
+title: "Unsere Werkmenüs"
+subtitle: "Je Menü ein 0,33l Getränk inklusive!"
+
+menus:
+  - number: 1
+    name: "Falafel"
+    description: "mit Pommes & Minzjoghurt*"
+    price: 15.50
+
+  - number: 2
+    name: "Backfischfilet"
+    description: "im Bierteig mit Kartoffelsalat*, Remoulade* & Bio Zitrone"
+    price: 17.50
+
+  - number: 3
+    name: "Currywurst & Pommes"
+    variants:
+      - name: "mit Krakauer"
+        price: 13
+      - name: "mit Duroc Bratwurst"
+        price: 12.50
+
+  - number: 4
+    name: "Pommes, Guacamole, Tomatensalsa* & Nachos"
+    variants:
+      - name: "mit Hähnchen Trio*"
+        price: 19.50
+      - name: "mit Hähnchenbruststreifen*"
+        price: 17
+      - name: "mit Hähnchenschenkel*"
+        price: 16
+
+  - number: 5
+    name: "Pommes, Mango-Chili-Chutney, Currymayo* & gerösteter Sesam"
+    variants:
+      - name: "mit Hähnchen Trio*"
+        price: 19
+      - name: "mit Hähnchenbruststreifen*"
+        price: 16.50
+      - name: "mit Hähnchenschenkel*"
+        price: 15.50
+
+  - number: 6
+    name: "Pommes, Trüffelmayo* & Parmesan"
+    variants:
+      - name: "mit Hähnchen Trio*"
+        price: 19.50
+      - name: "mit Hähnchenbruststreifen*"
+        price: 17
+      - name: "mit Hähnchenschenkel*"
+        price: 16
+
+kids_menu:
+  name: "Kids Menü"
+  description: "Hähnchen- oder Fischnuggets mit Pommes, Ketchup / Mayo"
+  price: 10
+
+note: "Unser Stern ★ steht für hausgemachte Spezialitäten im Frittierwerk – für kompromisslosen Geschmack!"

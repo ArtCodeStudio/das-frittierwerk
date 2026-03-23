@@ -22,11 +22,17 @@ export interface DirectionsService {
   icon?: string;
 }
 
+export interface OpeningHoursEntry {
+  label: string;
+  times: string;
+}
+
 export interface ContactData {
   title?: string;
   phone?: string;
   address?: string;
-  hours?: string;
+  hours?: OpeningHoursEntry[];
+  hours_short?: string;
   location?: string;
   order_hint?: string;
   label_order_phone?: string;
@@ -70,4 +76,30 @@ export interface MenuCategory {
 export interface MenuData {
   title?: string;
   categories: MenuCategory[];
+  note?: string;
+}
+
+export interface WerkMenuVariant {
+  name: string;
+  price: number | string;
+}
+
+export interface WerkMenu {
+  number: number;
+  name: string;
+  description?: string;
+  price?: number | string;
+  variants?: WerkMenuVariant[];
+}
+
+export interface WerkMenusData {
+  title?: string;
+  subtitle?: string;
+  menus: WerkMenu[];
+  kids_menu?: {
+    name: string;
+    description?: string;
+    price: number | string;
+  };
+  note?: string;
 }

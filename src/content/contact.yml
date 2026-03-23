@@ -11,8 +11,17 @@ label_directions: "Anfahrt"
 phone: "04741 9818661"
 address: "Feuerweg 1, 27639 Wurster Nordseeküste"
 location: "Cuxhaven Nordseeküste"
-hours: "11 - 20 Uhr"
 order_hint: "Jetzt bestellen & kross abholen!"
+
+# Öffnungszeiten
+hours:
+  - label: "Dienstag – Samstag"
+    times: "11:30 – 14:30 & 16:30 – 20:00"
+  - label: "Sonntag & Montag"
+    times: "Ruhetage"
+
+# Einzeilige Zusammenfassung für Footer
+hours_short: "Di–Sa 11:30–14:30 & 16:30–20:00 | So & Mo Ruhetage"
 
 # Routing/Anfahrt: Multiple routing services available via directions selector
 # Destination lat,lon – Feuerweg 1, Wurster Nordseeküste
