@@ -1,3 +1,11 @@
+// Prevent horizontal overflow on mobile caused by gears with negative offsets.
+// Belt-and-suspenders: clip on both html and body for cross-browser reliability.
+// clip (not hidden) avoids creating a new scroll container.
+html,
+body {
+  overflow-x: clip;
+}
+
 body {
   background-image: url('../assets/bg.avif');
   background-size: cover;
@@ -5,27 +13,27 @@ body {
   background-position: center center;
   background-repeat: no-repeat;
   min-height: 100vh;
-  overflow-x: hidden;
 }
 
 // Scroll-rotating gears in the background (dark brown).
 // Height is set by JS to document scrollHeight so gear positions (top: X%) distribute along page height.
-// Always partially off-screen at left/right edges (never fully visible); overflow hidden.
+// Uses contain for overflow so gears with negative offsets don't contribute to scrollHeight
+// (Firefox counts absolutely positioned children for scrollHeight unless overflow is set on the parent).
 .background-gears {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
-  height: 100%; // fallback until JS sets height to scrollHeight
+  height: 100%;
   min-height: 100vh;
   z-index: 0;
   pointer-events: none;
-  overflow: hidden;
+  overflow: clip;
+  contain: size layout;
 }
 
 .bg-gear {
   position: absolute;
-  // width, height, top, left/right set via inline style from component (random layout)
   background-color: $dark-brown;
   mask-image: var(--gear-mask);
   mask-size: contain;
@@ -41,5 +49,5 @@ body {
 .app-content {
   position: relative;
   z-index: 1;
-  padding-top: 62px; // Offset for fixed navbar
+  padding-top: 62px;
 }
