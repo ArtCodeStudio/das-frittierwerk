@@ -3,14 +3,14 @@ div
   section(id=slugify(werkmenus.title || 'Werkmenüs'))
     .menu-section.py-5
       .container
-        h2.section-title.text-shine= werkmenus.title || 'Unsere Werkmenüs'
+        h2.section-title.text-shine.text-center.text-uppercase= werkmenus.title || 'Unsere Werkmenüs'
         if werkmenus.subtitle
           p.text-center.text-info.fw-semibold.mb-4.fs-5= werkmenus.subtitle
         .werkmenus-grid
           each wm in (werkmenus.menus || [])
             .werkmenu-card.mb-4
-              h3.werkmenu-card__number Menü #{wm.number}
-              h4.werkmenu-card__name.text-shine.fw-bold!= formatName(wm.name)
+              h3.werkmenu-card__number.text-uppercase.mb-1.text-primary Menü #{wm.number}
+              h4.werkmenu-card__name.text-shine.fw-bold.mb-2!= formatName(wm.name)
               if wm.description
                 p.werkmenu-card__description.text-info.mb-2!= formatName(wm.description)
               if wm.variants
@@ -24,8 +24,8 @@ div
                   span.menu-item__price.text-info.fw-bold.fs-5= formatPrice(wm.price) + ' €'
           if werkmenus.kids_menu
             .werkmenu-card.mb-4
-              h3.werkmenu-card__number Kids Menü
-              h4.werkmenu-card__name.text-shine.fw-bold!= formatName(werkmenus.kids_menu.name)
+              h3.werkmenu-card__number.text-uppercase.mb-1.text-primary Kids Menü
+              h4.werkmenu-card__name.text-shine.fw-bold.mb-2!= formatName(werkmenus.kids_menu.name)
               if werkmenus.kids_menu.description
                 p.werkmenu-card__description.text-info.mb-2!= formatName(werkmenus.kids_menu.description)
               .menu-item.d-flex.justify-content-end.py-1
@@ -39,7 +39,7 @@ div
   section(id=slugify(menu.title || 'Speisekarte'))
     .menu-section.py-5
       .container
-        h2.section-title.text-shine= menu.title || 'Speisekarte'
+        h2.section-title.text-shine.text-center.text-uppercase= menu.title || 'Speisekarte'
         .menu-grid
           each category in (menu.categories || [])
             .menu-category.mb-5

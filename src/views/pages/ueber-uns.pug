@@ -4,5 +4,5 @@ block content
   - const pageTitle = about.title || 'Über uns'
   section(id=slugify(pageTitle))
     .container
-      h2.section-title.text-shine= pageTitle
-      .page-content.lead!= about.html
+      h2.section-title.text-shine.text-center.text-uppercase= pageTitle
+      .page-content.lead.lh-lg!= about.html

@@ -4,5 +4,5 @@ block content
   - const pageTitle = datenschutz.title || 'Datenschutzerklärung'
   section(id=slugify(pageTitle))
     .container.text-hyphenate
-      h2.section-title.text-shine= pageTitle
-      .page-content!= datenschutz.html
+      h2.section-title.text-shine.text-center.text-uppercase= pageTitle
+      .page-content.lh-lg!= datenschutz.html

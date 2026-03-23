@@ -23,9 +23,7 @@
     padding-top: $spacer * 0.3;
   }
 
-  &__description {
-    margin-top: -$spacer * 0.2;
-  }
+  // __description margin-top handled by .mt-n1 utility in template
 }
 
 // Multi-column layout for Speisekarte categories
@@ -70,18 +68,15 @@
   }
 
   &__number {
-    font-family: $headings-font-family;
-    font-weight: $headings-font-weight;
+    // font-family, font-weight handled by h3 + Bootstrap variables
+    // text-transform, margin-bottom, color handled by .text-uppercase, .mb-1, .text-primary utilities
     font-size: $font-size-sm;
-    text-transform: uppercase;
     letter-spacing: 0.08em;
-    margin-bottom: $spacer * 0.25;
-    color: $gold;
   }
 
   &__name {
     font-size: $h3-font-size * 0.85;
-    margin-bottom: $spacer * 0.5;
+    // margin-bottom handled by .mb-2 utility in template
   }
 
   &__description {

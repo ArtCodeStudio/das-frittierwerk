@@ -55,13 +55,9 @@ section {
 }
 
 .section-title {
-  font-family: $headings-font-family;
-  font-weight: $headings-font-weight;
-  color: $headings-color;
-  text-transform: uppercase;
+  // font-family, font-weight, color, font-size handled by h2 + Bootstrap variables
+  // text-transform, text-align handled by .text-uppercase, .text-center utilities in templates
   letter-spacing: 0.08em;
-  font-size: $h2-font-size;
-  text-align: center;
   margin-bottom: $spacer * 2;
 
   &::after {

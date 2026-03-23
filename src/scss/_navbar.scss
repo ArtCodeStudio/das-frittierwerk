@@ -10,16 +10,15 @@
 
   .navbar .brand-text {
     font-family: $navbar-brand-font-family;
-    font-weight: $navbar-brand-font-weight;
     font-size: $navbar-brand-font-size;
     letter-spacing: 0.05em;
-    text-transform: uppercase;
+    // font-weight, text-transform handled by .fw-bold, .text-uppercase utilities in template
   }
 
   .navbar .nav-link {
     font-family: $navbar-nav-link-font-family;
-    text-transform: uppercase;
     letter-spacing: 0.04em;
+    // text-transform handled by .text-uppercase utility in template
     padding: $navbar-nav-link-padding-y $navbar-nav-link-padding-x;
     transition: color 0.2s ease;
   }

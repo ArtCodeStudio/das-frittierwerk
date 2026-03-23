@@ -2,19 +2,13 @@
 .page-content {
   max-width: 800px;
   margin: 0 auto;
-  // Bootstrap already applies $font-size-base, $line-height-base, and $body-color via body
-  line-height: $line-height-lg;
+  // line-height handled by .lh-lg utility in template
+  // p margin-bottom is Bootstrap default ($paragraph-margin-bottom = $spacer)
 
   h3 {
     // Bootstrap already applies $headings-color and $headings-font-family
     margin-top: $spacer * 1.5;
   }
-
-  p {
-    margin-bottom: $spacer;
-  }
-
-  // Bootstrap already applies $link-color and $link-hover-color to links
 
   ul, ol {
     padding-left: $spacer * 1.5;
