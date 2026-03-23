@@ -1,57 +1,58 @@
-//- Werkmenüs
-section(id=slugify(werkmenus.title || 'Werkmenüs'))
-  .menu-section.py-5
-    .container
-      h2.section-title.text-shine= werkmenus.title || 'Unsere Werkmenüs'
-      if werkmenus.subtitle
-        p.text-center.text-info.fw-semibold.mb-4.fs-5= werkmenus.subtitle
-      .werkmenus-grid
-        each wm in (werkmenus.menus || [])
-          .werkmenu-card.mb-4
-            h3.werkmenu-card__number Menü #{wm.number}
-            h4.werkmenu-card__name.text-shine.fw-bold!= formatName(wm.name)
-            if wm.description
-              p.werkmenu-card__description.text-info.mb-2!= formatName(wm.description)
-            if wm.variants
-              each variant in wm.variants
-                .menu-item.d-flex.justify-content-between.align-items-center.py-1.gap-2
-                  span.menu-item__name!= formatName(variant.name)
-                  span.menu-item__dots
-                  span.menu-item__price.text-info.flex-shrink-0= formatPrice(variant.price) + ' €'
-            else if wm.price
+div
+  //- Werkmenüs
+  section(id=slugify(werkmenus.title || 'Werkmenüs'))
+    .menu-section.py-5
+      .container
+        h2.section-title.text-shine= werkmenus.title || 'Unsere Werkmenüs'
+        if werkmenus.subtitle
+          p.text-center.text-info.fw-semibold.mb-4.fs-5= werkmenus.subtitle
+        .werkmenus-grid
+          each wm in (werkmenus.menus || [])
+            .werkmenu-card.mb-4
+              h3.werkmenu-card__number Menü #{wm.number}
+              h4.werkmenu-card__name.text-shine.fw-bold!= formatName(wm.name)
+              if wm.description
+                p.werkmenu-card__description.text-info.mb-2!= formatName(wm.description)
+              if wm.variants
+                each variant in wm.variants
+                  .menu-item.d-flex.justify-content-between.align-items-center.py-1.gap-2
+                    span.menu-item__name!= formatName(variant.name)
+                    span.menu-item__dots
+                    span.menu-item__price.text-info.flex-shrink-0= formatPrice(variant.price) + ' €'
+              else if wm.price
+                .menu-item.d-flex.justify-content-end.py-1
+                  span.menu-item__price.text-info.fw-bold.fs-5= formatPrice(wm.price) + ' €'
+          if werkmenus.kids_menu
+            .werkmenu-card.mb-4
+              h3.werkmenu-card__number Kids Menü
+              h4.werkmenu-card__name.text-shine.fw-bold!= formatName(werkmenus.kids_menu.name)
+              if werkmenus.kids_menu.description
+                p.werkmenu-card__description.text-info.mb-2!= formatName(werkmenus.kids_menu.description)
               .menu-item.d-flex.justify-content-end.py-1
-                span.menu-item__price.text-info.fw-bold.fs-5= formatPrice(wm.price) + ' €'
-        if werkmenus.kids_menu
-          .werkmenu-card.mb-4
-            h3.werkmenu-card__number Kids Menü
-            h4.werkmenu-card__name.text-shine.fw-bold!= formatName(werkmenus.kids_menu.name)
-            if werkmenus.kids_menu.description
-              p.werkmenu-card__description.text-info.mb-2!= formatName(werkmenus.kids_menu.description)
-            .menu-item.d-flex.justify-content-end.py-1
-              span.menu-item__price.text-info.fw-bold.fs-5= formatPrice(werkmenus.kids_menu.price) + ' €'
-      if werkmenus.note
-        p.text-center.mt-4.fst-italic.text-muted.small!= formatName(werkmenus.note)
+                span.menu-item__price.text-info.fw-bold.fs-5= formatPrice(werkmenus.kids_menu.price) + ' €'
+        if werkmenus.note
+          p.text-center.mt-4.fst-italic.text-muted.small!= formatName(werkmenus.note)
 
-hr.gold-divider
+  hr.gold-divider
 
-//- Speisekarte
-section(id=slugify(menu.title || 'Speisekarte'))
-  .menu-section.py-5
-    .container
-      h2.section-title.text-shine= menu.title || 'Speisekarte'
-      .menu-grid
-        each category in (menu.categories || [])
-          .menu-category.mb-5
-            h3.menu-category__title.text-shine.text-uppercase.pb-2.mb-3.border-bottom= category.name
-            each item in (category.items || [])
-              .menu-item-wrapper
-                .menu-item.d-flex.justify-content-between.align-items-center.py-1.gap-2
-                  span.menu-item__name.fw-semibold.text-break!= formatName(item.name)
-                  span.menu-item__dots
-                  span.menu-item__price.text-info.flex-shrink-0= formatPrice(item.price)
-                if item.description
-                  p.menu-item__description.fs-6.text-info.mt-n1.pb-1.text-break!= formatName(item.description)
-                if item.info
-                  p.menu-item__description.fs-6.text-info.mt-n1.pb-1.text-break!= formatName(item.info)
-      if menu.note
-        p.text-center.mt-4.fst-italic.text-muted.small!= formatName(menu.note)
+  //- Speisekarte
+  section(id=slugify(menu.title || 'Speisekarte'))
+    .menu-section.py-5
+      .container
+        h2.section-title.text-shine= menu.title || 'Speisekarte'
+        .menu-grid
+          each category in (menu.categories || [])
+            .menu-category.mb-5
+              h3.menu-category__title.text-shine.text-uppercase.pb-2.mb-3.border-bottom= category.name
+              each item in (category.items || [])
+                .menu-item-wrapper
+                  .menu-item.d-flex.justify-content-between.align-items-center.py-1.gap-2
+                    span.menu-item__name.fw-semibold.text-break!= formatName(item.name)
+                    span.menu-item__dots
+                    span.menu-item__price.text-info.flex-shrink-0= formatPrice(item.price)
+                  if item.description
+                    p.menu-item__description.fs-6.text-info.mt-n1.pb-1.text-break!= formatName(item.description)
+                  if item.info
+                    p.menu-item__description.fs-6.text-info.mt-n1.pb-1.text-break!= formatName(item.info)
+        if menu.note
+          p.text-center.mt-4.fst-italic.text-muted.small!= formatName(menu.note)
