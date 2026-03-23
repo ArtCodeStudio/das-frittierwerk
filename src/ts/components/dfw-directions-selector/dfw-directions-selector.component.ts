@@ -2,6 +2,7 @@ import { Component } from "@ribajs/core";
 import { EventDispatcher } from "@ribajs/events";
 import { ModalNotification } from "@ribajs/bs5";
 import type { DirectionsService, ContactData } from "../../types/index.js";
+import { ROUTER_VIEW_ID } from "../../constants.js";
 import _contact from "../../../content/contact.yml";
 
 export interface DfwDirectionsSelectorScope {
@@ -26,6 +27,7 @@ export class DfwDirectionsSelectorComponent extends Component {
   };
 
   private triggerClickHandlers: Array<{ el: HTMLElement; handler: (e: Event) => void }> = [];
+  private routerUnsubscribe: (() => void) | null = null;
 
   protected connectedCallback() {
     super.connectedCallback();
@@ -35,20 +37,36 @@ export class DfwDirectionsSelectorComponent extends Component {
   protected async afterBind() {
     await super.afterBind();
     this.initTriggers();
+
+    // Re-bind triggers after router page transitions (new DOM content may contain triggers)
+    const dispatcher = EventDispatcher.getInstance(ROUTER_VIEW_ID);
+    const onTransition = () => this.initTriggers();
+    dispatcher.on("transitionCompleted", onTransition);
+    this.routerUnsubscribe = () => dispatcher.off("transitionCompleted", onTransition);
   }
 
   protected disconnectedCallback() {
+    this.clearTriggers();
+    this.routerUnsubscribe?.();
+    this.routerUnsubscribe = null;
+    super.disconnectedCallback();
+  }
+
+  private clearTriggers() {
     for (const { el, handler } of this.triggerClickHandlers) {
       el.removeEventListener("click", handler);
     }
     this.triggerClickHandlers = [];
-    super.disconnectedCallback();
   }
 
   private initTriggers() {
+    this.clearTriggers();
     const triggers = document.querySelectorAll<HTMLElement>("[data-directions-trigger]");
     triggers.forEach((trigger) => {
-      const handler = (event: Event) => this.openModal(event as CustomEvent);
+      const handler = (event: Event) => {
+        event.preventDefault();
+        this.openModal(event as CustomEvent);
+      };
       trigger.addEventListener("click", handler);
       this.triggerClickHandlers.push({ el: trigger, handler });
     });

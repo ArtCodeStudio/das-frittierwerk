@@ -9,7 +9,7 @@ footer.site-footer.text-center.border-top.border-2.border-gold-dark.pt-4.pb-6.pb
       span= contact.hours_short || ''
     p.footer-address.fs-6.mb-1
       span.footer-label.fw-semibold= site.footer_address_label || 'Anfahrt: '
-      a.footer-link(href=contact.directions_url, target='_blank', rel='noopener noreferrer')= contact.address
+      a.footer-link(href='#', role='button', data-directions-trigger='true')= contact.address
     p.footer-impressum.fs-6.mb-1
       a.footer-link(href=basePath + '/impressum.html')= site.nav && site.nav.impressum ? site.nav.impressum : 'Impressum' 
       span= ' | '
