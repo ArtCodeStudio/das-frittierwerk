@@ -18,14 +18,14 @@ dfw-gallery {
   .gallery-item {
     position: relative;
     overflow: hidden;
-    border: 2px solid #a07030;
-    border-radius: 0.25rem;
+    border: $navbar-border-width solid $gold-dark;
+    border-radius: $border-radius;
     cursor: pointer;
     aspect-ratio: 4 / 3;
     transition: border-color 0.2s ease, transform 0.2s ease;
 
     &:hover {
-      border-color: #c4913b;
+      border-color: $gold;
       transform: scale(1.02);
     }
   }
@@ -42,10 +42,10 @@ dfw-gallery {
     bottom: 0;
     left: 0;
     right: 0;
-    background: rgba(26, 15, 10, 0.85);
-    color: #e8d5b5;
-    font-size: 0.85rem;
-    padding: 0.4rem 0.6rem;
+    background: rgba($dark-bg, 0.85);
+    color: $cream;
+    font-size: $font-size-sm;
+    padding: $spacer * 0.4 $spacer * 0.6;
     text-align: center;
   }
 
@@ -53,8 +53,8 @@ dfw-gallery {
   .gallery-lightbox {
     position: fixed;
     inset: 0;
-    z-index: 2000;
-    background: rgba(0, 0, 0, 0.9);
+    z-index: $zindex-modal;
+    background: rgba($black, 0.9);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -72,14 +72,14 @@ dfw-gallery {
     max-width: 100%;
     max-height: 85vh;
     object-fit: contain;
-    border: 3px solid #c4913b;
-    border-radius: 0.25rem;
+    border: 3px solid $gold;
+    border-radius: $border-radius;
   }
 
   .gallery-lightbox__caption {
-    color: #e8d5b5;
-    font-size: 1rem;
-    margin-top: 0.75rem;
+    color: $cream;
+    font-size: $font-size-base;
+    margin-top: $spacer * 0.75;
   }
 
   .gallery-lightbox__close {
@@ -88,14 +88,14 @@ dfw-gallery {
     right: 0;
     background: none;
     border: none;
-    color: #c4913b;
+    color: $gold;
     font-size: 2rem;
     cursor: pointer;
     line-height: 1;
-    padding: 0.25rem 0.5rem;
+    padding: $spacer * 0.25 $spacer * 0.5;
 
     &:hover {
-      color: #d4a84b;
+      color: $gold-light;
     }
   }
 }

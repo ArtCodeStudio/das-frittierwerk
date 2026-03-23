@@ -1,18 +1,15 @@
-$footer-font-size: 0.826;
+$footer-font-size: $font-size-base * 0.826;
 
 .site-footer {
-  // border-top, border-width, and border-color now handled by utilities in Pug
   background-color: $footer-bg;
+  font-size: $footer-font-size;
 
-  // Colors only - spacing, font-size, font-weight now handled by utilities
   .footer-order {
     color: $footer-order-color;
-    font-size: $font-size-base * $footer-font-size; // Custom size, not in Bootstrap scale
   }
 
   .footer-link {
     color: $footer-link-color;
-    font-size: $font-size-base * $footer-font-size;
   }
 
   .footer-hours,
@@ -20,16 +17,13 @@ $footer-font-size: 0.826;
   .footer-impressum,
   .footer-source-code {
     color: $footer-text-color;
-    font-size: $font-size-base * $footer-font-size;
   }
 
   .footer-label {
     color: $footer-label-color;
-    font-size: $font-size-base * $footer-font-size;
   }
 
   .footer-copyright {
     color: $footer-copyright-color;
-    font-size: $font-size-base * $footer-font-size;
   }
 }

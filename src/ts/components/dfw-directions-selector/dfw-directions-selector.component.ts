@@ -1,23 +1,15 @@
 import { Component } from "@ribajs/core";
 import { EventDispatcher } from "@ribajs/events";
 import { ModalNotification } from "@ribajs/bs5";
+import type { DirectionsService, ContactData } from "../../types/index.js";
 import _contact from "../../../content/contact.yml";
-
-interface DirectionsService {
-  name: string;
-  url: string;
-  icon?: string;
-}
-
-interface ContactData {
-  directions_services?: DirectionsService[];
-  label_directions_button?: string;
-}
 
 export interface DfwDirectionsSelectorScope {
   services: DirectionsService[];
   openModal: (event: CustomEvent) => void;
 }
+
+const contact = _contact as unknown as ContactData;
 
 export class DfwDirectionsSelectorComponent extends Component {
   public static tagName = "dfw-directions-selector";
@@ -29,14 +21,11 @@ export class DfwDirectionsSelectorComponent extends Component {
   }
 
   public scope: DfwDirectionsSelectorScope = {
-    services: ((_contact as unknown) as ContactData).directions_services || [],
+    services: contact.directions_services ?? [],
     openModal: this.openModal.bind(this),
   };
 
-  constructor() {
-    super();
-    this.scope.openModal = this.openModal.bind(this);
-  }
+  private triggerClickHandlers: Array<{ el: HTMLElement; handler: (e: Event) => void }> = [];
 
   protected connectedCallback() {
     super.connectedCallback();
@@ -48,42 +37,78 @@ export class DfwDirectionsSelectorComponent extends Component {
     this.initTriggers();
   }
 
-  protected initTriggers() {
-    // Find all buttons with data-directions-trigger attribute and attach click handlers
+  protected disconnectedCallback() {
+    for (const { el, handler } of this.triggerClickHandlers) {
+      el.removeEventListener("click", handler);
+    }
+    this.triggerClickHandlers = [];
+    super.disconnectedCallback();
+  }
+
+  private initTriggers() {
     const triggers = document.querySelectorAll<HTMLElement>("[data-directions-trigger]");
     triggers.forEach((trigger) => {
-      trigger.addEventListener("click", (event) => {
-        this.openModal(event as CustomEvent);
-      });
+      const handler = (event: Event) => this.openModal(event as CustomEvent);
+      trigger.addEventListener("click", handler);
+      this.triggerClickHandlers.push({ el: trigger, handler });
     });
   }
 
-  public openModal(event: CustomEvent): void {
+  /** Build modal body using DOM API instead of inline HTML/onclick. */
+  private buildModalBody(): string {
     const services = this.scope.services;
-    if (services.length === 0) return;
+    const text = contact.label_directions_modal_text ?? "Wählen Sie einen Routenplaner:";
 
-    // Create buttons for each service
-    // We'll use a custom message with buttons that have data-url attributes
-    // and handle clicks via event delegation
-    const buttonsHtml = services
-      .map(
-        (service) =>
-          `<button type="button" class="btn btn-primary directions-service-btn" data-url="${service.url}" onclick="window.open(this.dataset.url, '_blank', 'noopener,noreferrer'); this.closest('.modal').querySelector('.btn-close').click();">
-            ${service.name}
-          </button>`,
-      )
-      .join("");
+    const container = document.createElement("div");
+
+    const paragraph = document.createElement("p");
+    paragraph.className = "mb-3";
+    paragraph.textContent = text;
+    container.appendChild(paragraph);
+
+    const grid = document.createElement("div");
+    grid.className = "d-grid gap-2";
+
+    for (const service of services) {
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "btn btn-primary directions-service-btn";
+      btn.textContent = service.name;
+      btn.dataset.url = service.url;
+      grid.appendChild(btn);
+    }
+
+    container.appendChild(grid);
+    return container.innerHTML;
+  }
+
+  public openModal(event: CustomEvent): void {
+    if (this.scope.services.length === 0) return;
+
+    const title = contact.label_directions_modal_title ?? "Anfahrt berechnen";
+    const message = this.buildModalBody();
 
     const notificationDispatcher = new EventDispatcher("directions");
     const modal: ModalNotification = new ModalNotification({
-      title: "Anfahrt berechnen",
-      message: `<p class='mb-3'>Wählen Sie einen Routenplaner:</p><div class="d-grid gap-2">${buttonsHtml}</div>`,
+      title,
+      message,
       contextualClass: "primary",
-      buttons: [], // No buttons in footer, we use inline buttons in message
+      buttons: [],
       $event: event,
       $context: this.scope,
     });
     notificationDispatcher.trigger("show-notification", modal);
+
+    // Attach click handlers via event delegation after modal is shown
+    requestAnimationFrame(() => {
+      const modalEl = document.querySelector(".modal-primary");
+      modalEl?.addEventListener("click", (e) => {
+        const target = (e.target as HTMLElement).closest<HTMLElement>(".directions-service-btn");
+        if (!target?.dataset.url) return;
+        window.open(target.dataset.url, "_blank", "noopener,noreferrer");
+        modalEl.querySelector<HTMLElement>(".btn-close")?.click();
+      });
+    });
   }
 
   protected requiredAttributes(): string[] {
@@ -91,7 +116,6 @@ export class DfwDirectionsSelectorComponent extends Component {
   }
 
   protected template(): string | null {
-    // No template needed - component only handles logic
     return null;
   }
 }

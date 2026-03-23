@@ -1,8 +1,8 @@
 import { Component } from "@ribajs/core";
 import { debounceF } from "@ribajs/utils/src/control.js";
 import { hasChildNodesTrim } from "@ribajs/utils/src/dom.js";
-
-const HIDE_SCROLL_END = 0.9; // hide in last 10% of scroll range
+import { getMaxScroll } from "../../utils/index.js";
+import { HIDE_SCROLL_THRESHOLD } from "../../constants.js";
 
 /**
  * Fixed call button component that shows the button at the top of the page
@@ -29,9 +29,8 @@ export class DfwFixedCallButtonComponent extends Component {
 
     this.debouncedUpdateVisibility = debounceF(() => {
       if (!this.isConnected) return;
-      const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
-      // Hide only in the last 10% of scroll range, visible everywhere else (including top)
-      const visible = maxScroll <= 0 || window.scrollY <= maxScroll * HIDE_SCROLL_END;
+      const maxScroll = getMaxScroll();
+      const visible = maxScroll <= 0 || window.scrollY <= maxScroll * HIDE_SCROLL_THRESHOLD;
       this.setAttribute("data-visible", visible ? "true" : "false");
     });
   }

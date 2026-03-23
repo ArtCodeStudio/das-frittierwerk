@@ -2,12 +2,12 @@ import { Component } from "@ribajs/core";
 import { EventDispatcher } from "@ribajs/events";
 import { debounceF } from "@ribajs/utils/src/control.js";
 import { hasChildNodesTrim } from "@ribajs/utils/src/dom.js";
+import { getScrollY, getMaxScroll } from "../../utils/index.js";
+import { ROUTER_VIEW_ID } from "../../constants.js";
 
 import templateHtml from "./dfw-background-gears.component.html?raw";
 import gear1Url from "../../../assets/gears/gear_01.svg?url";
 import gear2Url from "../../../assets/gears/gear_02.svg?url";
-
-const ROUTER_VIEW_ID = "main";
 
 /** Min/max gear size (px). Kept so gears stay partially off-screen at edges. */
 const GEAR_SIZE_MIN = 140;
@@ -15,8 +15,10 @@ const GEAR_SIZE_MAX = 400;
 /** Portion of gear that stays off-screen (e.g. 0.45 = 45% visible). */
 const VISIBLE_PORTION_MIN = 0.35;
 const VISIBLE_PORTION_MAX = 0.55;
-/** Top % bands (base) with jitter range ±%. */
-const TOP_BANDS: [number, number][] = [[10, 6], [30, 6], [50, 6], [70, 6], [90, 6]];
+/** Top % bands (base) with jitter range +/-%. */
+const TOP_BANDS: readonly [number, number][] = [[10, 6], [30, 6], [50, 6], [70, 6], [90, 6]];
+/** Number of shine oscillation cycles over full scroll range. */
+const SHINE_CYCLES = 3;
 
 interface GearDef {
   src: string;
@@ -50,7 +52,7 @@ export class DfwBackgroundGearsComponent extends Component {
   private shineX = "10%";
   private shineY = "50%";
 
-  /** Five gears using only gear_01 and gear_02 assets (gears 3–5 no longer exist). */
+  /** Five gears using only gear_01 and gear_02 assets. */
   private static readonly GEAR_BASE = [
     { src: gear1Url, speed: 0.22, class: "bg-gear--1", maskStyle: { "--gear-mask": `url("${gear1Url}")` } },
     { src: gear1Url, speed: -0.28, class: "bg-gear--2", maskStyle: { "--gear-mask": `url("${gear1Url}")` } },
@@ -59,8 +61,10 @@ export class DfwBackgroundGearsComponent extends Component {
     { src: gear2Url, speed: 0.32, class: "bg-gear--5", maskStyle: { "--gear-mask": `url("${gear2Url}")` } },
   ] as const;
 
-  /** Set gears container height to content height so gear positions (top: X%) distribute along the page.
-   * Height is read while gears container is collapsed to avoid the gears contributing to document height. */
+  /**
+   * Set gears container height to content height so gear positions (top: X%) distribute along the page.
+   * Height is read while gears container is collapsed to avoid the gears contributing to document height.
+   */
   private updateHeightToPage(): void {
     const container = this.parentElement as HTMLElement | null;
     const self = this as unknown as HTMLElement;
@@ -70,8 +74,7 @@ export class DfwBackgroundGearsComponent extends Component {
     }
     self.style.height = "0";
 
-    const h = document.documentElement.scrollHeight;
-    const px = `${h}px`;
+    const px = `${document.documentElement.scrollHeight}px`;
 
     if (container?.classList.contains("background-gears")) {
       container.style.height = px;
@@ -79,11 +82,11 @@ export class DfwBackgroundGearsComponent extends Component {
     self.style.height = px;
   }
 
-  /** Collapse gears container and remove gear nodes so document height is not preserved on page change. */
+  /** Collapse gears container so document height is not preserved on page change. */
   private collapseGears(): void {
-    const container = this.parentElement;
+    const container = this.parentElement as HTMLElement | null;
     if (container?.classList.contains("background-gears")) {
-      (container as HTMLElement).style.height = "0";
+      container.style.height = "0";
     }
     (this as unknown as HTMLElement).style.height = "0";
     this.scope.backgroundGears = [];
@@ -141,15 +144,10 @@ export class DfwBackgroundGearsComponent extends Component {
 
   private doUpdateShineFromScroll(): void {
     if (!this.isConnected) return;
-    const scrollY = window.scrollY ?? document.documentElement.scrollTop;
-    const innerHeight = window.innerHeight;
-    const scrollHeight = document.documentElement.scrollHeight;
-    const maxScroll = Math.max(0, scrollHeight - innerHeight);
-    const progress = maxScroll > 0 ? scrollY / maxScroll : 0;
-    const cycles = 3;
-    const phase = (progress * cycles) % 1;
-    const yPercent =
-      phase <= 0.5 ? phase * 200 : (1 - phase) * 200;
+    const maxScroll = getMaxScroll();
+    const progress = maxScroll > 0 ? getScrollY() / maxScroll : 0;
+    const phase = (progress * SHINE_CYCLES) % 1;
+    const yPercent = phase <= 0.5 ? phase * 200 : (1 - phase) * 200;
     this.setShine(this.shineX, `${Math.min(100, Math.max(0, yPercent))}%`);
   }
 
@@ -178,9 +176,7 @@ export class DfwBackgroundGearsComponent extends Component {
       dispatcher.off("transitionCompleted", this.boundOnTransitionCompleted);
     };
 
-    window.addEventListener("scroll", this.boundUpdateShineFromScroll, {
-      passive: true,
-    });
+    window.addEventListener("scroll", this.boundUpdateShineFromScroll, { passive: true });
     window.addEventListener("resize", this.boundUpdateShineFromScroll);
     if (window.matchMedia("(pointer: fine)").matches) {
       window.addEventListener("mousemove", this.boundUpdateShineFromPointer);

@@ -1,12 +1,12 @@
 // Navbar styles for Pug-rendered nav (and dfw-navbar component).
 // Applied to .app-content so both layout partial and component get the same look.
+// Uses higher specificity via .app-content nesting to override Bootstrap defaults without !important.
 .app-content {
   .navbar {
-    background-color: $navbar-dark-bg !important;
+    background-color: $navbar-dark-bg;
     backdrop-filter: blur(10px);
     border-bottom: $navbar-border-width solid $navbar-border-color;
     padding: $navbar-padding-y $navbar-padding-x;
-    // Bootstrap already applies $zindex-fixed via .fixed-top class
   }
 
   .navbar .brand-text {
@@ -21,16 +21,16 @@
   .navbar .nav-link {
     font-family: $navbar-nav-link-font-family;
     font-weight: $navbar-nav-link-font-weight;
-    color: $navbar-dark-color !important;
+    color: $navbar-dark-color;
     text-transform: uppercase;
     letter-spacing: 0.04em;
     font-size: $navbar-nav-link-font-size;
-    padding: $navbar-nav-link-padding-y $navbar-nav-link-padding-x !important;
+    padding: $navbar-nav-link-padding-y $navbar-nav-link-padding-x;
     transition: color 0.2s ease;
 
     &:hover,
     &:focus {
-      color: $navbar-dark-hover-color !important;
+      color: $navbar-dark-hover-color;
     }
   }
 
@@ -60,8 +60,9 @@
   }
 
   @media (min-width: 768px) {
+    // Bootstrap sets display: none on collapsed state; this ensures it shows on desktop
     .navbar .navbar-collapse {
-      display: flex !important;
+      display: flex;
     }
   }
 }

@@ -10,6 +10,11 @@
   transition: color 0.2s ease; // Custom transition
 }
 
+// Center left column content vertically with the map
+.row:has(dfw-contact-map) {
+  align-items: center;
+}
+
 .contact-map {
   width: 100%;
   height: 350px;

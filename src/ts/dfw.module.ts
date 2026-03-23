@@ -11,5 +11,3 @@ export const DFWModule: RibaModule = {
     return this;
   },
 };
-
-export default DFWModule;
