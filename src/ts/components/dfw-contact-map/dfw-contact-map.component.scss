@@ -4,19 +4,49 @@ dfw-contact-map {
   position: relative;
 
   .map-scroll-wrapper {
+    max-width: 3000px;
+    max-height: 400px;
+    overflow: auto;
+    position: relative;
+    z-index: 1;
+    background: transparent;
+
+    img {
       max-width: 3000px;
-      max-height: 400px;
-      overflow: auto;
-      img {
-        max-width: 3000px;
-        object-fit: cover;
-      }
+      object-fit: cover;
+    }
+  }
+
+  // Gear spinner sits behind the scroll wrapper; the map image covers it once loaded
+  .map-loader {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $dark-bg;
+
+    &__gear {
+      width: 64px;
+      height: 64px;
+      opacity: 0.6;
+      // Color the SVG gear gold via CSS filter
+      filter: brightness(0) saturate(100%) invert(60%) sepia(50%) saturate(500%) hue-rotate(10deg) brightness(95%);
+      animation: map-gear-spin 3s linear infinite;
+    }
   }
 
   .map-copyright {
-      position: absolute;
-      bottom: 0;
-      right: 0;
-      text-decoration: none;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: 2;
+    text-decoration: none;
   }
+}
+
+@keyframes map-gear-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }

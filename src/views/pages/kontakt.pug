@@ -29,6 +29,8 @@ block content
               )= contact.label_directions_button || 'Anfahrt berechnen'
         .col-12.col-md-7.px-0
           dfw-contact-map
+            .map-loader(aria-hidden="true")
+              img.map-loader__gear(src=basePath + '/assets/gear_01.svg', alt="")
             .map-scroll-wrapper.scrollbar-invisible(rv-scrollbar-draggable rv-element="scrollWrapperEl")
               img(src=basePath + '/assets/map.avif', alt="Karte Standort Das Frittierwerk", draggable="false", rv-on-load="center")
             a.map-copyright(href="https://www.openstreetmap.org/copyright", target="_blank", rel="nofollow")

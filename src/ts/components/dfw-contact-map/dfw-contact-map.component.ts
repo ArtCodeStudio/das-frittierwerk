@@ -26,8 +26,7 @@ export class DfwContactMapComponent extends Component {
   protected connectedCallback() {
     super.connectedCallback();
     this.init(DfwContactMapComponent.observedAttributes);
-    // If the component is already bound, center it immediately
-    if(this.bound) {
+    if (this.bound) {
       this.center();
     }
   }
