@@ -1,10 +1,7 @@
-.hero-section {
-  // Spacing, font-size, font-weight now handled by utilities in Pug
-  .hero-subtitle {
-    letter-spacing: 0.04em; // Custom, no Bootstrap utility
-  }
+.hero-subtitle {
+  letter-spacing: 0.04em; // Custom, no Bootstrap utility
+}
 
-  .hero-location {
-    color: $cream-dark; // Custom color
-  }
+.hero-location {
+  color: $cream-dark; // Custom color
 }

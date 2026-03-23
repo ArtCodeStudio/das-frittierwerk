@@ -22,8 +22,6 @@
     border-bottom: $border-width dotted $border-color;
     padding-top: $spacer * 0.3;
   }
-
-  // __description margin-top handled by .mt-n1 utility in template
 }
 
 // Multi-column layout for Speisekarte categories
@@ -79,7 +77,5 @@
     // margin-bottom handled by .mb-2 utility in template
   }
 
-  &__description {
-    font-size: $font-size-sm;
-  }
+  // __description font-size handled by .small utility in template
 }

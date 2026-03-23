@@ -12,24 +12,24 @@ div
               h3.werkmenu-card__number.text-uppercase.mb-1.text-primary Menü #{wm.number}
               h4.werkmenu-card__name.text-shine.fw-bold.mb-2!= formatName(wm.name)
               if wm.description
-                p.werkmenu-card__description.text-info.mb-2!= formatName(wm.description)
+                p.text-info.small.mb-2!= formatName(wm.description)
               if wm.variants
                 each variant in wm.variants
                   .menu-item.d-flex.justify-content-between.align-items-center.py-1.gap-2
                     span.menu-item__name!= formatName(variant.name)
                     span.menu-item__dots
-                    span.menu-item__price.text-info.flex-shrink-0= formatPrice(variant.price) + ' €'
+                    span.text-info.flex-shrink-0= formatPrice(variant.price) + ' €'
               else if wm.price
                 .menu-item.d-flex.justify-content-end.py-1
-                  span.menu-item__price.text-info.fw-bold.fs-5= formatPrice(wm.price) + ' €'
+                  span.text-info.fw-bold.fs-5= formatPrice(wm.price) + ' €'
           if werkmenus.kids_menu
             .werkmenu-card.mb-4
               h3.werkmenu-card__number.text-uppercase.mb-1.text-primary Kids Menü
               h4.werkmenu-card__name.text-shine.fw-bold.mb-2!= formatName(werkmenus.kids_menu.name)
               if werkmenus.kids_menu.description
-                p.werkmenu-card__description.text-info.mb-2!= formatName(werkmenus.kids_menu.description)
+                p.text-info.small.mb-2!= formatName(werkmenus.kids_menu.description)
               .menu-item.d-flex.justify-content-end.py-1
-                span.menu-item__price.text-info.fw-bold.fs-5= formatPrice(werkmenus.kids_menu.price) + ' €'
+                span.text-info.fw-bold.fs-5= formatPrice(werkmenus.kids_menu.price) + ' €'
         if werkmenus.note
           p.text-center.mt-4.fst-italic.text-muted.small!= formatName(werkmenus.note)
 
@@ -48,10 +48,10 @@ div
                 .menu-item.d-flex.justify-content-between.align-items-center.py-1.gap-2
                   span.menu-item__name.fw-semibold.text-break!= formatName(item.name)
                   span.menu-item__dots
-                  span.menu-item__price.text-info.flex-shrink-0= formatPrice(item.price)
+                  span.text-info.flex-shrink-0= formatPrice(item.price)
                 if item.description
-                  p.menu-item__description.fs-6.text-info.mt-n1.pb-1.text-break!= formatName(item.description)
+                  p.fs-6.text-info.mt-n1.pb-1.text-break!= formatName(item.description)
                 if item.info
-                  p.menu-item__description.fs-6.text-info.mt-n1.pb-1.text-break!= formatName(item.info)
+                  p.fs-6.text-info.mt-n1.pb-1.text-break!= formatName(item.info)
         if menu.note
           p.text-center.mt-4.fst-italic.text-muted.small!= formatName(menu.note)
