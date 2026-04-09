@@ -11,7 +11,7 @@ Rotdornweg 14
 
 **Kontakt**  
 Telefon: 04741 9818661  
-E-Mail: moin@dasfrittierwerk.de  
+E-Mail: info@dasfrittierwerk.de  
 
 ## Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV
 

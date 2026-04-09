@@ -17,7 +17,7 @@ Feuerweg 1
 27639 Wurster Nordseeküste  
 
 Telefon: 04741 9818661  
-E-Mail: moin@dasfrittierwerk.de
+E-Mail: info@dasfrittierwerk.de
 
 Die verantwortliche Stelle ist die natürliche oder juristische Person, die allein oder gemeinsam mit anderen über die Zwecke und Mittel der Verarbeitung von personenbezogenen Daten (z. B. Namen, E-Mail-Adressen o. Ä.) entscheidet.
 
@@ -76,6 +76,6 @@ Sofern Sie Fragen zum Datenschutz haben, schreiben Sie uns bitte eine E-Mail ode
 
 Bei Fragen zum Datenschutz können Sie sich jederzeit an uns wenden:
 
-**E-Mail**: moin@dasfrittierwerk.de
+**E-Mail**: info@dasfrittierwerk.de
 
 Weitere Kontaktdaten finden Sie im [Impressum](/impressum.html).
