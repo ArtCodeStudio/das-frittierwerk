@@ -4,13 +4,13 @@
 title: "Kontakt"
 
 # Labels for contact page (used on /kontakt)
-label_order_phone: "Bestellungen nur per Telefon"
+label_order_phone: "Bestellungen per Telefon oder vor Ort"
 label_hours: "Öffnungszeiten"
 label_directions: "Anfahrt"
 
 phone: "04741 9818661"
 address: "Feuerweg 1, 27639 Wurster Nordseeküste"
-location: "Cuxhaven Nordseeküste"
+location: "Wurster Nordseeküste"
 order_hint: "Jetzt telefonisch bestellen & kross abholen oder direkt in unserem Imbisstaurant genießen!"
 
 # Öffnungszeiten

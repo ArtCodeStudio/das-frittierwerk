@@ -21,7 +21,7 @@ nav:
   source_code: "Quellcode der Seite"
 
 # Footer labels (trailing space so value and following content are separated)
-footer_order_text: "Bestellungen nur per Telefon: "
+footer_order_text: "Bestellungen per Telefon oder vor Ort: "
 footer_hours_label: "Öffnungszeiten: "
 footer_address_label: "Anfahrt: "
 footer_copyright: "Das Frittierwerk – Alle Rechte vorbehalten."
