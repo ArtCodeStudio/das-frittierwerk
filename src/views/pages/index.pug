@@ -1,5 +1,8 @@
 extends ../layouts/main.pug
 
+//- Single wrapper keeps all sections inside `router-view > *:first-child`
+//- so PJAX doesn't drop sibling sections on route-back.
 block content
-  include ../partials/speisekarte.pug
-  include ../partials/wochenangebot.pug
+  div
+    include ../partials/speisekarte.pug
+    include ../partials/wochenangebot.pug
