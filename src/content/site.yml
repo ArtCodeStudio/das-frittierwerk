@@ -26,6 +26,19 @@ footer_hours_label: "Öffnungszeiten: "
 footer_address_label: "Anfahrt: "
 footer_copyright: "Das Frittierwerk – Alle Rechte vorbehalten."
 
+# Social-Media-Profile (werden im Wochenangebot verlinkt)
+social:
+  instagram: "https://www.instagram.com/dasfrittierwerk/"
+  facebook: "https://www.facebook.com/dasfrittierwerk"
+
+# Wochenangebot – wechselnde Angebote, Verweis auf Social Media
+wochenangebot:
+  title: "Wochenangebot"
+  intro: "Entdecke unsere wöchentlich wechselnden Angebote auf {instagram} oder {facebook}."
+  hint: "Nur solange der Vorrat reicht!"
+  instagram_label: "Instagram"
+  facebook_label: "Facebook"
+
 # PWA / web app manifest
 theme_color: "#1a0f0a"
 background_color: "#1a0f0a"

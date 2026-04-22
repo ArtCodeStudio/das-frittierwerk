@@ -54,6 +54,44 @@
   }
 }
 
+// Dashed "Besonderheit"-Box im Stil der Papier-Speisekarte
+// Genutzt z.B. für das Wochenangebot mit Verweis auf Social Media
+.special-notice {
+  max-width: 40rem;
+  padding: $spacer * 1.75 $spacer * 1.75;
+  border: 2px dashed $gold-dark;
+  border-radius: $border-radius;
+  background-color: rgba($dark-bg, 0.5);
+  transform: rotate(-1.5deg);
+  transition: border-color 0.2s ease, transform 0.3s ease;
+
+  &:hover {
+    border-color: $gold;
+    transform: rotate(0);
+  }
+
+  // Einheitliche Schrift im Stil der Papier-Speisekarte
+  &__text,
+  &__hint {
+    font-family: $headings-font-family;
+    font-size: $font-size-lg;
+    font-weight: 600;
+    line-height: $line-height-lg;
+    letter-spacing: 0.02em;
+  }
+
+  // Links behalten ihre reguläre Linkfarbe (kein Shine), damit sie erkennbar bleiben.
+  // .text-shine setzt `color: transparent !important` — darum hier ebenfalls mit !important.
+  a {
+    color: $link-color !important;
+
+    &:hover,
+    &:focus {
+      color: $link-hover-color !important;
+    }
+  }
+}
+
 .werkmenu-card {
   border: $navbar-border-width solid $gold-dark;
   border-radius: $border-radius;

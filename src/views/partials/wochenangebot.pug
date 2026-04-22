@@ -1,0 +1,27 @@
+-
+  var wa = site.wochenangebot || {};
+  var social = site.social || {};
+  var instagramUrl = social.instagram || '';
+  var facebookUrl = social.facebook || '';
+  var instagramLabel = wa.instagram_label || 'Instagram';
+  var facebookLabel = wa.facebook_label || 'Facebook';
+  var instagramLink = instagramUrl
+    ? '<a href="' + instagramUrl + '" target="_blank" rel="noopener">' + instagramLabel + '</a>'
+    : instagramLabel;
+  var facebookLink = facebookUrl
+    ? '<a href="' + facebookUrl + '" target="_blank" rel="noopener">' + facebookLabel + '</a>'
+    : facebookLabel;
+  var introTemplate = wa.intro || 'Entdecke unsere wöchentlich wechselnden Angebote auf {instagram} oder {facebook}.';
+  var introHtml = introTemplate
+    .replace('{instagram}', instagramLink)
+    .replace('{facebook}', facebookLink);
+
+section(id=slugify(wa.title || 'Wochenangebot'))
+  .py-5
+    .container
+      h2.section-title.text-shine.text-center.text-uppercase= wa.title || 'Wochenangebot'
+      .special-notice.mx-auto.text-center
+        p.special-notice__text.text-shine.mb-3!= introHtml
+        if wa.hint
+          p.special-notice__hint.text-shine.mb-0
+            | ! #{wa.hint}

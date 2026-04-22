@@ -45,6 +45,19 @@ export interface ContactData {
   directions_services?: DirectionsService[];
 }
 
+export interface SocialLinks {
+  instagram?: string;
+  facebook?: string;
+}
+
+export interface WochenangebotData {
+  title?: string;
+  intro?: string;
+  hint?: string;
+  instagram_label?: string;
+  facebook_label?: string;
+}
+
 export interface SiteData {
   name?: string;
   title?: string;
@@ -59,6 +72,8 @@ export interface SiteData {
   footer_hours_label?: string;
   footer_address_label?: string;
   footer_copyright?: string;
+  social?: SocialLinks;
+  wochenangebot?: WochenangebotData;
 }
 
 export interface MenuItem {
