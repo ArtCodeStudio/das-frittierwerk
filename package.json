@@ -27,30 +27,30 @@
     "node": ">=24"
   },
   "devDependencies": {
-    "@ribajs/tsconfig": "2.0.0-rc.23",
-    "@types/js-yaml": "^4",
+    "@ribajs/tsconfig": "2.0.0",
+    "@types/js-yaml": "^4.0.9",
     "concurrently": "^9.2.1",
     "js-yaml": "^4.1.1",
-    "marked": "^15.0.0",
-    "pug": "^3.0.3",
-    "sass": "^1.97.3",
-    "typescript": "5.9.3",
-    "vite": "^7.3.1",
+    "marked": "^18.0.2",
+    "pug": "^3.0.4",
+    "sass": "^1.99.0",
+    "typescript": "6.0.3",
+    "vite": "^8.0.9",
     "vite-plugin-markdown": "^2.2.0",
-    "vite-plugin-static-copy": "^3.2.0"
+    "vite-plugin-static-copy": "^4.1.0"
   },
   "dependencies": {
     "@fontsource/palanquin": "^5.2.8",
     "@fontsource/palanquin-dark": "^5.2.8",
     "@modyfi/vite-plugin-yaml": "^1.1.1",
     "@popperjs/core": "^2.11.8",
-    "@ribajs/bs5": "2.0.0-rc.23",
-    "@ribajs/core": "2.0.0-rc.23",
-    "@ribajs/extras": "2.0.0-rc.23",
-    "@ribajs/router": "2.0.0-rc.23",
-    "@ribajs/types": "2.0.0-rc.23",
-    "@ribajs/utils": "2.0.0-rc.23",
+    "@ribajs/bs5": "2.0.0",
+    "@ribajs/core": "2.0.0",
+    "@ribajs/extras": "2.0.0",
+    "@ribajs/router": "2.0.0",
+    "@ribajs/types": "2.0.0",
+    "@ribajs/utils": "2.0.0",
     "bootstrap": "^5.3.8"
   },
-  "packageManager": "yarn@4.12.0"
+  "packageManager": "yarn@4.14.1"
 }
