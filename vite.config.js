@@ -19,6 +19,16 @@ export default defineConfig(({ command, mode, ssrBuild }) => {
     base,
     root: basedir,
     assetsInclude: ['**/*.svg'],
+    // Riba.js uses a classic JSX pragma (jsxCreateElement / jsxFragment), not React.
+    // Vite 8 routes JSX through oxc; without runtime: "classic" it defaults to the
+    // automatic runtime and tries to resolve "react/jsx-runtime" from @ribajs/bs5 .tsx files.
+    oxc: {
+      jsx: {
+        runtime: 'classic',
+        pragma: 'jsxCreateElement',
+        pragmaFrag: 'jsxFragment',
+      },
+    },
     build: {
       outDir: '../_site',
       emptyOutDir: true,
