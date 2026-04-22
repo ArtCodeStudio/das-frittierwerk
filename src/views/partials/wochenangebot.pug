@@ -16,12 +16,11 @@
     .replace('{instagram}', instagramLink)
     .replace('{facebook}', facebookLink);
 
-section(id=slugify(wa.title || 'Wochenangebot'))
-  .py-5
-    .container
-      h2.section-title.text-shine.text-center.text-uppercase= wa.title || 'Wochenangebot'
-      .special-notice.mx-auto.text-center
-        p.special-notice__text.text-shine.mb-3!= introHtml
-        if wa.hint
-          p.special-notice__hint.text-shine.mb-0
-            | ! #{wa.hint}
+section.pt-0(id=slugify(wa.title || 'Wochenangebot'))
+  .container
+    h2.section-title.text-shine.text-center.text-uppercase= wa.title || 'Wochenangebot'
+    .special-notice.mx-auto.text-center
+      p.special-notice__text.text-shine.mb-3!= introHtml
+      if wa.hint
+        p.special-notice__hint.text-shine.mb-0
+          | ! #{wa.hint}
