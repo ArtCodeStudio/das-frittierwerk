@@ -15,13 +15,13 @@ order_hint: "Jetzt telefonisch bestellen & kross abholen oder direkt in unserem 
 
 # Öffnungszeiten
 hours:
-  - label: "Dienstag – Samstag"
+  - label: "Montag – Samstag"
     times: "11:00 – 14:30 & 16:30 – 20:00"
-  - label: "Sonntag & Montag"
-    times: "Ruhetage"
+  - label: "Sonntag"
+    times: "Ruhetag"
 
 # Einzeilige Zusammenfassung für Footer
-hours_short: "Di–Sa 11:00–14:30 & 16:30–20:00 | So & Mo Ruhetage"
+hours_short: "Mo–Sa 11:00–14:30 & 16:30–20:00 | So Ruhetag"
 
 # Routing/Anfahrt: Multiple routing services available via directions selector
 # Destination lat,lon – Feuerweg 1, Wurster Nordseeküste
